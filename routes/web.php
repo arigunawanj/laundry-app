@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
 Route::view('/dashboard', 'layouts.dashboard');
+
+// NAVBAR ADMIN
+Route::view('/dataoutlet', 'admin.dataoutlet');
+Route::view('/datapaket', 'admin.datapaket');
+Route::view('/datapengguna', 'admin.datapengguna');
+Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
+Route::view('/laporanpegawai', 'admin.laporanpegawai');
+Route::view('/laporantransaksi', 'admin.laporantransaksi');
+Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
+Route::view('/transaksiadmin', 'admin.transaksiadmin');
+
