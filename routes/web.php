@@ -29,4 +29,5 @@ Route::view('/laporanpegawai', 'admin.laporanpegawai');
 Route::view('/laporantransaksi', 'admin.laporantransaksi');
 Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
 Route::view('/transaksiadmin', 'admin.transaksiadmin');
+Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 
