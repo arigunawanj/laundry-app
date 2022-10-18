@@ -51,7 +51,13 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit();
+                    ">Logout</a>
+                    <form action="{{ route('logout') }}" id="logout-form" method="post">
+                        @csrf
+                    </form>
                     </div>
                 </li>
             </ul>
@@ -77,6 +83,7 @@
                         </a>
                     </li>
                 </ul>
+                @if(Auth::user()->role == 'admin')
                 <p class="text-muted nav-heading mt-4 mb-1">
                     <span>Kelola Data</span>
                 </p>
@@ -153,7 +160,45 @@
                             </li>
                         </ul>
                     </li>
+                </ul>                    
+                @endif
+                @if(Auth::user()->role == 'pegawai')                
+                <p class="text-muted nav-heading mt-4 mb-1">
+                    <span>Layanan Laundry</span>
+                </p>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item dropdown">
+                        <a href="#layanan" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle nav-link">
+                            <i class='bx bxs-washer'></i>   
+                            <span class="ml-3 item-text">Layanan</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/registrasipelanggan"><span
+                                        class="ml-1 item-text">Registrasi Pelanggan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/kelolapelanggan"><span
+                                        class="ml-1 item-text">Kelola Pelanggan</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="/transaksipelanggan"><span
+                                        class="ml-1 item-text">Transaksi Pelanggan</span></a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="/laporantransaksi">
+                            <i class="bx bxs-report"></i>
+                            <span class="ml-3 item-text">Laporan transaksi</span>
+                        </a>
+                    </li>
+                </ul>
+                @endif
             </nav>
         </aside>
         <main role="main" class="main-content">
