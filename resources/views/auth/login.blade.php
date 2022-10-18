@@ -5,7 +5,7 @@
   class="light-style customizer-hide"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="{{ asset('assets/')}}"
+  data-assets-path="{{ asset('asset/')}}"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -20,7 +20,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/washing-machine.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('asset/img/favicon/washing-machine.png') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,25 +31,25 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/fonts/boxicons.css')}}" />
+    <link rel="stylesheet" href="{{asset('asset/vendor/fonts/boxicons.css')}}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{asset('assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}" />
+    <link rel="stylesheet" href="{{asset('asset/vendor/css/core.css')}}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{asset('asset/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{asset('asset/css/demo.css')}}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+    <link rel="stylesheet" href="{{asset('asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}" />
+    <link rel="stylesheet" href="{{asset('asset/vendor/css/pages/page-auth.css')}}" />
     <!-- Helpers -->
-    <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
+    <script src="{{asset('asset/vendor/js/helpers.js')}}"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{asset('assets/js/config.js')}}"></script>
+    <script src="{{asset('asset/js/config.js')}}"></script>
   </head>
 
   <body>
@@ -65,7 +65,7 @@
               <div class="app-brand justify-content-center">
                 <a href="#" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                    <img src="{{ asset('assets/img/favicon/washing-machine.png') }}" width="30px" alt="">
+                    <img src="{{ asset('asset/img/favicon/washing-machine.png') }}" width="30px" alt="">
                   </span>
                   <span class="app-brand-text demo text-body text-capitalize fw-bolder">Karisma Laundry</span>
                 </a>
@@ -127,18 +127,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/popper/popper.js')}}"></script>
-    <script src="{{asset('assets/vendor/js/bootstrap.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('asset/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('asset/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('asset/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 
-    <script src="{{asset('assets/vendor/js/menu.js')}}"></script>
+    <script src="{{asset('asset/vendor/js/menu.js')}}"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{asset('asset/js/main.js')}}"></script>
 
     <!-- Page JS -->
 
