@@ -21,7 +21,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Daftar Outlet</h5>
                                 <p class="card-text">Daftar Outlet Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
+                                <a href="tambah-dataoutlet" class="btn btn-primary">Tambah Data</a>
                                 <table class="table table-hover mt-4">
                                     <thead>
                                         <tr>

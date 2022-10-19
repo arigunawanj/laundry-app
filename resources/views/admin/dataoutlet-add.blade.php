@@ -37,7 +37,7 @@
                                 <input type="date" id="simpleinput" class="form-control">
                                 </div>
                             </div>
-                            <a href="" class="btn btn-primary">Tambah</a>
+                            <a href="/dataoutlet" class="btn btn-primary">Tambah</a>
                         </div>
                     </div>
                 </div>
