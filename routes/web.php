@@ -19,6 +19,8 @@ Route::get('/', function () {
 // TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
 Route::view('/dashboard', 'layouts.dashboard');
+Route::view('/profile', 'layouts.profile');
+
 
 // NAVBAR ADMIN
 Route::view('/dataoutlet', 'admin.dataoutlet');
@@ -32,3 +34,6 @@ Route::view('/transaksiadmin', 'admin.transaksiadmin');
 Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 Route::view('/edit-dataoutlet', 'admin.dataoutlet-edit');
 
+// NAVBAR CUSTOMER
+Route::view('/pesan', 'customer.pesan');
+Route::view('/pesanan', 'customer.pesanan');

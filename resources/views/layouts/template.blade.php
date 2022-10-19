@@ -154,6 +154,23 @@
                         </ul>
                     </li>
                 </ul>
+                {{-- navbar customer  --}}
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="/pesan">
+                            <i class="fe fe-shopping-cart fe-16"></i>
+                            <span class="ml-3 item-text">Pesan Laundry</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="/pesanan">
+                            <i class="fe fe-shopping-bag fe-16"></i>
+                            <span class="ml-3 item-text">Pesanan</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
         </aside>
         <main role="main" class="main-content">
