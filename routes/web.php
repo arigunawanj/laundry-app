@@ -14,11 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.dashboard');
 });
 // TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
-Route::view('/dashboard', 'layouts.dashboard');
 
 // NAVBAR ADMIN
 Route::view('/dataoutlet', 'admin.dataoutlet');
@@ -30,7 +29,11 @@ Route::view('/laporantransaksi', 'admin.laporantransaksi');
 Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
 Route::view('/transaksiadmin', 'admin.transaksiadmin');
 Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
-Route::view('/edit-dataoutlet', 'admin.dataoutlet-edit');
+Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
+Route::view('/tambah-datapaket', 'admin.datapaket-add');
+Route::view('/edit-datapaket', 'admin.datapaket-edit');
+Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
+Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
 
 // NAVBAR CUSTOMER
 Route::view('/pesan', 'customer.pesan');
