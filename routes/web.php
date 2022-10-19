@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OutletController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,11 @@ Route::get('/', function () {
 Route::view('/template', 'layouts.template');
 
 // NAVBAR ADMIN
-Route::view('/dataoutlet', 'admin.dataoutlet');
+// Route::view('/dataoutlet', 'admin.dataoutlet');
+// Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
+// Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
+Route::resource('dataoutlet', OutletController::class);
+
 Route::view('/datapaket', 'admin.datapaket');
 Route::view('/datapengguna', 'admin.datapengguna');
 Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
@@ -28,8 +33,6 @@ Route::view('/laporanpegawai', 'admin.laporanpegawai');
 Route::view('/laporantransaksi', 'admin.laporantransaksi');
 Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
 Route::view('/transaksiadmin', 'admin.transaksiadmin');
-Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
-Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
 Route::view('/tambah-datapaket', 'admin.datapaket-add');
 Route::view('/edit-datapaket', 'admin.datapaket-edit');
 Route::view('/tambah-datapengguna', 'admin.datapengguna-add');

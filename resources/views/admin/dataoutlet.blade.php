@@ -28,52 +28,22 @@
                                             <th>No</th>
                                             <th>Nama Outlet</th>
                                             <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
+                                            <th>Telepon</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($outlet as $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Karisma Klojen</td>
-                                            <td>Enim Limited</td>
-                                            <td>Malang</td>
-                                            <td>Apr 24, 2019</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama_outlet }}</td>
+                                            <td>{{ $item->alamat_outlet }}</td>
+                                            <td>{{ $item->telepon_outlet }}</td>
+                                            <td>{{ $item->email_outlet }}</td>
                                             <td><span class="badge badge-pill badge-warning">Hold</span></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
