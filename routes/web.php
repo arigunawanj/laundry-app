@@ -35,3 +35,7 @@ Route::view('/edit-datapaket', 'admin.datapaket-edit');
 Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
 Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
 
+// NAVBAR CUSTOMER
+Route::view('/pesan', 'customer.pesan');
+Route::view('/pesanan', 'customer.pesanan');
+Route::view('/datatable', 'customer.datatable');

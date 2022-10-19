@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/quill.snow.css') }}">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}">
+    <!-- Data Table -->
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.css') }}">
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/app-light.css') }}" id="lightTheme">
     <link rel="stylesheet" href="{{ asset('assets/css/app-dark.css') }}" id="darkTheme" disabled>
@@ -82,8 +84,7 @@
                 </p>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#data" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
+                        <a href="#data" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class='bx bx-briefcase'></i>
                             <span class="ml-3 item-text">Data</span>
                         </a>
@@ -111,7 +112,7 @@
                     <li class="nav-item dropdown">
                         <a href="#layanan" data-toggle="collapse" aria-expanded="false"
                             class="dropdown-toggle nav-link">
-                            <i class='bx bxs-washer'></i>   
+                            <i class='bx bxs-washer'></i>
                             <span class="ml-3 item-text">Layanan</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
@@ -121,8 +122,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="/kelolapelanggan"><span
-                                        class="ml-1 item-text">Kelola Pelanggan</span></a>
+                                <a class="nav-link pl-3" href="/kelolapelanggan"><span class="ml-1 item-text">Kelola
+                                        Pelanggan</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-3" href="/transaksiadmin"><span
@@ -178,7 +179,7 @@
     <script src="{{ asset('assets/js/datamaps-zoomto.js') }}"></script>
     <script src="{{ asset('assets/js/datamaps.custom.js') }}"></script>
     <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
-   
+
     <script>
         /* defind global options */
         Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
@@ -196,11 +197,23 @@
     <script src='{{ asset('assets/js/dropzone.min.js') }}'></script>
     <script src='{{ asset('assets/js/uppy.min.js') }}'></script>
     <script src='{{ asset('assets/js/quill.min.js') }}'></script>
-    
+    <!-- Data Table -->
+    <script src='{{ asset('assets/js/jquery.dataTables.min.js') }}'></script>
+    <script src='{{ asset('assets/js/dataTables.bootstrap4.min.js') }}'></script>
+    <script>
+        $('#dataTable-1').DataTable({
+            autoWidth: true,
+            "lengthMenu": [
+                [16, 32, 64, -1],
+                [16, 32, 64, "All"]
+            ]
+        });
+    </script>
+
     <script src="{{ asset('assets/js/apps.js') }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-    
+
 </body>
 
 </html>
