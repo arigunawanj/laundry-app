@@ -9,6 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Laporan Pegawai</li>
         </ol>
     </nav>
+    
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">

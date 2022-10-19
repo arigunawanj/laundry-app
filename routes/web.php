@@ -14,11 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.dashboard');
 });
 // TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
-Route::view('/dashboard', 'layouts.dashboard');
 
 // NAVBAR ADMIN
 Route::view('/dataoutlet', 'admin.dataoutlet');
