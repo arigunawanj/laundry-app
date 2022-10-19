@@ -33,4 +33,6 @@ Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
 Route::view('/tambah-datapaket', 'admin.datapaket-add');
 Route::view('/edit-datapaket', 'admin.datapaket-edit');
+Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
+Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
 
