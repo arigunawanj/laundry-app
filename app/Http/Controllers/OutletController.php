@@ -37,6 +37,7 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validator = $request->validate([
             'nama_outlet' => 'required',
             'alamat_outlet' => 'required',
@@ -51,14 +52,13 @@ class OutletController extends Controller
             $extension = $request->file('upload')->getClientOriginalExtension();
             $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
             $data = $request->file('upload')->storeAs('img', $newName);
-            
         };
 
     
 
         $validator ['upload'] = $data; 
         // $file = $request->file('upload')->store('img');
-        // $validator ['upload'] = $file;
+        // $validator['upload'] = $file;
 
         $outlet = Outlet::create($validator);
 
