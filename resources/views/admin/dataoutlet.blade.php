@@ -42,9 +42,9 @@
                                             <td>{{ $item->alamat_outlet }}</td>
                                             <td>{{ $item->telepon_outlet }}</td>
                                             <td>{{ $item->email_outlet }}</td>
-                                            <td>{{ $item->upload }}</td>
+                                            <td><img src="{{ asset('storage/'.$item->upload) }}" width="100px" alt="" srcset=""></td>
                                             <td class="d-flex ">
-                                                <a href="" class="btn btn-primary"><i class='bx bx-edit-alt'></i></a>
+                                                <a href="{{ route('dataoutlet.edit', $item->id) }}" class="btn btn-primary"><i class='bx bx-edit-alt'></i></a>
                                                 <a href="" class="btn btn-danger"><i class='bx bx-trash' ></i></a>
                                             </td>
                                         </tr>

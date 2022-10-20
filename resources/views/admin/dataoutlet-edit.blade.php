@@ -5,8 +5,9 @@
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data Outlet</li>
+            <li class="breadcrumb-item">Data</a></li>
+            <li class="breadcrumb-item"><a href="/dataoutlet">Data Outlet</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Data Outlet</li>
         </ol>
     </nav>
 
@@ -21,23 +22,27 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Nama Outlet</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                    <label for="simpleinput">Nama Outlet</label>
+                                    <input type="text" id="simpleinput" name="nama_outlet" value="{{ $outlet->nama_outlet }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Alamat</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                    <label for="simpleinput">Alamat</label>
+                                    <input type="text" id="simpleinput" name="alamat_outlet" value="{{ $outlet->alamat_outlet }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Kota</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                    <label for="simpleinput">Telepon</label>
+                                    <input type="number" id="simpleinput" name="telepon_outlet" value="{{ $outlet->telepon_outlet }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Tanggal</label>
-                                <input type="date" id="simpleinput" class="form-control">
+                                    <label for="simpleinput">Email</label>
+                                    <input type="email" id="simpleinput" name="email_outlet" value="{{ $outlet->email_outlet }}" class="form-control">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="simpleinput" class="form-label">Foto</label>
+                                    <input class="form-control" type="file" name="upload" id="simpleinput">
                                 </div>
                             </div>
-                            <a href="" class="btn btn-primary">Edit</a>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </div>

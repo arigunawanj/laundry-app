@@ -24,6 +24,7 @@ Route::view('/template', 'layouts.template');
 // Route::view('/dataoutlet', 'admin.dataoutlet');
 // Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 // Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
+
 Route::resource('dataoutlet', OutletController::class);
 
 Route::view('/datapaket', 'admin.datapaket');

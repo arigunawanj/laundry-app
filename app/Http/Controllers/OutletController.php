@@ -37,7 +37,32 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = $request->validate([
+            'nama_outlet' => 'required',
+            'alamat_outlet' => 'required',
+            'telepon_outlet' => 'required',
+            'email_outlet' => 'required',
+            'upload' => 'required|image|max:10000|mimes:jpg'
+        ]);
+
+        $newName = '';
+
+        if($request->file('upload')){
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
+            $data = $request->file('upload')->storeAs('img', $newName);
+            
+        };
+
+    
+
+        $validator ['upload'] = $data; 
+        // $file = $request->file('upload')->store('img');
+        // $validator ['upload'] = $file;
+
+        $outlet = Outlet::create($validator);
+
+        return redirect('dataoutlet');
     }
 
     /**
@@ -57,9 +82,10 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outlet $outlet)
+    public function edit($id)
     {
-        //
+        $outlet = Outlet::findOrFail($id);
+        return view('admin.dataoutlet-edit', compact('outlet'));
     }
 
     /**

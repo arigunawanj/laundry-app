@@ -21,24 +21,31 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Nama Outlet</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Alamat</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Kota</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Tanggal</label>
-                                <input type="date" id="simpleinput" class="form-control">
-                                </div>
+                                <form action="{{ route('dataoutlet.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Nama Outlet</label>
+                                        <input type="text" id="simpleinput" name="nama_outlet" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Alamat</label>
+                                        <input type="text" id="simpleinput" name="alamat_outlet" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Telepon</label>
+                                        <input type="number" id="simpleinput" name="telepon_outlet" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Email</label>
+                                        <input type="email" id="simpleinput" name="email_outlet" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput" class="form-label">Foto</label>
+                                        <input class="form-control" type="file" name="upload" id="simpleinput">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
-                            <a href="/dataoutlet" class="btn btn-primary">Tambah</a>
                         </div>
                     </div>
                 </div>
