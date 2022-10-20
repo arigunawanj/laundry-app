@@ -75,19 +75,19 @@
               <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                  <label for="email" class="form-label">Username</label>
+                  <label for="name" class="form-label">Username</label>
                   <input
                     type="text"
-                    class="form-control @error('username') is-invalid @enderror"
-                    id="username"
-                    name="username"
-                    value="{{ old('username') }}"
+                    class="form-control @error('name') is-invalid @enderror"
+                    id="name"
+                    name="name"
+                    value="{{ old('name') }}"
                     placeholder="Masukkan username"
                     autofocus
                   />
-                    @error('username')
+                    @error('name')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ 'Masukkan data yang benar!' }}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
@@ -103,6 +103,11 @@
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
                 </div>
                 <div class="mb-3">

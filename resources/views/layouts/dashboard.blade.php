@@ -86,8 +86,8 @@
     <div class="row align-items-center">
         <div class="col">
             <img src="{{ asset('assets/assets/images/welcome.png') }}" alt="" srcset="">
-            <h3 class="container mt-5">Selamat Datang <span class="text-capitalize text-primary">{{ Auth::user()->username }}</span> di Karima Laundry</h3>
-            <p>Silahkan memilih menu disebalah kiri</p>
+            <h3 class="container mt-5">Selamat Datang <span class="text-capitalize text-primary">{{ Auth::user()->name }}</span> di Karisma Laundry</h3>
+            <p>Silahkan memilih menu di sebelah kiri.</p>
         </div>
     </div>
 </div>

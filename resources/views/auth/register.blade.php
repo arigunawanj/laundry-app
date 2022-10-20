@@ -88,17 +88,17 @@
               <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
+                  <label for="name" class="form-label">Username</label>
                   <input
                     type="text"
-                    class="form-control @error('username') is-invalid @enderror"
-                    id="username"
-                    name="username"
-                    value="{{ old('username') }}"
+                    class="form-control @error('name') is-invalid @enderror"
+                    id="name"
+                    name="name"
+                    value="{{ old('name') }}"
                     placeholder="Masukkan username"
                     autofocus required
                   />
-                    @error('username')
+                    @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ 'Masukkan data yang benar' }}</strong>
                         </span>
@@ -106,10 +106,15 @@
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email" />
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" required name="email" value="{{ old('email') }}" placeholder="Masukkan email" />
                   @error('email')
                       <span class="invalid-feedback" role="alert">
-                          <strong>{{ 'Masukkan data yang benar' }}</strong>
+                        @if(DB::select('select email from users') > 0)
+                        <strong>{{ 'Email sudah terdaftar' }}</strong>                          
+                        @else
+                        <strong>{{ 'Masukkan data yang benar' }}</strong>                          
+                        @endif
+                        
                       </span>
                   @enderror
                 </div>
@@ -119,18 +124,18 @@
                     <input
                       type="password"
                       id="password"
-                      class="form-control @error('email') is-invalid @enderror"
+                      class="form-control @error('password') is-invalid @enderror"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                       required autocomplete="new-password"
-                    />
-                    @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                      />
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                      @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
                 </div>
                 <div class="mb-3 form-password-toggle">

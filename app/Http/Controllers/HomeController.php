@@ -28,7 +28,7 @@ class HomeController extends Controller
             return view('layouts/dashboard');
         }elseif (Auth::user()->role == 'pegawai') {
             return view('layouts/dashboard');
-        }elseif (Auth::user()->role == 'user') {
+        }elseif (Auth::user()->role == 'member') {
             return view('layouts/dashboard');
         }
     }
