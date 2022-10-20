@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OutletController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.dashboard');
+    return view('auth.login');
 });
 // TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
@@ -25,21 +26,32 @@ Route::view('/template', 'layouts.template');
 // Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 // Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
 
-Route::resource('dataoutlet', OutletController::class);
-
-Route::view('/datapaket', 'admin.datapaket');
-Route::view('/datapengguna', 'admin.datapengguna');
-Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
-Route::view('/laporanpegawai', 'admin.laporanpegawai');
-Route::view('/laporantransaksi', 'admin.laporantransaksi');
-Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
-Route::view('/transaksiadmin', 'admin.transaksiadmin');
-Route::view('/tambah-datapaket', 'admin.datapaket-add');
-Route::view('/edit-datapaket', 'admin.datapaket-edit');
-Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
-Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
+Route::middleware(['admin'])->group(function () {
+    Route::view('dashboard', 'layouts/dashboard');
+    Route::resource('dataoutlet', OutletController::class);
+    Route::view('/datapaket', 'admin.datapaket');
+    Route::view('/datapengguna', 'admin.datapengguna');
+    Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
+    Route::view('/laporanpegawai', 'admin.laporanpegawai');
+    Route::view('/laporantransaksi', 'admin.laporantransaksi');
+    Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
+    Route::view('/transaksiadmin', 'admin.transaksiadmin');
+    Route::view('/tambah-datapaket', 'admin.datapaket-add');
+    Route::view('/edit-datapaket', 'admin.datapaket-edit');
+    Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
+    Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
+});
 
 // NAVBAR CUSTOMER
-Route::view('/pesan', 'customer.pesan');
-Route::view('/pesanan', 'customer.pesanan');
-Route::view('/datatable', 'customer.datatable');
+Route::middleware(['customer'])->group(function () {
+    Route::view('dashboard', 'layouts/dashboard');
+    Route::view('/pesan', 'customer.pesan');
+    Route::view('/pesanan', 'customer.pesanan');
+    Route::view('/datatable', 'customer.datatable');
+});
+
+// Route::view('dashboard', 'layouts/dashboard');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

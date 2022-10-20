@@ -54,7 +54,13 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit();
+                    ">Logout</a>
+                    <form action="{{ route('logout') }}" id="logout-form" method="post">
+                        @csrf
+                    </form>
                     </div>
                 </li>
             </ul>
@@ -80,6 +86,7 @@
                         </a>
                     </li>
                 </ul>
+                @if(Auth::user()->role == 'admin')
                 <p class="text-muted nav-heading mt-4 mb-1">
                     <span>Kelola Data</span>
                 </p>
@@ -155,7 +162,8 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
+                </ul>                    
+                @endif
             </nav>
         </aside>
         <main role="main" class="main-content">
