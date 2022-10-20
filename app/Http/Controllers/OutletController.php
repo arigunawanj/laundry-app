@@ -56,10 +56,10 @@ class OutletController extends Controller
 
     
 
-        $validator['upload'] = $data; 
         // $file = $request->file('upload')->store('img');
         // $validator['upload'] = $file;
-
+        
+        $validator['upload'] = $data;
         $outlet = Outlet::create($validator);
 
         return redirect('dataoutlet');
