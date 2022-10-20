@@ -56,7 +56,7 @@ class OutletController extends Controller
 
     
 
-        $validator ['upload'] = $data; 
+        $validator['upload'] = $data; 
         // $file = $request->file('upload')->store('img');
         // $validator['upload'] = $file;
 
