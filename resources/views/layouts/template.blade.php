@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app-light.css') }}" id="lightTheme">
     <link rel="stylesheet" href="{{ asset('assets/css/app-dark.css') }}" id="darkTheme" disabled>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 </head>
 
 <body class="vertical  light  ">
@@ -163,7 +164,7 @@
             </div> <!-- .container-fluid -->
         </main> <!-- main -->
     </div> <!-- .wrapper -->
-
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
@@ -200,6 +201,11 @@
     <!-- Data Table -->
     <script src='{{ asset('assets/js/jquery.dataTables.min.js') }}'></script>
     <script src='{{ asset('assets/js/dataTables.bootstrap4.min.js') }}'></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
     <script>
         $('#dataTable-1').DataTable({
             autoWidth: true,

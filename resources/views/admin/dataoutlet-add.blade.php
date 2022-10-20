@@ -5,8 +5,9 @@
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data Outlet</li>
+            <li class="breadcrumb-item">Data</a></li>
+            <li class="breadcrumb-item"><a href="/dataoutlet">Data Outlet</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tambah Data Outlet</li>
         </ol>
     </nav>
 

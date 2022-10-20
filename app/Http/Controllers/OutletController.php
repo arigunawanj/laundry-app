@@ -25,7 +25,8 @@ class OutletController extends Controller
      */
     public function create()
     {
-        //
+        $outlet = Outlet::all();
+        return view('admin.dataoutlet-add', compact('outlet'));
     }
 
     /**

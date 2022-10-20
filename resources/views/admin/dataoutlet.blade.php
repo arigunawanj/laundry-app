@@ -5,7 +5,7 @@
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data</a></li>
+            <li class="breadcrumb-item">Data</a></li>
             <li class="breadcrumb-item active" aria-current="page">Data Outlet</li>
         </ol>
     </nav>
@@ -21,8 +21,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Daftar Outlet</h5>
                                 <p class="card-text">Daftar Outlet Karisma Laundry </p>
-                                <a href="tambah-dataoutlet" class="btn btn-primary">Tambah Data</a>
-                                <table class="table table-hover mt-4">
+                                <a href="{{ route('dataoutlet.create') }}" class="btn btn-primary">Tambah Data</a>
+                                <table class="table table-hover mt-4" id="myTable">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -30,6 +30,7 @@
                                             <th>Alamat</th>
                                             <th>Telepon</th>
                                             <th>Email</th>
+                                            <th>Foto</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -41,7 +42,11 @@
                                             <td>{{ $item->alamat_outlet }}</td>
                                             <td>{{ $item->telepon_outlet }}</td>
                                             <td>{{ $item->email_outlet }}</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
+                                            <td>{{ $item->upload }}</td>
+                                            <td class="d-flex ">
+                                                <a href="" class="btn btn-primary"><i class='bx bx-edit-alt'></i></a>
+                                                <a href="" class="btn btn-danger"><i class='bx bx-trash' ></i></a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
