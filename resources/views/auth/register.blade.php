@@ -100,7 +100,7 @@
                   />
                     @error('name')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ 'Masukkan data yang benar' }}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
