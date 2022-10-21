@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Outlet;
 use Illuminate\Http\Request;
+use App\Exports\OutletExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OutletController extends Controller
 {
@@ -109,5 +111,10 @@ class OutletController extends Controller
     public function destroy(Outlet $outlet)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new OutletExport, 'LaporanOutlet.xlsx');
     }
 }

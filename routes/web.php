@@ -42,6 +42,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
     Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
     Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
+    Route::get('export', [OutletController::class, 'export']);
 });
 
 // NAVBAR CUSTOMER

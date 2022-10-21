@@ -22,6 +22,7 @@
                                 <h5 class="card-title">Daftar Outlet</h5>
                                 <p class="card-text">Daftar Outlet Karisma Laundry </p>
                                 <a href="{{ route('dataoutlet.create') }}" class="btn btn-primary">Tambah Data</a>
+                                <a href="/export" class="btn btn-warning"><i class="fe fe-printer"></i></a>
                                 <div class="mt-3">
                                     <table class="table table-hover mt-4" id="myTable">
                                         <thead>

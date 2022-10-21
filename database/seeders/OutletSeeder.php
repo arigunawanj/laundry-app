@@ -21,7 +21,8 @@ class OutletSeeder extends Seeder
                 'nama_outlet' => $faker->name(),
                 'alamat_outlet' => $faker->address(),
                 'telepon_outlet' => $faker->phoneNumber(),
-                'email_outlet' => $faker->email()
+                'email_outlet' => $faker->email(),
+                'upload' => $faker->imageUrl(360, 360, 'animals', true, 'dogs', true, 'jpg')
             ]);
         }
     }
