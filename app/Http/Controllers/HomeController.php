@@ -24,11 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role == 'admin') {
+        if (Auth::user()->role_id == 1) {
             return view('layouts/dashboard');
-        }elseif (Auth::user()->role == 'pegawai') {
+        }elseif (Auth::user()->role_id == 2) {
             return view('layouts/dashboard');
-        }elseif (Auth::user()->role == 'member') {
+        }elseif (Auth::user()->role_id == 3) {
             return view('layouts/dashboard');
         }
     }

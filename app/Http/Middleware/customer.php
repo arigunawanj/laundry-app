@@ -19,7 +19,7 @@ class customer
     {
         if (!Auth::user()) {
             return redirect('login');
-        } elseif (Auth::user()->role != 'member') {
+        } elseif (Auth::user()->role_id != 3) {
             return redirect('login');
         }
         return $next($request);

@@ -19,7 +19,7 @@ class pegawai
     {
         if (!Auth::user()) {
             return redirect('login');
-        } elseif (Auth::user()->role != 'pegawai') {
+        } elseif (Auth::user()->role_id != 2) {
             return redirect('login');
         }
         return $next($request);

@@ -86,7 +86,7 @@
                         </a>
                     </li>
                 </ul>
-                @if(Auth::user()->role == 'admin')
+                @if(Auth::user()->role_id == 1)
                 <p class="text-muted nav-heading mt-4 mb-1">
                     <span>Kelola Data</span>
                 </p>

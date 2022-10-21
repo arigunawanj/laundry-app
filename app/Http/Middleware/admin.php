@@ -19,7 +19,7 @@ class admin
     {
         if (!Auth::user()) {
             return redirect('login');
-        } elseif (Auth::user()->role != 'admin') {
+        } elseif (Auth::user()->role_id != 1) {
             return redirect('login');
         }
         return $next($request);
