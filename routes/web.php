@@ -4,6 +4,8 @@ use App\Http\Controllers\OutletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use function Termwind\style;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +28,8 @@ Route::view('/template', 'layouts.template');
 // Route::view('/tambah-dataoutlet', 'admin.dataoutlet-add');
 // Route::view('/edit-dataoutlet', 'admin.dataoulet-edit');
 
-Route::middleware(['admin'])->group(function () {
-    Route::view('dashboard', 'layouts/dashboard');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::view('/dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
     Route::view('/datapaket', 'admin.datapaket');
     Route::view('/datapengguna', 'admin.datapengguna');
@@ -43,7 +45,7 @@ Route::middleware(['admin'])->group(function () {
 });
 
 // NAVBAR CUSTOMER
-Route::middleware(['customer'])->group(function () {
+Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
     Route::view('/pesan', 'customer.pesan');
     Route::view('/pesanan', 'customer.pesanan');
