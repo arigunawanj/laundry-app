@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Exports\OutletExport;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class OutletController extends Controller
@@ -97,9 +98,34 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outlet $outlet)
+    public function update(Request $request, Outlet $outlet, $id)
     {
-        //
+        $validator = $request->validate([
+            'nama_outlet' => 'required',
+            'alamat_outlet' => 'required',
+            'telepon_outlet' => 'required',
+            'email_outlet' => 'required',
+        ]);
+        
+        $outlet = Outlet::findOrFail($id);
+        
+        $newName = '';
+        
+        if($request->hasFile('upload')){
+            $request->validate([
+                'upload' => 'required|image|max:10000|mimes:jpg'
+            ]);
+            Storage::delete($outlet->upload);
+            $upload = $request->upload;
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
+            $data = $request->file('upload')->storeAs('img', $newName);
+        }
+           
+        $validator['upload'] = $data;
+        $outlet->update($validator);
+
+        return redirect('dataoutlet');
     }
 
     /**

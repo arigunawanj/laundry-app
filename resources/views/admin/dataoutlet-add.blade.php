@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Data Outlet')
+@section('title', ' Tambah Data Outlet')
 
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
