@@ -54,7 +54,11 @@
                                                             <div class="dropdown-menu m-2">
                                                                 <a class="dropdown-item" href="#"><i class="fe fe-archive fe-12 mr-4"></i>Detail</a>
                                                                 <a class="dropdown-item" href="{{ route('dataoutlet.edit', $item->id) }}"><i class="fe fe-edit fe-12 mr-4"></i>Edit</a>
-                                                                <a class="dropdown-item" href="#"><i class="fe fe-trash fe-12 mr-4"></i>Delete</a>
+                                                                <form action="{{ route('dataoutlet.destroy', $item->id) }}" method="POST" id="myForm">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <a class="dropdown-item" href="#" id="submitdel" onclick="return confirm('Yakin hapus Data ?')"><i class="fe fe-trash fe-12 mr-4"></i>Delete</a>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </td>
