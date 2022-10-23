@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Exports\OutletExport;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -74,9 +75,10 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function show(Outlet $outlet)
+    public function show(Outlet $outlet, $id)
     {
-        //
+        $outlet = Outlet::findOrFail($id);
+        return view('admin.dataoutlet-detail', ['outlet' => $outlet]);
     }
 
     /**
@@ -134,9 +136,14 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Outlet $outlet)
+    public function destroy(Outlet $outlet, $id)
     {
-        //
+        $outlet = Outlet::findOrFail($id);
+        if(Storage::delete($outlet->upload)){
+            Storage::delete($outlet->upload);
+        }
+        $outlet->delete();
+        return redirect('dataoutlet');
     }
 
     public function export()

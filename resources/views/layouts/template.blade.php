@@ -58,9 +58,9 @@
                         event.preventDefault();
                         document.getElementById('logout-form').submit();
                     ">Logout</a>
-                    <form action="{{ route('logout') }}" id="logout-form" method="post">
-                        @csrf
-                    </form>
+                        <form action="{{ route('logout') }}" id="logout-form" method="post">
+                            @csrf
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -86,83 +86,86 @@
                         </a>
                     </li>
                 </ul>
-                @if(Auth::user()->role_id == 1)
-                <p class="text-muted nav-heading mt-4 mb-1">
-                    <span>Kelola Data</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="#data" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class='bx bx-briefcase'></i>
-                            <span class="ml-3 item-text">Data</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="data">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/dataoutlet"><span class="ml-1 item-text">Data
-                                        Outlet</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/datapaket"><span class="ml-1 item-text">Data
-                                        Paket</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/datapengguna"><span class="ml-1 item-text">Data
-                                        Pengguna</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <p class="text-muted nav-heading mt-4 mb-1">
-                    <span>Layanan Laundry</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="#layanan" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
-                            <i class='bx bxs-washer'></i>
-                            <span class="ml-3 item-text">Layanan</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/registrasipelanggan"><span
-                                        class="ml-1 item-text">Registrasi Pelanggan</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/kelolapelanggan"><span class="ml-1 item-text">Kelola
-                                        Pelanggan</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/transaksiadmin"><span
-                                        class="ml-1 item-text">Transaksi Pelanggan</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <p class="text-muted nav-heading mt-4 mb-1">
-                    <span>Laporan</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="#laporan" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
-                            <i class='bx bxs-report'></i>
-                            <span class="ml-3 item-text">Laporan Laundry</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="laporan">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/laporanpegawai"><span class="ml-1 item-text">Laporan
-                                        Pegawai</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="/laporantransaksi"><span
-                                        class="ml-1 item-text">Laporan Transaksi</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>                    
+                @if (Auth::user()->role_id == 1)
+                    <p class="text-muted nav-heading mt-4 mb-1">
+                        <span>Kelola Data</span>
+                    </p>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item dropdown">
+                            <a href="#data" data-toggle="collapse" aria-expanded="false"
+                                class="dropdown-toggle nav-link">
+                                <i class='bx bx-briefcase'></i>
+                                <span class="ml-3 item-text">Data</span>
+                            </a>
+                            <ul class="collapse list-unstyled pl-4 w-100" id="data">
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/dataoutlet"><span class="ml-1 item-text">Data
+                                            Outlet</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/datapaket"><span class="ml-1 item-text">Data
+                                            Paket</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/datapengguna"><span class="ml-1 item-text">Data
+                                            Pengguna</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="text-muted nav-heading mt-4 mb-1">
+                        <span>Layanan Laundry</span>
+                    </p>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item dropdown">
+                            <a href="#layanan" data-toggle="collapse" aria-expanded="false"
+                                class="dropdown-toggle nav-link">
+                                <i class='bx bxs-washer'></i>
+                                <span class="ml-3 item-text">Layanan</span>
+                            </a>
+                            <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/registrasipelanggan"><span
+                                            class="ml-1 item-text">Registrasi Pelanggan</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/kelolapelanggan"><span
+                                            class="ml-1 item-text">Kelola
+                                            Pelanggan</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/transaksiadmin"><span
+                                            class="ml-1 item-text">Transaksi Pelanggan</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="text-muted nav-heading mt-4 mb-1">
+                        <span>Laporan</span>
+                    </p>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item dropdown">
+                            <a href="#laporan" data-toggle="collapse" aria-expanded="false"
+                                class="dropdown-toggle nav-link">
+                                <i class='bx bxs-report'></i>
+                                <span class="ml-3 item-text">Laporan Laundry</span>
+                            </a>
+                            <ul class="collapse list-unstyled pl-4 w-100" id="laporan">
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/laporanpegawai"><span
+                                            class="ml-1 item-text">Laporan
+                                            Pegawai</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="/laporantransaksi"><span
+                                            class="ml-1 item-text">Laporan Transaksi</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 @endif
             </nav>
         </aside>
@@ -223,6 +226,15 @@
             ]
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $("a#submitdel").click(function() {
+                document.getElementById("myForm").submit();
+            });
+        });
+    </script>
+
 
     <script src="{{ asset('assets/js/apps.js') }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
