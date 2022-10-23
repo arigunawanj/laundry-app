@@ -75,9 +75,10 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function show(Outlet $outlet)
+    public function show(Outlet $outlet, $id)
     {
-        //
+        $outlet = Outlet::findOrFail($id);
+        return view('admin.dataoutlet-detail', ['outlet' => $outlet]);
     }
 
     /**
