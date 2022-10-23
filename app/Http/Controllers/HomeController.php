@@ -28,7 +28,7 @@ class HomeController extends Controller
             return view('layouts/dashboard');
         }elseif (Auth::user()->role_id == 2) {
             return view('layouts/dashboard');
-        }elseif (Auth::user()->role_id == 3) {
+        }elseif (Auth::user()->role_id == 3 || Auth::user()->role_id == 4 ) {
             return view('layouts/dashboard');
         }
     }

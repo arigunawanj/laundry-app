@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\profilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,13 @@ Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('/pesanan', 'customer.pesanan');
     Route::view('/datatable', 'customer.datatable');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('profile', profilController::class);    
+});
+// Route::view('profile', 'customer.profile');
+
+
 
 // Route::view('dashboard', 'layouts/dashboard');
 

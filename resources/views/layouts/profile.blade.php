@@ -40,21 +40,46 @@
                             </a>
                             <div class="card-text my-0">
                                 <strong class="card-title my-0">Bass Wendy </strong>
-                                <p class="small"><span class="badge badge-primary">Member</span></p>
+                                <p class="small">
+                                    @if(Auth::user()->role_id == 1)
+                                    <span class="badge badge-danger">
+                                        Admin
+                                    </span>
+                                    @elseif(Auth::user()->role_id == 2)
+                                    <span class="badge badge-success text-white">
+                                        Pegawai
+                                    </span>
+                                    @elseif(Auth::user()->role_id == 3)
+                                    <span class="badge badge-primary">
+                                        Member
+                                    </span>
+                                    @elseif(Auth::user()->role_id == 4)
+                                    <span class="badge badge-secondary">
+                                        Non-Member
+                                    </span>
+                                    @endif
+                                </p>
                             </div>
                         </div> <!-- ./card-text -->
                         <div class="card-footer">
+                            @foreach($profil as $p)
                             <div class="row align-items-left justify-content-between mb-2">
                                 <div class="col-auto">
-                                    <small>Kode Pelanggan </small>
+                                    @if(Auth::user()->role_id == 1)
+                                    <small>ID</small>
+                                    @elseif(Auth::user()->role_id == 2)                                        
+                                    <small>ID Pegawai</small>
+                                    @else
+                                    <small>Kode Pelanggan</small>                                                                            
+                                    @endif
                                 </div>
                                 <div class="col-auto">
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small>001</small>
+                                    <small>{{ $p->user_id }}</small>
                                 </div>
-                            </div>
+                            </div>                             
                             <div class="row align-items-left justify-content-between mb-2">
                                 <div class="col-auto">
                                     <small>Nama </small>
@@ -63,7 +88,7 @@
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small></small>
+                                    <small>{{ $p->name }}</small>
                                 </div>
                             </div>
                             <div class="row align-items-left justify-content-between mb-2">
@@ -74,7 +99,7 @@
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small></small>
+                                    <small>{{ $p->gender }}</small>
                                 </div>
                             </div>
                             <div class="row align-items-left justify-content-between mb-2">
@@ -85,7 +110,7 @@
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small></small>
+                                    <small>{{ $p->email }}</small>
                                 </div>
                             </div>
                             <div class="row align-items-left justify-content-between mb-2">
@@ -96,7 +121,7 @@
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small></small>
+                                    <small>{{ $p->telephone }}</small>
                                 </div>
                             </div>
                             <div class="row align-items-left justify-content-between mb-2">
@@ -107,9 +132,10 @@
                                     <small></small>
                                 </div>
                                 <div class="col-auto">
-                                    <small></small>
+                                    <small>{{ $p->address }}</small>
                                 </div>
-                            </div>
+                            </div>                                
+                            @endforeach
                         </div> <!-- /.card-footer -->
                     </div> <!-- /.card -->
                 </div>

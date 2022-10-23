@@ -45,4 +45,9 @@ class User extends Authenticatable
     protected $attributes = [
         'role_id' => 3
     ];
+
+    public function detail_p()
+    {
+        return $this->hasOne(detail_profiles::class);
+    }
 }
