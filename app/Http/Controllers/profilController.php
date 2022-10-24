@@ -20,7 +20,7 @@ class profilController extends Controller
     {
         $data = Auth::user()->id;
         // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id='.$data);
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         // dd($profil);
         $id = detail_profiles::all();
         return view('layouts.profile', compact('profil', 'id'));
@@ -33,7 +33,7 @@ class profilController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.tambahprofil');
     }
 
     /**
@@ -44,7 +44,38 @@ class profilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        // $id = Auth::user()->id;
+        // DB::insert('insert into detail_profiles (name, gender, address, telephone, image) values (?, ?, ?, ?, ?)', [$request->name, $request->gender, $request->address, $request->telephone, $request->image]);
+
+        // $validator = $request->validate([
+        //     'name'=>'required|integer',
+        //     'gender'=>'required|string',
+        //     'address'=>'required|string',
+        //     'kecamatan'=>'required|string',
+        //     'kelurahan'=>'required|string',
+        //     'telephone'=>'required|integer',
+        //     'user_id'=>'required|integer',
+        //     'image'=>'required|image|max:10000|mimes:jpg'
+        // ]);
+
+        $file = $request->file('image')->store('img');
+
+        detail_profiles::create([
+            'name' => $request ->name,
+            'gender' => $request ->gender,
+            'address' => $request ->address,
+            'kecamatan' => $request ->kecamatan,
+            'kelurahan' => $request ->kelurahan,
+            'telephone' => $request ->telephone,
+            'user_id' => $request ->user_id,
+            'image' => $file
+        ]);
+
+        // detail_profiles::create($validator);
+        
+        return redirect('profile');
+
     }
 
     /**
@@ -93,17 +124,17 @@ class profilController extends Controller
 
         $profil = detail_profiles::findOrFail($id);
         $user = User::find($no);
-        if($request->hasFile('upload')){
+        if ($request->hasFile('upload')) {
             $request->validate([
                 'upload' => 'required|image|max:10000|mimes:jpg'
             ]);
             Storage::delete($profil->image);
             $upload = $request->image;
             $extension = $request->file('upload')->getClientOriginalExtension();
-            $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
+            $newName = $request->name . '-' . now()->timestamp . '.' . $extension;
             $data = $request->file('upload')->storeAs('img', $newName);
         }
-           
+
         $validator['upload'] = $data;
         $profil->update($validator);
         $user->update($email);

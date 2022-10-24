@@ -35,7 +35,9 @@
                     </div>
                     <div class="card-body text-center">
                         <a href="#!" class="avatar avatar-lg">
-                            <img src="{{ asset('assets/assets/avatars/face-4.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                            @foreach($profil as $gambar)
+                            <img src="{{ asset('storage/'.$gambar->image) }}" alt="..." class="avatar-img rounded-circle">                                
+                            @endforeach
                         </a>
                         <div class="card-text my-0">
                             <strong class="card-title my-0 text-capitalize"><span style="font-size: 1.3em;">{{ Auth::user()->name }}</span></strong>
@@ -134,7 +136,10 @@
                                 <small>{{ $p->address }}</small>
                             </div>
                         </div>
-                        @endforeach
+                        @endforeach                        
+                        <div class="row justify-content-center @if(DB::select('select user_id from detail_profiles where user_id='.Auth::user()->id)) d-none @endif">                        
+                            <a href="{{ route('profile.create') }}" class="btn btn-primary">Tambah Profil</a>
+                        </div>
                     </div> <!-- /.card-footer -->
                 </div> <!-- /.card -->
             </div>
