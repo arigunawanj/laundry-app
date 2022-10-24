@@ -27,13 +27,13 @@
                                     <table class="table table-hover mt-4" id="myTable">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama Outlet</th>
-                                                <th>Alamat</th>
-                                                <th>Telepon</th>
-                                                <th>Email</th>
-                                                <th>Foto</th>
-                                                <th>Action</th>
+                                                <th class="text-dark">No</th>
+                                                <th class="text-dark">Nama Outlet</th>
+                                                <th class="text-dark">Alamat</th>
+                                                <th class="text-dark">Telepon</th>
+                                                <th class="text-dark">Email</th>
+                                                <th class="text-dark">Foto</th>
+                                                <th class="text-dark">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

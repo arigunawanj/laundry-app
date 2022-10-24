@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\detail_profiles;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class profilController extends Controller
 {
@@ -17,9 +20,10 @@ class profilController extends Controller
     {
         $data = Auth::user()->id;
         // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
-        $profil = DB::select('select detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id='.$data);
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id='.$data);
         // dd($profil);
-        return view('layouts.profile', compact('profil'));
+        $id = detail_profiles::all();
+        return view('layouts.profile', compact('profil', 'id'));
     }
 
     /**
@@ -74,7 +78,37 @@ class profilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = $request->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'telephone' => 'required',
+            'address' => 'required',
+        ]);
+
+        $email = $request->validate([
+            'email' => 'required',
+        ]);
+
+        $no = Auth::user()->id;
+
+        $profil = detail_profiles::findOrFail($id);
+        $user = User::find($no);
+        if($request->hasFile('upload')){
+            $request->validate([
+                'upload' => 'required|image|max:10000|mimes:jpg'
+            ]);
+            Storage::delete($profil->image);
+            $upload = $request->image;
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
+            $data = $request->file('upload')->storeAs('img', $newName);
+        }
+           
+        $validator['upload'] = $data;
+        $profil->update($validator);
+        $user->update($email);
+
+        return redirect('profile');
     }
 
     /**

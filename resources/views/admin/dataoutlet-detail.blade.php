@@ -21,14 +21,14 @@
                     <div class="container-fluid">
                         <div class="card shadow">
                             <div class="card-body">
-                                <h5 class="card-title">Detail Outlet <span style="color: blue">{{ $outlet->nama_outlet }} </span></h5>
-                                <p class="card-text">Anda sedang melihat Data outlet dari <span style="color: blue">{{ $outlet->nama_outlet }} </span></p>
+                                <h5 class="card-title">Detail Outlet <span class="text-primary">{{ $outlet->nama_outlet }} </span></h5>
+                                <p class="card-text">Anda sedang melihat Data outlet dari <span class="text-primary">{{ $outlet->nama_outlet }} </span></p>
                                 <div class="mt-3">
                                     <table class="table table-hover mt-4">
                                         <thead>
                                             <tr>
-                                                <th>Detail</th>
-                                                <th>Isi Data</th>
+                                                <th class="text-dark"><strong>Detail</strong></th>
+                                                <th class="text-dark"><strong>Isi Data</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
