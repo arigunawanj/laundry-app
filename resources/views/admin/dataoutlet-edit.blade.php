@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput" class="form-label" name="upload" id="upload">Foto</label>
-                                        <input class="form-control @error('upload') is-invalid @enderror" type="file" name="upload" id="simpleinput">
+                                        <input class="form-control @error('upload') is-invalid @enderror" type="file"  name="upload" id="simpleinput">
                                     </div>
                                     <div>
                                         <img src="{{ asset('storage/' . $outlet->upload) }}" width="200px" alt="">

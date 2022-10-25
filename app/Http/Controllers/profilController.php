@@ -93,13 +93,15 @@ class profilController extends Controller
 
         $profil = detail_profiles::findOrFail($id);
         $user = User::find($no);
-        if($request->hasFile('upload')){
+
+
+        if($request->hasFile('image')){
             $request->validate([
-                'upload' => 'required|image|max:10000|mimes:jpg'
+                'image' => 'required|image|max:10000|mimes:jpg'
             ]);
             Storage::delete($profil->image);
             $upload = $request->image;
-            $extension = $request->file('upload')->getClientOriginalExtension();
+            $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
             $data = $request->file('upload')->storeAs('img', $newName);
         }

@@ -8,6 +8,7 @@ use App\Exports\OutletExport;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\Exportable;
 
 class OutletController extends Controller
 {
@@ -112,7 +113,7 @@ class OutletController extends Controller
         $outlet = Outlet::findOrFail($id);
         
         $newName = '';
-        
+        $data = '';
         if($request->hasFile('upload')){
             $request->validate([
                 'upload' => 'required|image|max:10000|mimes:jpg'
@@ -123,7 +124,7 @@ class OutletController extends Controller
             $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
             $data = $request->file('upload')->storeAs('img', $newName);
         }
-           
+
         $validator['upload'] = $data;
         $outlet->update($validator);
 
@@ -148,6 +149,10 @@ class OutletController extends Controller
 
     public function export()
     {
-        return Excel::download(new OutletExport, 'LaporanOutlet.xlsx');
+        // return Excel::download(new OutletExport, 'LaporanOutlet.xlsx');
+
+        return (new OutletExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::MPDF);
+
+        
     }
 }
