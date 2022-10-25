@@ -127,7 +127,7 @@
                             <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
                                 <li class="nav-item">
                                     <a class="nav-link pl-3" href="/registrasipelanggan"><span
-                                            class="ml-1 item-text">Registrasi Pelanggan</span>
+                                            class="ml-1 item-text">Layanan Pelanggan</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

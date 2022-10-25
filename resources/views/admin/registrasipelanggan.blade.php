@@ -3,80 +3,94 @@
 @section('title', 'Registrasi Pelanggan')
 
 @section('content')
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Layanan</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Registrasi Pelanggan</li>
-        </ol>
-    </nav>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h2 class="page-title">Registrasi Pelanggan</h2>
-                <p> Registrasi Pelanggan Karisma Laundry Kota Malang </p>
-                <div class="row">
-                    <!-- simple table -->
-                    <div class="container-fluid">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">Registrasi Pelanggan</h5>
-                                <p class="card-text">Registrasi Pelanggan Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
-                                <table class="table table-hover mt-4">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Outlet</th>
-                                            <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Karisma Klojen</td>
-                                            <td>Enim Limited</td>
-                                            <td>Malang</td>
-                                            <td>Apr 24, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Layanan</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registrasi Pelanggan</li>
+    </ol>
+</nav>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header">
+                    <strong>Registrasi Pelanggan</strong>
+                </div>
+                <div class="card-body">
+                    <form id="example-form" action="{{ route('register') }}" method="POST">
+                        @csrf
+                        <div>
+                            <h3>Data diri</h3>
+                            <section>                                
+                                    <div class="form-group">
+                                        <label for="userName">Username *</label>
+                                        <input id="userName" name="name" type="text" value="{{ old('name') }}" class="form-control required">
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input id="email" name="email" type="email" value="{{ old('email') }}" class="form-control required email">
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password *</label>
+                                        <input id="password" name="password" type="text" class="form-control required">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm">Confirm Password *</label>
+                                        <input id="confirm" name="password_confirmation" type="text" class="form-control required">
+                                    </div>
+                                
+                                <div class="help-text text-muted">(*) Mandatory</div>
+                            </section>
+                            <h3>Layanan</h3>
+                            <section>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name">First name *</label>
+                                        <input id="name" name="name" type="text" class="form-control required">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="surname">Last name *</label>
+                                        <input id="surname" name="surname" type="text" class="form-control required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input id="email" name="email" type="text" class="form-control required email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input id="address" name="address" class="form-control" type="text">
+                                </div>
+                                <div class="help-text text-muted">(*) Mandatory</div>
+                            </section>
+                            <h3>Buat akun</h3>
+                            <section>
+                                <ul class="ml-5">
+                                    <li>Foo</li>
+                                    <li>Bar</li>
+                                    <li>Foobar</li>
+                                </ul>
+                            </section>
                         </div>
-                    </div>
-                @endsection
+                    </form>
+                </div> <!-- .card-body -->
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

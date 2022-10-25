@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kelolaPelangganController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +33,10 @@ Route::view('/template', 'layouts.template');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::view('/datapaket', 'admin.datapaket');
     Route::view('/datapengguna', 'admin.datapengguna');
-    Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
+    // Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
     Route::view('/laporanpegawai', 'admin.laporanpegawai');
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
     Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
