@@ -36,17 +36,28 @@
                                         <input type="number" id="simpleinput" name="telephone" value="{{ $profil->telephone }}" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Alamat</label>
-                                        <input type="email" id="simpleinput" name="address" value="{{ $profil->address }}" class="form-control">
+                                        <label for="simpleinput">Email</label>
+                                        <input type="email" id="simpleinput" name="email" value="{{ $profil->email }}" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput" class="form-label" name="upload" id="upload">Foto</label>
-                                        <input class="form-control @error('image') is-invalid @enderror" type="file"  name="upload" id="simpleinput">
+                                        <label for="simpleinput">Alamat</label>
+                                        <input type="text" id="simpleinput" name="address" value="{{ $profil->address }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kecamatan</label>
+                                        <input type="text" id="simpleinput" name="kecamatan" value="{{ $profil->kecamatan }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kelurahan</label>
+                                        <input type="text" id="simpleinput" name="kelurahan" value="{{ $profil->kelurahan }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Foto</label>
+                                        <input class="form-control" type="file"  name="image" id="simpleinput">
                                     </div>
                                     <div>
                                         <img src="{{ asset('storage/' . $profil->image) }}" width="200px" alt="">
                                     </div>
-                                    
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>

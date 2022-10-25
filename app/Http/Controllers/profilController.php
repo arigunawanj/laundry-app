@@ -115,6 +115,8 @@ class profilController extends Controller
             'gender' => 'required',
             'telephone' => 'required',
             'address' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required'
         ]);
 
         $email = $request->validate([
@@ -125,18 +127,18 @@ class profilController extends Controller
 
         $profil = detail_profiles::findOrFail($id);
         $user = User::find($no);
-        if($request->hasFile('upload')){
+        if($request->hasFile('image')){
             $request->validate([
                 'image' => 'required|image|max:10000|mimes:jpg'
             ]);
             Storage::delete($profil->image);
             $upload = $request->image;
-            $extension = $request->file('upload')->getClientOriginalExtension();
+            $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
-            $data = $request->file('upload')->storeAs('img', $newName);
+            $data = $request->file('image')->storeAs('img', $newName);
         }
 
-        $validator['upload'] = $data;
+        $validator['image'] = $data;
         $profil->update($validator);
         $user->update($email);
 
