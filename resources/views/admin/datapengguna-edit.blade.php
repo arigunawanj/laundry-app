@@ -35,12 +35,24 @@
                                             class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">Password</label>
+                                        <input type="text" id="simpleinput" name="password" value="{{ $user->password }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
                                         <input type="email" id="simpleinput" name="email" value="{{ $user->email }}"
                                             class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Posisi</label>
+                                        <select class="form-control @error('role_id') is-invalid @enderror" name="role_id">
+                                            <option value="">Pilih Posisi</option>
+                                            @foreach ($role as $item)
+                                                <option value="{{ $item->id }}" @selected($user->role_id == $item->id)>
+                                                    {{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

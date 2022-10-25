@@ -9,7 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Data Pengguna</li>
         </ol>
     </nav>
-    
+
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -40,10 +40,10 @@
                                             @foreach ($user as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    {{-- <td><img src="{{ asset('storage/' . $item->upload) }}" width="100px" --}}
-                                                            {{-- alt="" srcset=""></td> --}}
+                                                    <td><img src="{{ asset('storage/' . $item->upload) }}" width="100px"
+                                                            srcset=""></td>
                                                     <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->id }}</td>
+                                                    {{-- <td>{{ $item->id }}</td> --}}
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->role->name }}</td>
                                                     <td>

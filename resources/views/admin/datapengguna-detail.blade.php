@@ -43,17 +43,17 @@
                                                 <td>Nama</td>
                                                 <td>{{ $user->name }}</td>
                                             </tr>
-                                            <tr>
+                                            {{-- <tr>
                                                 <td>Kode</td>
                                                 <td>{{ $user->id }}</td>
-                                            </tr>
+                                            </tr> --}}
                                             <tr>
                                                 <td>Email</td>
                                                 <td>{{ $user->email }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Posisi</td>
-                                                <td>{{ $user->role_id }}</td>
+                                                <td>{{ $user->role->name }}</td>
                                             </tr>
 
                                         </tbody>

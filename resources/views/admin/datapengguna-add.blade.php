@@ -32,6 +32,10 @@
                                         <input type="text" id="simpleinput" name="id" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">Password</label>
+                                        <input type="text" id="simpleinput" name="password" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
                                         <input type="email" id="simpleinput" name="email" class="form-control">
                                     </div>
