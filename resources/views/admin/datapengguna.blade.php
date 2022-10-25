@@ -9,7 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Data Pengguna</li>
         </ol>
     </nav>
-    {{ $user }}
+    
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -31,7 +31,6 @@
                                                 <th>No</th>
                                                 <th>Foto</th>
                                                 <th>Nama</th>
-                                                <th>Kode</th>
                                                 <th>Email</th>
                                                 <th>Posisi</th>
                                                 <th>Aksi</th>
@@ -46,7 +45,7 @@
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->role->name }}</td>
                                                     <td>
                                                         <div class="file-action">
                                                             <button type="button"

@@ -17,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with('roles')->get('id');
+        $user = User::all();
+        // dd($user-);
+
         // $role = Role::all();
     //   $user = DB::select('SELECT u.name, 
     //   u.id, u.email, 
