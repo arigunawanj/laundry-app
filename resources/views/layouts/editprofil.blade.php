@@ -1,0 +1,60 @@
+@extends('layouts.template')
+
+@section('title', 'Edit Data Outlet')
+
+@section('content')
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Data</a></li>
+            <li class="breadcrumb-item"><a href="/dataoutlet">Data Outlet</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Data Outlet</li>
+        </ol>
+    </nav>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="page-title">Edit Data Profil</h2>
+                <p> Edit Data Profil Karisma Laundry Kota Malang </p>
+                <div class="card-header col-12">
+                    <strong class="card-title">Data Profil</strong>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="{{ route('profile.update', $profil->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Nama Profil</label>
+                                        <input type="text" id="simpleinput" name="name" value="{{ $profil->name }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Gender</label>
+                                        <input type="text" id="simpleinput" name="gender" value="{{ $profil->gender }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Telepon</label>
+                                        <input type="number" id="simpleinput" name="telephone" value="{{ $profil->telephone }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Alamat</label>
+                                        <input type="email" id="simpleinput" name="address" value="{{ $profil->address }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput" class="form-label" name="upload" id="upload">Foto</label>
+                                        <input class="form-control @error('image') is-invalid @enderror" type="file"  name="upload" id="simpleinput">
+                                    </div>
+                                    <div>
+                                        <img src="{{ asset('storage/' . $profil->image) }}" width="200px" alt="">
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
