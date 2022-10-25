@@ -20,24 +20,31 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Nama Pengguna</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Alamat</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Kota</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Tanggal</label>
-                                <input type="date" id="simpleinput" class="form-control">
-                                </div>
+                                <form action="{{ route('datapengguna.update', $user->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Nama</label>
+                                        <input type="text" id="simpleinput" name="name" value="{{ $user->name }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kode</label>
+                                        <input type="text" id="simpleinput" name="id" value="{{ $user->id }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Email</label>
+                                        <input type="email" id="simpleinput" name="email" value="{{ $user->email }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Posisi</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
-                            <a href="" class="btn btn-primary">Edit</a>
                         </div>
                     </div>
                 </div>

@@ -20,24 +20,34 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Nama Pengguna</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Alamat</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Kota</label>
-                                <input type="text" id="simpleinput" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                <label for="simpleinput">Tanggal</label>
-                                <input type="date" id="simpleinput" class="form-control">
-                                </div>
+                                <form action="{{ route('datapengguna.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Nama</label>
+                                        <input type="text" id="simpleinput" name="name" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kode</label>
+                                        <input type="text" id="simpleinput" name="id" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Email</label>
+                                        <input type="email" id="simpleinput" name="email" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Posisi</label>
+                                        <select class="form-control @error('role_id') is-invalid @enderror" name="role_id">
+                                            <option value="">Pilih Posisi</option>
+                                            @foreach ($user as $item)
+                                                <option value="{{ $item->id }}" @selected(old('role_id') == $item->id)>
+                                                    {{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
-                            <a href="" class="btn btn-primary">Tambah</a>
                         </div>
                     </div>
                 </div>

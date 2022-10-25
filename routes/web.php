@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,8 +33,11 @@ Route::view('/template', 'layouts.template');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
+    Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');
-    Route::view('/datapengguna', 'admin.datapengguna');
+    // Route::view('/datapengguna', 'admin.datapengguna');
+    // Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
+    // Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
     Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
     Route::view('/laporanpegawai', 'admin.laporanpegawai');
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
@@ -41,8 +45,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
-    Route::view('/tambah-datapengguna', 'admin.datapengguna-add');
-    Route::view('/edit-datapengguna', 'admin.datapengguna-edit');
+
     Route::get('export', [OutletController::class, 'export']);
 });
 
@@ -55,7 +58,7 @@ Route::middleware(['auth', 'customer'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('profile', profilController::class);    
+    Route::resource('profile', profilController::class);
 });
 // Route::view('profile', 'customer.profile');
 

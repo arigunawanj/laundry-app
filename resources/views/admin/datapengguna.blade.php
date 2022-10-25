@@ -9,6 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Data Pengguna</li>
         </ol>
     </nav>
+    {{ $user }}
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -21,61 +22,63 @@
                             <div class="card-body">
                                 <h5 class="card-title">Daftar Pengguna</h5>
                                 <p class="card-text">Daftar Pengguna Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
-                                <table class="table table-hover mt-4">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Outlet</th>
-                                            <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Karisma Klojen</td>
-                                            <td>Enim Limited</td>
-                                            <td>Malang</td>
-                                            <td>Apr 24, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <a href="{{ route('datapengguna.create') }}" class="btn btn-primary">Tambah Data</a>
+                                <a href="/export" class="btn btn-warning"><i class="fe fe-printer"></i></a>
+                                <div class="mt-3">
+                                    <table class="table table-hover mt-4" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Foto</th>
+                                                <th>Nama</th>
+                                                <th>Kode</th>
+                                                <th>Email</th>
+                                                <th>Posisi</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($user as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    {{-- <td><img src="{{ asset('storage/' . $item->upload) }}" width="100px" --}}
+                                                            {{-- alt="" srcset=""></td> --}}
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>
+                                                        <div class="file-action">
+                                                            <button type="button"
+                                                                class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <span class="text-muted sr-only">Action</span>
+                                                            </button>
+                                                            <div class="dropdown-menu m-2">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('datapengguna.show', $item->id) }}"><i
+                                                                        class="fe fe-archive fe-12 mr-4"></i>Detail</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('datapengguna.edit', $item->id) }}"><i
+                                                                        class="fe fe-edit fe-12 mr-4"></i>Edit</a>
+                                                                <form
+                                                                    action="{{ route('datapengguna.destroy', $item->id) }}"
+                                                                    method="POST" id="myForm">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <a class="dropdown-item" href="#" id="submitdel"
+                                                                        onclick="return confirm('Yakin hapus Data ?')"><i
+                                                                            class="fe fe-trash fe-12 mr-4"></i>Delete</a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

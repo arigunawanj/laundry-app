@@ -50,4 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(detail_profiles::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
+
