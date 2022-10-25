@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                         aria-labelledby="pills-profile-tab">
-                                        <a href="" class="btn btn-primary">Tambah Paket Satuan</a>
+                                        <a href="{{ route('datapaket.create') }}" class="btn btn-primary">Tambah Paket Satuan</a>
                                         <table class="table table-hover mt-4">
                                             <thead>
                                                 <tr>

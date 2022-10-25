@@ -28,7 +28,11 @@ class PaketController extends Controller
      */
     public function create()
     {
-        //
+        $paketk = Paket_kilo::all();
+        $paketsat = Paket_satuan::all();
+        // dd($paketk);
+        return view('admin.datapaketkilo-add', compact('paketk'));
+        return view('admin.datapaketsatuan-add', compact('paketsat'));
     }
 
     /**
@@ -39,7 +43,37 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validators = $request->validate([
+            'kd_paketsatuan' => 'required',
+            'nama_paketsatuan' => 'required',
+            'ket_paketsatuan' => 'required',
+            'harga_paketsatuan' => 'required',
+            'outlet_id' => 'required'
+            
+        ]);
+        
+        dd($request);
+        
+        $paket = Paket_satuan::create($validators);
+        return redirect('datapaket');
+
+        $validatork = $request->validate([
+        'kd_paketkilo'=> 'required',
+        'nama_paketkilo'=> 'required',
+        'harga_paketkilo'=> 'required',
+        'hari_paketkilo'=> 'required',
+        'min_berat_paket'=> 'required',
+        'antar_jemput_paket'=> 'required',
+        'outlet_id' => 'required'
+            
+        ]);
+        
+        dd($request);
+        
+        $paket = Paket_kilo::create($validatork);
+        return redirect('datapaket');
+
+
     }
 
     /**

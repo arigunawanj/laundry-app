@@ -21,24 +21,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <form action="{{ route('datapaket.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                <div class="form-group mb-3">
+                                <label for="simpleinput">Kode Paket</label>
+                                <input type="text" id="simpleinput" name="kd_paketsatuan" class="form-control">
+                                </div>
                                 <div class="form-group mb-3">
                                 <label for="simpleinput">Nama Paket</label>
-                                <input type="text" id="simpleinput" name class="form-control">
+                                <input type="text" id="simpleinput" name="nama_paketsatuan" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Alamat</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                <label for="simpleinput">Keterangan Paket</label>
+                                <input type="text" id="simpleinput" name="ket_paketsatuan" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Kota</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                <label for="simpleinput">Harga</label>
+                                <input type="text" id="simpleinput" name="harga_paketsatuan" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Tanggal</label>
-                                <input type="date" id="simpleinput" class="form-control">
+                                <label for="simpleinput">Outlet</label>
+                                <input type="text" id="simpleinput" name="outlet_id" class="form-control">
                                 </div>
                             </div>
-                            <a href="" class="btn btn-primary">Tambah</a>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
                     </div>
                 </div>

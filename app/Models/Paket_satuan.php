@@ -13,7 +13,9 @@ class Paket_satuan extends Model
     protected $fillable= [
         'kd_paketsatuan',
         'nama_paketsatuan',
-        'ket_paketsatuan'
+        'ket_paketsatuan',
+        'harga_paketsatuan',
+        'outlet_id'
     ];
 
     protected $guarded= [

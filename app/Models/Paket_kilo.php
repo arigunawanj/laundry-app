@@ -12,9 +12,11 @@ class Paket_kilo extends Model
     protected $fillable= [
         'kd_paketkilo',
         'nama_paketkilo',
+        'harga_paketkilo',
         'hari_paketkilo',
         'min_berat_paket',
-        'antar_berat_paket'
+        'antar_jemput_paket',
+        'outlet_id'
     ];
 
     protected $guarded= [
