@@ -3,7 +3,6 @@
 use App\Http\Controllers\kelolaPelangganController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

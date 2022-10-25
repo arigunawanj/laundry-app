@@ -20,9 +20,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
+                                <form action="{{ route('datapaket.store') }}" method="POST" enctype="multipart/form-data">
                                 <div class="form-group mb-3">
                                 <label for="simpleinput">Nama Paket</label>
-                                <input type="text" id="simpleinput" class="form-control">
+                                <input type="text" id="simpleinput" name class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                 <label for="simpleinput">Alamat</label>

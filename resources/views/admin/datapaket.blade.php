@@ -35,59 +35,33 @@
                                 <div class="tab-content mb-1" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                         aria-labelledby="pills-home-tab">
-                                        <a href="" class="btn btn-primary">Tambah Paket Kilo</a>
+                                        <a href="{{ route('datapaket.create') }}" class="btn btn-primary">Tambah Paket Kilo</a>
                                         <table class="table table-hover mt-4">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Nama Outlet</th>
-                                                    <th>Alamat</th>
-                                                    <th>Kota</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
+                                                    <th>Kode Paket</th>
+                                                    <th>Nama Paket</th>
+                                                    <th>Harga Paket</th>
+                                                    <th>Hari Paket</th>
+                                                    <th>Minimal Berat Paket</th>
+                                                    <th>Antar Jemput Paket</th>
+                                                    <th>Outlet</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($paketk as $item)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Karisma Klojen</td>
-                                                    <td>Enim Limited</td>
-                                                    <td>Malang</td>
-                                                    <td>Apr 24, 2019</td>
-                                                    <td><span class="badge badge-pill badge-warning">Hold</span></td>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->kd_paketkilo }}</td>
+                                                    <td>{{ $item->nama_paketkilo }}</td>
+                                                    <td>{{ $item->harga_paketkilo }}</td>
+                                                    <td>{{ $item->min_berat_paket }}</td>
+                                                    <td>{{ $item->antar_jemput_paket }}</td>
+                                                    <td>{{ $item->outlet_id }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Karisma Lowokwaru</td>
-                                                    <td>Nunc Lectus Incorporated</td>
-                                                    <td>Malang</td>
-                                                    <td>May 23, 2020</td>
-                                                    <td><span class="badge badge-pill badge-success">Success</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Karisma Sukun</td>
-                                                    <td>Nisi Aenean Eget Limited</td>
-                                                    <td>Malang</td>
-                                                    <td>Nov 4, 2019</td>
-                                                    <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Karisma Kedungkandang</td>
-                                                    <td>Pellentesque Associates</td>
-                                                    <td>Malang</td>
-                                                    <td>Mar 27, 2020</td>
-                                                    <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Karisma Dau</td>
-                                                    <td>Augue Incorporated</td>
-                                                    <td>Malang</td>
-                                                    <td>Jan 13, 2020</td>
-                                                    <td><span class="badge badge-pill badge-success">Success</span></td>
-                                                </tr>
+                                                @endforeach   
                                             </tbody>
                                         </table>
                                     
@@ -99,54 +73,26 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Nama Outlet</th>
-                                                    <th>Alamat</th>
-                                                    <th>Kota</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
+                                                    <th>Kode Paket</th>
+                                                    <th>Nama Paket</th>
+                                                    <th>Keterangan Paket</th>
+                                                    <th>Harga</th>
+                                                    <th>Outlet</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                
+                                                @foreach($paketsat as $item)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Karisma Klojen</td>
-                                                    <td>Enim Limited</td>
-                                                    <td>Malang</td>
-                                                    <td>Apr 24, 2019</td>
-                                                    <td><span class="badge badge-pill badge-warning">Hold</span></td>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->kd_paketsatuan }}</td>
+                                                    <td>{{ $item->nama_paketsatuan }}</td>
+                                                    <td>{{ $item->ket_paketsatuan }}</td>
+                                                    <td>{{ $item->harga_paketsatuan }}</td>
+                                                    <td>{{ $item->outlet_id }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Karisma Lowokwaru</td>
-                                                    <td>Nunc Lectus Incorporated</td>
-                                                    <td>Malang</td>
-                                                    <td>May 23, 2020</td>
-                                                    <td><span class="badge badge-pill badge-success">Success</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Karisma Sukun</td>
-                                                    <td>Nisi Aenean Eget Limited</td>
-                                                    <td>Malang</td>
-                                                    <td>Nov 4, 2019</td>
-                                                    <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Karisma Kedungkandang</td>
-                                                    <td>Pellentesque Associates</td>
-                                                    <td>Malang</td>
-                                                    <td>Mar 27, 2020</td>
-                                                    <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Karisma Dau</td>
-                                                    <td>Augue Incorporated</td>
-                                                    <td>Malang</td>
-                                                    <td>Jan 13, 2020</td>
-                                                    <td><span class="badge badge-pill badge-success">Success</span></td>
-                                                </tr>
+                                                @endforeach                                               
                                             </tbody>
                                         </table>    
                                     </div>
