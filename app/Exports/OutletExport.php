@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Outlet;
+use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
@@ -16,6 +17,8 @@ class OutletExport implements FromCollection, WithMapping, WithHeadings, ShouldA
     /**
     * @return \Illuminate\Support\Collection
     */
+    use Exportable;
+
     public function collection()
     {
         return Outlet::all();

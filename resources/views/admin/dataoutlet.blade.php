@@ -29,10 +29,6 @@
                                             <tr>
                                                 <th class="text-dark">No</th>
                                                 <th class="text-dark">Nama Outlet</th>
-                                                <th class="text-dark">Alamat</th>
-                                                <th class="text-dark">Telepon</th>
-                                                <th class="text-dark">Email</th>
-                                                <th class="text-dark">Foto</th>
                                                 <th class="text-dark">Action</th>
                                             </tr>
                                         </thead>
@@ -41,11 +37,6 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->nama_outlet }}</td>
-                                                    <td>{{ $item->alamat_outlet }}</td>
-                                                    <td>{{ $item->telepon_outlet }}</td>
-                                                    <td>{{ $item->email_outlet }}</td>
-                                                    <td><img src="{{ asset('storage/' . $item->upload) }}" width="100px"
-                                                            alt="" srcset=""></td>
                                                     <td>
                                                         <div class="file-action">
                                                             <button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
