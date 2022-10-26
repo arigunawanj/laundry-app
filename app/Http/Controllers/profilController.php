@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detail_profiles;
+use App\Models\Detail_profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,7 @@ class profilController extends Controller
         // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         // dd($profil);
-        $id = detail_profiles::all();
+        $id = Detail_profile::all();
         return view('layouts.profile', compact('profil', 'id'));
     }
 
@@ -61,7 +61,7 @@ class profilController extends Controller
 
         $file = $request->file('image')->store('img');
 
-        detail_profiles::create([
+        Detail_profile::create([
             'name' => $request ->name,
             'gender' => $request ->gender,
             'address' => $request ->address,
@@ -97,7 +97,7 @@ class profilController extends Controller
      */
     public function edit($id)
     {
-        $profil = detail_profiles::findOrFail($id);
+        $profil = Detail_profile::findOrFail($id);
         $user = User::findOrFail($id);
         return view('layouts.editprofil', compact('profil', 'user'));
     }
@@ -126,7 +126,7 @@ class profilController extends Controller
 
         $no = Auth::user()->id;
 
-        $profil = detail_profiles::findOrFail($id);
+        $profil = Detail_profile::findOrFail($id);
         $user = User::find($no);
         if($request->hasFile('image')){
             $request->validate([
