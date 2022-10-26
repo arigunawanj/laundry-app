@@ -47,9 +47,9 @@ class User extends Authenticatable
         'role_id' => 3
     ];
 
-    public function detail_p()
+    public function detailp()
     {
-        return $this->hasOne(detail_profiles::class);
+        return $this->hasOne(Detail_profile::class);
     }
 
     public function role()

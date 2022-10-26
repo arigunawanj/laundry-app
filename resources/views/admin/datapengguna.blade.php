@@ -40,14 +40,13 @@
                                             @foreach ($user as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td><img src="{{ asset('storage/' . $item->upload) }}" width="100px"
+                                                    <td><img src="{{ asset('storage/' . $item->image) }}" width="100px"
                                                             srcset=""></td>
                                                     <td>{{ $item->name }}</td>
-                                                    {{-- <td>{{ $item->id }}</td> --}}
                                                     <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->role->name }}</td>
+                                                    <td>{{ $item->role_name }}</td>
                                                     <td>
-                                                        <div class="file-action">
+                                                        {{-- <div class="file-action">
                                                             <button type="button"
                                                                 class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto"
                                                                 data-toggle="dropdown" aria-haspopup="true"
@@ -71,7 +70,7 @@
                                                                             class="fe fe-trash fe-12 mr-4"></i>Delete</a>
                                                                 </form>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

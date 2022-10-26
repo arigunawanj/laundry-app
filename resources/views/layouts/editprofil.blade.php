@@ -29,7 +29,14 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Gender</label>
-                                        <input type="text" id="simpleinput" name="gender" value="{{ $profil->gender }}" class="form-control">
+                                        <select name="gender" id="gender" class="form-control" required>
+                                            <option value="{{ $profil->gender }}">{{ $profil->gender }}</option>
+                                            @if ($profil->gender == 'Laki-Laki')
+                                                <option value="Perempuan">Perempuan</option>
+                                            @else
+                                                <option value="Laki-Laki">Laki-Laki</option>
+                                            @endif
+                                        </select>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Telepon</label>
@@ -37,7 +44,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
-                                        <input type="email" id="simpleinput" name="email" value="{{ $profil->email }}" class="form-control">
+                                        <input type="email" id="simpleinput" name="email" value="{{ $user->email }}" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Alamat</label>
