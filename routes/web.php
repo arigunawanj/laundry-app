@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 // TEMPLATE ADMIN
 Route::view('/template', 'layouts.template');
+Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 
 // NAVBAR ADMIN
 // Route::view('/dataoutlet', 'admin.dataoutlet');

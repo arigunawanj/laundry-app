@@ -64,7 +64,7 @@
                                             @endif
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->user_id }}</span>
+                                            <span class="p">{{ $p->user_id }}</span>
                                         </div>
                                     </div>
                                     <div class="row align-items-left justify-content-between mb-2">
@@ -72,7 +72,7 @@
                                             <span class="h6">Nama </span>
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->name }}</span>
+                                            <span class="p">{{ $p->name }}</span>
                                         </div>
                                     </div>
                                     <div class="row align-items-left justify-content-between mb-2">
@@ -83,7 +83,7 @@
                                             <small></small>
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->gender }}</span>
+                                            <span class="p">{{ $p->gender }}</span>
                                         </div>
                                     </div>
                                     <div class="row align-items-left justify-content-between mb-2">
@@ -94,7 +94,7 @@
                                             <small></small>
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->email }}</span>
+                                            <span class="p">{{ $p->email }}</span>
                                         </div>
                                     </div>
                                     <div class="row align-items-left justify-content-between mb-2">
@@ -105,7 +105,7 @@
                                             <small></small>
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->telephone }}</span>
+                                            <span class="p">{{ $p->telephone }}</span>
                                         </div>
                                     </div>
                                     <div class="row align-items-left justify-content-between mb-2">
@@ -116,12 +116,12 @@
                                             <small></small>
                                         </div>
                                         <div class="col-auto">
-                                            <span class="h6">{{ $p->address }}</span>
+                                            <span class="p">{{ $p->address }}</span>
                                         </div>
                                     </div>
                                 @endforeach
                                 <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
-                                    <a href="{{ route('profile.create') }}" class="btn btn-primary mr-4"><i class='bx bxs-folder-plus' ></i> Tambah Profil</a>
+                                    <a href="{{ route('profile.create') }}" class="btn btn-primary mx-4"><i class='bx bxs-folder-plus' ></i> Tambah Profil</a>
                                 </div>
                         
                                 <div class="row justify-content-center @if (!DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">

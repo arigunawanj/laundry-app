@@ -22,16 +22,15 @@
                             <div class="card-body">
                                 <h5 class="card-title">Laporan Pegawai</h5>
                                 <p class="card-text">Laporan Pegawai Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
                                 <table class="table table-hover mt-4">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Outlet</th>
-                                            <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
+                                            <th>Nama</th>
+                                            <th>Kode Pengguna</th>
+                                            <th>Posisi</th>
+                                            <th>Username</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -42,38 +41,6 @@
                                             <td>Malang</td>
                                             <td>Apr 24, 2019</td>
                                             <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
                                         </tr>
                                     </tbody>
                                 </table>

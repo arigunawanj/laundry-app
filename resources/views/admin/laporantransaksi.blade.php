@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Data Transaksi')
+@section('title', 'Laporan Transaksi')
 
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -21,16 +21,17 @@
                             <div class="card-body">
                                 <h5 class="card-title">Laporan Transaksi</h5>
                                 <p class="card-text">Laporan Transaksi Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
-                                <table class="table table-hover mt-4">
+                                <a href="/laporantransaksi-add" class="btn btn-primary mb-4 ">Tambah Data</a>
+                                <table class="table table-hover mt-5" id="myTable">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Outlet</th>
-                                            <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
+                                            <th>Outlet</th>
+                                            <th>Kode Invoice</th>
+                                            <th>Pelanggan</th>
+                                            <th>Tanggal bayar</th>
+                                            <th>Total Bayar</th>
+                                            <th>Pegawai</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,39 +41,8 @@
                                             <td>Enim Limited</td>
                                             <td>Malang</td>
                                             <td>Apr 24, 2019</td>
+                                            <td>Apr 24, 2019</td>
                                             <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
