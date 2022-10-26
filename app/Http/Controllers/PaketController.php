@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Models\Paket_kilo;
 use App\Models\Paket_satuan;
@@ -29,8 +30,9 @@ class PaketController extends Controller
     public function create()
     {
         $paketk = Paket_kilo::all();
+        $outlet = Outlet::all();
 
-        return view('admin.datapaketkilo-add', compact('paketk'));
+        return view('admin.datapaketkilo-add', compact('paketk', 'outlet'));
 
         
     }
