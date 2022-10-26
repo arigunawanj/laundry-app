@@ -98,7 +98,8 @@ class profilController extends Controller
     public function edit($id)
     {
         $profil = detail_profiles::findOrFail($id);
-        return view('layouts.editprofil', compact('profil'));
+        $user = User::findOrFail($id);
+        return view('layouts.editprofil', compact('profil', 'user'));
     }
 
     /**

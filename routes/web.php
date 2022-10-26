@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\kelolaPelangganController;
-use App\Http\Controllers\OutletController;
-use App\Http\Controllers\profilController;
+use function Termwind\style;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OutletController;
 
-use function Termwind\style;
+use App\Http\Controllers\profilController;
+use App\Http\Controllers\kelolaPelangganController;
 
 /*
 |--------------------------------------------------------------------------

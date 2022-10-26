@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
-                                        <input type="email" id="simpleinput" name="email" value="{{ $profil->email }}" class="form-control">
+                                        <input type="email" id="simpleinput" name="email" value="{{ $user->email }}" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Alamat</label>
