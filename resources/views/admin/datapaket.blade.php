@@ -107,6 +107,21 @@
                                                     <td>{{ $item->ket_paketsatuan }}</td>
                                                     <td>{{ $item->harga_paketsatuan }}</td>
                                                     <td>{{ $item->outlet_id }}</td>
+                                                    <td>
+                                                        <div class="file-action">
+                                                            <button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <span class="text-muted sr-only">Action</span>
+                                                            </button>
+                                                            <div class="dropdown-menu m-2">
+                                                                <a class="dropdown-item" href="/datapaketsatuan-edit/{{ $item->id }}"><i class="fe fe-edit fe-12 mr-4"></i>Edit</a>
+                                                                <form action="/datapaketsatuan/ {{ $item->id }}" method="POST" id="myForm">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <a class="dropdown-item" href="/datapaketsatuan/ {{ $item->id }}" id="submitdel" onclick="return confirm('Yakin hapus Data ?')"><i class="fe fe-trash fe-12 mr-4"></i>Delete</a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 @endforeach                                               
                                             </tbody>
