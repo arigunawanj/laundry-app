@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail_profile;
 use Illuminate\Http\Request;
-use App\Models\detail_profiles;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class kelolaPelangganController extends Controller
 {
@@ -17,7 +18,7 @@ class kelolaPelangganController extends Controller
     {
         $data = Auth::user()->id;
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-        $data = detail_profiles::all();
+        $data = Detail_profile::all();
 
         return view('admin.kelolapelanggan', compact('data', 'profil'));
     }
