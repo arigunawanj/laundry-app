@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +18,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        $data = Auth::user()->id;
+        
         $user = DB::select('select d.image, u.id, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id');
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
         // $role = Role::all();
         //   $user = DB::select('SELECT u.name, 
@@ -25,7 +30,7 @@ class UserController extends Controller
         //   r.name from users as u 
         //   join roles as r on u.role_id = r.id');
 
-        return view('admin.datapengguna', compact('user'));
+        return view('admin.datapengguna', compact('user' ,'profil'));
     }
 
     /**

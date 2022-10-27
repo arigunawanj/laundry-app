@@ -9,7 +9,7 @@ class Detail_profile extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = [];
 
     public function user(){
         return $this->belongsTo(User::class);

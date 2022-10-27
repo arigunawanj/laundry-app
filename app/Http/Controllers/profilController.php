@@ -22,8 +22,8 @@ class profilController extends Controller
         // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         // dd($profil);
-        $id = Detail_profile::all();
-        return view('layouts.profile', compact('profil', 'id'));
+        // $id = Detail_profile::all();
+        return view('layouts.profile', compact('profil'));
     }
 
     /**
@@ -33,7 +33,11 @@ class profilController extends Controller
      */
     public function create()
     {
-        return view('layouts.tambahprofil');
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('layouts.tambahprofil', compact('profil'));
     }
 
     /**
@@ -62,20 +66,20 @@ class profilController extends Controller
         $file = $request->file('image')->store('img');
 
         Detail_profile::create([
-            'name' => $request ->name,
-            'gender' => $request ->gender,
-            'address' => $request ->address,
-            'kecamatan' => $request ->kecamatan,
-            'kelurahan' => $request ->kelurahan,
-            'telephone' => $request ->telephone,
-            'user_id' => $request ->user_id,
+            'id' => $request->id,
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan,
+            'telephone' => $request->telephone,
+            'user_id' => $request->user_id,
             'image' => $file
         ]);
 
         // detail_profiles::create($validator);
-        
-        return redirect('profile');
 
+        return redirect('profile');
     }
 
     /**
@@ -97,9 +101,14 @@ class profilController extends Controller
      */
     public function edit($id)
     {
-        $profil = Detail_profile::findOrFail($id);
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        $profil1 = Detail_profile::findOrFail($id);
         $user = User::findOrFail($id);
-        return view('layouts.editprofil', compact('profil', 'user'));
+        return view('layouts.editprofil', compact('profil1', 'user', 'profil'));
     }
 
     /**
@@ -125,23 +134,33 @@ class profilController extends Controller
         ]);
 
         $no = Auth::user()->id;
-
+        
         $profil = Detail_profile::findOrFail($id);
+
         $user = User::find($no);
-        if($request->hasFile('image')){
+
+        $profil->update($validator);
+
+        $user->update($email);
+
+        if ($request->file('image')) {
             $request->validate([
                 'image' => 'required|image|max:10000|mimes:jpg'
             ]);
             Storage::delete($profil->image);
-            $upload = $request->image;
+            // $upload = $request->image;
             $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
+            $newName = $request->name . '-' . now()->timestamp . '.' . $extension;
             $data = $request->file('image')->storeAs('img', $newName);
+            $profil->update([
+                'image'=>$data
+            ]);
+        } else {
+            $profil->update([
+                'image'=>$profil->image
+            ]);
         }
 
-        $validator['image'] = $data;
-        $profil->update($validator);
-        $user->update($email);
 
         return redirect('profile');
     }
