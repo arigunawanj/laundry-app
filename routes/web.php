@@ -38,7 +38,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');
     Route::get('/datapaketsatuan-add', [PaketController::class, 'createsatuan']);
-    Route::get('/datapaketsatuan-store', [PaketController::class, 'storesatuan']);
+    Route::post('/datapaketsatuan', [PaketController::class, 'storesatuan']);
+    Route::get('/datapaketsatuan-edit/{id}', [PaketController::class, 'editsatuan']);
+    Route::put('/datapaketsatuan/{id}', [PaketController::class, 'updatesatuan']);
+    Route::get('/datapaketsatuan/{id}', [PaketController::class, 'destroysatuan']);
     Route::resource('datapaket', PaketController::class);
     // Route::view('/datapengguna', 'admin.datapengguna');
     Route::view('/kelolapelanggan', 'admin.kelolapelanggan');
