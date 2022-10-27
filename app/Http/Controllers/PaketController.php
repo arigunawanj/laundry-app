@@ -150,4 +150,33 @@ class PaketController extends Controller
         $pakets = Paket_satuan::create($validators);
         return redirect('datapaket');
     }
+
+    public function editsatuan($id)
+    {
+        $pakets = Paket_satuan::findOrFail($id);
+        return view('admin.datapaketsatuan-edit', compact('pakets'));
+    }
+
+    public function updatesatuan(Request $request, $id)
+    {
+        $pakets = Paket_satuan::findOrFail($id);
+        $validators = $request->validate([
+            'kd_paketsatuan'=> 'required',
+            'nama_paketsatuan'=> 'required',
+            'ket_paketsatuan'=> 'required',
+            'harga_paketsatuan'=> 'required',
+            'outlet_id' => 'required'
+                
+        ]);
+
+        $pakets->update($validators);
+        return redirect('datapaket');
+    }
+
+    public function destroysatuan(Paket_satuan $pakets, $id)
+    {
+        $pakets = Paket_satuan::findOrFail($id);
+        $pakets->delete();
+        return redirect('datapaket');
+    }
 }
