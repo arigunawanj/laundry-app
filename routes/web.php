@@ -7,6 +7,7 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\kelolaPelangganController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 // TEMPLATE ADMIN
-Route::view('/template', 'layouts.template');
+Route::get('/template', [TemplateController::class, 'index']);
 Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 
 // NAVBAR ADMIN
@@ -37,6 +38,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');
+    Route::get('/datapaketsatuan-add', [PaketController::class, 'createsatuan']);
+    Route::post('/datapaketsatuan', [PaketController::class, 'storesatuan']);
+    Route::get('/datapaketsatuan-edit/{id}', [PaketController::class, 'editsatuan']);
+    Route::put('/datapaketsatuan/{id}', [PaketController::class, 'updatesatuan']);
+    Route::get('/datapaketsatuan/{id}', [PaketController::class, 'destroysatuan']);
     Route::resource('datapaket', PaketController::class);
     // Route::view('/datapengguna', 'admin.datapengguna');
     Route::view('/kelolapelanggan', 'admin.kelolapelanggan');

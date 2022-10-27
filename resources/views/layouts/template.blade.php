@@ -48,8 +48,9 @@
                     <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar avatar-sm mt-2">
-                            <img src="{{ asset('assets/assets/avatars/face-1.jpg') }}" alt="..."
-                                class="avatar-img rounded-circle">
+                            @foreach ($profil as $item)
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="..." class="avatar-img rounded-circle">
+                            @endforeach
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">

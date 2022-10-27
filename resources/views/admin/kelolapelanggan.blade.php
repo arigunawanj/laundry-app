@@ -38,11 +38,11 @@
                                         @foreach($data as $d)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $d->name }}</td>
+                                            <td class="text-uppercase">{{ $d->name }}</td>
                                             <td>{{ $d->address }}</td>
                                             <td>{{ $d->kecamatan }}</td>
                                             <td>{{ $d->kelurahan }}</td>
-                                            <td>{{ $d->user_id }}</td>
+                                            <td class="text-capitalize"><span class="badge badge-pill badge-danger">{{ $d->role_id }}</span></td>
                                             <td>
                                                 <a href="#" class="btn btn-primary">Aksi</a>
                                             </td>
