@@ -17,9 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $user = User::with('Detail_profile');
-        $user = DB::select('select d.image, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id');
-        // dd($user-);
+        $user = DB::select('select d.image, u.id, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id');
 
         // $role = Role::all();
         //   $user = DB::select('SELECT u.name, 
@@ -39,6 +37,7 @@ class UserController extends Controller
     {
         $user = Role::all();
         return view('admin.datapengguna-add', compact('user'));
+        
     }
 
     /**
@@ -49,43 +48,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $validator = $request->validate([
-        //     'upload' => 'required|image|max:10000|mimes:jpg',
-        //     'name' => 'required',
-        //     'id' => 'required',
-        //     'email' => 'required',
-        //     'role_id' => 'required',
-        // ]);
 
         $validator = $request->validate([
             'name' => 'required',
-            'id' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'role_id' => 'required'
+            'role_id' => 'required',
+            'image' => 'required|image|max:10000|mimes:jpg'
         ]);
 
-        User::create($validator);
+        $newName = '';
+
+        if($request->file('image')){
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
+            $data = $request->file('image')->storeAs('img', $newName);
+        };
+
+    
+
+        // $file = $request->file('upload')->store('img');
+        // $validator['upload'] = $file;
+        
+        $validator['image'] = $data;
+        $user = User::create($validator);
 
         return redirect('datapengguna');
 
-        // $newName = '';
-
-        // if ($request->file('upload')) {
-        //     $extension = $request->file('upload')->getClientOriginalExtension();
-        //     $newName = $request->name . '-' . now()->timestamp . '.' . $extension;
-        //     $data = $request->file('upload')->storeAs('img', $newName);
-        // };
-
-
-
-        // // $file = $request->file('upload')->store('img');
-        // // $validator['upload'] = $file;
-
-        // $validator['upload'] = $data;
-        // $data = User::create($validator);
-
-        // return redirect('datapengguna');
     }
 
     /**
@@ -137,10 +126,9 @@ class UserController extends Controller
         // $data->update($request->all());
 
         $validator = $request->validate([
-            'name' => 'required',
-            'id' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8'],
             'role_id' => 'required'
         ]);
 
@@ -175,7 +163,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user, $id)
     {
         // $user = User::findOrFail($id);
         // if (Storage::delete($user->upload)) {

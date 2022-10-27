@@ -43,10 +43,10 @@
                                                 <td>Nama</td>
                                                 <td>{{ $user->name }}</td>
                                             </tr>
-                                            {{-- <tr>
-                                                <td>Kode</td>
-                                                <td>{{ $user->id }}</td>
-                                            </tr> --}}
+                                            <tr>
+                                                <td>Password</td>
+                                                <td>{{ $user->password }}</td>
+                                            </tr>
                                             <tr>
                                                 <td>Email</td>
                                                 <td>{{ $user->email }}</td>

@@ -29,11 +29,11 @@
                                         <input type="text" id="simpleinput" name="name" value="{{ $user->name }}"
                                             class="form-control">
                                     </div>
-                                    <div class="form-group mb-3">
+                                    {{-- <div class="form-group mb-3">
                                         <label for="simpleinput">Kode</label>
                                         <input type="text" id="simpleinput" name="id" value="{{ $user->id }}"
                                             class="form-control">
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Password</label>
                                         <input type="text" id="simpleinput" name="password" value="{{ $user->password }}"

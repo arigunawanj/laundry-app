@@ -24,16 +24,21 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">Foto</label>
+                                        <input type="file" min="0" name="image" id="simpleinput" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">Nama</label>
                                         <input type="text" id="simpleinput" name="name" class="form-control">
                                     </div>
-                                    <div class="form-group mb-3">
+                                    {{-- <div class="form-group mb-3">
                                         <label for="simpleinput">Kode</label>
                                         <input type="text" id="simpleinput" name="id" class="form-control">
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Password</label>
-                                        <input type="text" id="simpleinput" name="password" class="form-control">
+                                        <input type="password" id="simpleinput" name="password" class="form-control"
+                                            maxlength="8">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
