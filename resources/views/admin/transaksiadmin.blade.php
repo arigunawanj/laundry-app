@@ -19,60 +19,31 @@
                     <div class="container-fluid">
                         <div class="card shadow">
                             <div class="card-body">
-                                <h5 class="card-title">Transaksi</h5>
-                                <p class="card-text">Transaksi Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
+                                <h5 class="card-title">Daftar Pesanan</h5>
+                                <p class="card-text">Daftar Pesanan </p>
                                 <table class="table table-hover mt-4">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Outlet</th>
-                                            <th>Alamat</th>
-                                            <th>Kota</th>
-                                            <th>Date</th>
+                                            <th>Outlet</th>
+                                            <th>Kode Invoice</th>
+                                            <th>Nama</th>
+                                            <th>Tanggal Pemberian</th>
+                                            <th>Tanggal Selesai</th>
                                             <th>Status</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>Karisma Klojen</td>
-                                            <td>Enim Limited</td>
-                                            <td>Malang</td>
+                                            <td>KO001</td>
+                                            <td>Ari Gunawan</td>
                                             <td>Apr 24, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>Nunc Lectus Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>May 23, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Karisma Sukun</td>
-                                            <td>Nisi Aenean Eget Limited</td>
-                                            <td>Malang</td>
-                                            <td>Nov 4, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Karisma Kedungkandang</td>
-                                            <td>Pellentesque Associates</td>
-                                            <td>Malang</td>
-                                            <td>Mar 27, 2020</td>
-                                            <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Karisma Dau</td>
-                                            <td>Augue Incorporated</td>
-                                            <td>Malang</td>
-                                            <td>Jan 13, 2020</td>
-                                            <td><span class="badge badge-pill badge-success">Success</span></td>
+                                            <td>Apr 24, 2019</td>
+                                            <td><span class="badge badge-pill badge-warning">Selesai</span></td>
+                                            <td>Apr 24, 2019</td>
                                         </tr>
                                     </tbody>
                                 </table>

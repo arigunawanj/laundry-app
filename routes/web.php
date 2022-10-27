@@ -7,6 +7,7 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\kelolaPelangganController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 // TEMPLATE ADMIN
-Route::view('/template', 'layouts.template');
+Route::get('/template', [TemplateController::class, 'index']);
 Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 
 // NAVBAR ADMIN
