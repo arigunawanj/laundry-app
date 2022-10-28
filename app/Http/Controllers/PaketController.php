@@ -6,6 +6,8 @@ use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Models\Paket_kilo;
 use App\Models\Paket_satuan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaketController extends Controller
 {
@@ -18,8 +20,13 @@ class PaketController extends Controller
     {
         $paketk = Paket_kilo::all();
         $paketsat = Paket_satuan::all();
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
         // dd($paketk);
-        return view('admin.datapaket', compact('paketk','paketsat'));
+        return view('admin.datapaket', compact('paketk','paketsat', 'profil'));
     }
 
     /**
@@ -32,7 +39,11 @@ class PaketController extends Controller
         $paketk = Paket_kilo::all();
         $outlet = Outlet::all();
 
-        return view('admin.datapaketkilo-add', compact('paketk', 'outlet'));
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('admin.datapaketkilo-add', compact('paketk', 'outlet', 'profil'));
 
         
     }
@@ -84,7 +95,12 @@ class PaketController extends Controller
     public function edit($id)
     {
         $paketk = Paket_kilo::findOrFail($id);
-        return view('admin.datapaketkilo-edit', compact('paketk'));
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('admin.datapaketkilo-edit', compact('paketk', 'profil'));
     }
 
     /**
