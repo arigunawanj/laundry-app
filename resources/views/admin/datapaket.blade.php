@@ -37,17 +37,17 @@
                                         aria-labelledby="pills-home-tab">
                                         <a href="{{ route('datapaket.create') }}" class="btn btn-primary">Tambah Paket Kilo</a>
                                         <table class="table table-hover mt-4">
-                                            <thead>
+                                            <thead class="text-dark">
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Kode Paket</th>
-                                                    <th>Nama Paket</th>
-                                                    <th>Harga Paket</th>
-                                                    <th>Hari Paket</th>
-                                                    <th>Minimal Berat Paket</th>
-                                                    <th>Antar Jemput Paket</th>
-                                                    <th>Outlet</th>
-                                                    <th>Action</th>
+                                                    <th class="text-dark">No</th>
+                                                    <th class="text-dark">Kode Paket</th>
+                                                    <th class="text-dark">Nama Paket</th>
+                                                    <th class="text-dark">Harga Paket</th>
+                                                    <th class="text-dark">Hari Paket</th>
+                                                    <th class="text-dark">Minimal Berat Paket</th>
+                                                    <th class="text-dark">Antar Jemput Paket</th>
+                                                    <th class="text-dark">Outlet</th>
+                                                    <th class="text-dark">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -88,13 +88,13 @@
                                         <table class="table table-hover mt-4">
                                             <thead>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Kode Paket</th>
-                                                    <th>Nama Paket</th>
-                                                    <th>Keterangan Paket</th>
-                                                    <th>Harga</th>
-                                                    <th>Outlet</th>
-                                                    <th>Action</th>
+                                                    <th class="text-dark">No</th>
+                                                    <th class="text-dark">Kode Paket</th>
+                                                    <th class="text-dark">Nama Paket</th>
+                                                    <th class="text-dark">Keterangan Paket</th>
+                                                    <th class="text-dark">Harga</th>
+                                                    <th class="text-dark">Outlet</th>
+                                                    <th class="text-dark">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

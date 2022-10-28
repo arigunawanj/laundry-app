@@ -22,7 +22,7 @@
                                 <h5 class="card-title">Kelola Pelanggan</h5>
                                 <p class="card-text">Kelola Pelanggan Karisma Laundry </p>
                                 <a href="" class="btn btn-primary">Tambah Data</a>
-                                <table class="table table-hover mt-4">
+                                <table class="table table-hover text-center mt-4">
                                     <thead class="">
                                         <tr>
                                             <th class="text-dark">No</th>
@@ -42,7 +42,13 @@
                                             <td>{{ $d->address }}</td>
                                             <td>{{ $d->kecamatan }}</td>
                                             <td>{{ $d->kelurahan }}</td>
-                                            <td class="text-capitalize"><span class="badge badge-pill badge-danger">{{ $d->role_id }}</span></td>
+                                            <td class="text-capitalize">
+                                                @if($d->role_id == 3)
+                                                    <span class="badge badge-pill badge-primary">{{'Member'}}</span>
+                                                @elseif($d->role_id == 4)
+                                                    <span class="badge badge-pill badge-secondary">{{'Non-member'}}</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="#" class="btn btn-primary">Aksi</a>
                                             </td>

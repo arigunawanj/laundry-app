@@ -67,7 +67,7 @@ class PaketController extends Controller
             
         ]);
         
-        // dd($request);
+        // dd($validatork);
         
         $paketk = Paket_kilo::create($validatork);
         return redirect('datapaket');
@@ -146,7 +146,14 @@ class PaketController extends Controller
     {
         $pakets = Paket_satuan::all();
 
-        return view('admin.datapaketsatuan-add', compact('pakets'));
+        $outlet = Outlet::all();
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+
+        return view('admin.datapaketsatuan-add', compact('pakets', 'profil', 'outlet'));
 
         
     }
@@ -170,7 +177,12 @@ class PaketController extends Controller
     public function editsatuan($id)
     {
         $pakets = Paket_satuan::findOrFail($id);
-        return view('admin.datapaketsatuan-edit', compact('pakets'));
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('admin.datapaketsatuan-edit', compact('pakets', 'profil'));
     }
 
     public function updatesatuan(Request $request, $id)

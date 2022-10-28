@@ -35,7 +35,12 @@ class OutletController extends Controller
     public function create()
     {
         $outlet = Outlet::all();
-        return view('admin.dataoutlet-add', compact('outlet'));
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('admin.dataoutlet-add', compact('outlet', 'profil'));
     }
 
     /**
@@ -83,7 +88,12 @@ class OutletController extends Controller
     public function show(Outlet $outlet, $id)
     {
         $outlet = Outlet::findOrFail($id);
-        return view('admin.dataoutlet-detail', ['outlet' => $outlet]);
+
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        return view('admin.dataoutlet-detail', compact('outlet', 'profil'));
     }
 
     /**

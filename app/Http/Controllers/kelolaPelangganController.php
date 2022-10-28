@@ -19,7 +19,7 @@ class kelolaPelangganController extends Controller
     public function index()
     {
 
-        $data = DB::select('select d.name, d.address, d.kecamatan, d.kelurahan, u.role_id from detail_profiles d join users u on d.user_id = u.id where u.role_id = 3 and 4');
+        $data = DB::select('select d.name, d.address, d.kecamatan, d.kelurahan, u.role_id from detail_profiles d join users u on d.user_id = u.id where u.role_id = 3 or u.role_id = 4');
         // $data = DB::select('select * from users where id = 3');
 
         

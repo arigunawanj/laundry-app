@@ -39,8 +39,14 @@
                                 <input type="text" id="simpleinput" name="harga_paketsatuan" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
-                                <label for="simpleinput">Outlet</label>
-                                <input type="text" id="simpleinput" name="outlet_id" class="form-control">
+                                    <label for="simpleinput">Outlet</label>
+                                    <select name="outlet_id" class="form-control">
+                                        @foreach ($outlet as $item)
+                                        <option value="{{ $item->id }}" class="form-control">{{ $item->nama_outlet }}</option>
+                                        @endforeach
+                                    </select>
+                                {{-- <label for="simpleinput">Outlet</label> --}}
+                                {{-- <input type="text" id="simpleinput" name="outlet_id" class="form-control"> --}}
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Tambah</button>
