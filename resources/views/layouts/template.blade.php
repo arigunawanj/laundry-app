@@ -171,7 +171,7 @@
                     </ul>
                 @elseif (Auth::user()->role_id == 3)
                     <p class="text-muted nav-heading mt-4 mb-1">
-                        <span>Pesanan</span>
+                        <span>Pesanan </span>
                     </p>
                     <ul class="navbar-nav flex-fill w-100 mb-2">
                         <li class="nav-item w-100">
