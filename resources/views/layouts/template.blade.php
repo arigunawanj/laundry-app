@@ -49,7 +49,8 @@
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar avatar-sm mt-2">
                             @foreach ($profil as $item)
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="..."
+                                    class="avatar-img rounded-circle">
                             @endforeach
                         </span>
                     </a>
@@ -166,6 +167,26 @@
                                             class="ml-1 item-text">Laporan Transaksi</span></a>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                @elseif (Auth::user()->role_id == 3)
+                    <p class="text-muted nav-heading mt-4 mb-1">
+                        <span>Pesanan</span>
+                    </p>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item w-100">
+                            <a class="nav-link" href="/pesan">
+                                <i class="fe fe-shopping-cart fe-16"></i>
+                                <span class="ml-3 item-text">Pesan Laundry</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item w-100">
+                            <a class="nav-link" href="/pesanan">
+                                <i class="fe fe-shopping-bag fe-16"></i>
+                                <span class="ml-3 item-text">Pesanan</span>
+                            </a>
                         </li>
                     </ul>
                 @endif
