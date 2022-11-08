@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\cksatuanController;
+use App\Http\Controllers\ckstncustController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -46,7 +48,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('datapaket', PaketController::class);
     Route::view('/laporanpegawai', 'admin.laporanpegawai');
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
-    Route::view('/registrasipelanggan', 'admin.registrasipelanggan');
+    Route::resource('layanan', cksatuanController::class);;
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
@@ -57,8 +59,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
+    Route::resource('pesanan', ckstncustController::class);
+    Route::get('midtrans',[ckstncustController::class, 'midtrans']);
     Route::view('/pesan', 'customer.pesan');
-    Route::view('/pesanan', 'customer.pesanan');
     Route::view('/datatable', 'customer.datatable');
 });
 

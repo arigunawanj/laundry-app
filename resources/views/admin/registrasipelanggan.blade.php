@@ -17,75 +17,50 @@
                     <strong>Registrasi Pelanggan</strong>
                 </div>
                 <div class="card-body">
-                    <form id="example-form" action="{{ route('register') }}" method="POST">
+                    <form action="{{ route('layanan.store') }}" method="post">
                         @csrf
-                        <div>
-                            <h3>Data diri</h3>
-                            <section>                                
-                                    <div class="form-group">
-                                        <label for="userName">Username *</label>
-                                        <input id="userName" name="name" type="text" value="{{ old('name') }}" class="form-control required">
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input id="email" name="email" type="email" value="{{ old('email') }}" class="form-control required email">
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password">Password *</label>
-                                        <input id="password" name="password" type="text" class="form-control required">
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="confirm">Confirm Password *</label>
-                                        <input id="confirm" name="password_confirmation" type="text" class="form-control required">
-                                    </div>
-                                
-                                <div class="help-text text-muted">(*) Mandatory</div>
-                            </section>
-                            <h3>Layanan</h3>
-                            <section>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="name">First name *</label>
-                                        <input id="name" name="name" type="text" class="form-control required">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="surname">Last name *</label>
-                                        <input id="surname" name="surname" type="text" class="form-control required">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input id="email" name="email" type="text" class="form-control required email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input id="address" name="address" class="form-control" type="text">
-                                </div>
-                                <div class="help-text text-muted">(*) Mandatory</div>
-                            </section>
-                            <h3>Buat akun</h3>
-                            <section>
-                                <ul class="ml-5">
-                                    <li>Foo</li>
-                                    <li>Bar</li>
-                                    <li>Foobar</li>
-                                </ul>
-                            </section>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Kode Invoice</label>
+                            <input type="number" id="simpleinput" name="kd_invoicesatuan" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Paket satuan</label>
+                            <select name="paket_satuan_id" id="simpleinput" class="form-control">
+                                @foreach ($paket as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_paketsatuan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Pelanggan</label>
+                            <select name="user_id" id="simpleinput" class="form-control">
+                                @foreach ($user as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Jumlah barang</label>
+                            <input type="number" id="simpleinput" name="jumlah_barang" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Metode pembayaran</label>
+                            <input type="text" id="simpleinput" name="pay_satuan" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Harga paket satuan</label>
+                            <input type="number" id="simpleinput" name="harga_paketsatuan" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Harga antar satuan</label>
+                            <input type="number" id="simpleinput" name="harga_antarsatuan" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="simpleinput">Harga total satuan</label>
+                            <input type="number" id="simpleinput" name="harga_totalsatuan" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="submit" class="btn btn-primary" value="Submit">
                         </div>
                     </form>
                 </div> <!-- .card-body -->

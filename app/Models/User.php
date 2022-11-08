@@ -56,5 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function ck_satuan(){
+        return $this->hasOne(Checkout_satuan::class);
+    }
 }
 
