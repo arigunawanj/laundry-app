@@ -49,6 +49,14 @@
                                                     <td>{{ $outlet->email_outlet }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Kecamatan</td>
+                                                    <td>{{ $outlet->kecamatan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Kelurahan</td>
+                                                    <td>{{ $outlet->kelurahan }}</td>
+                                                </tr>
+                                                <tr>
                                                     <td>Foto</td>
                                                     <td><img src="{{ asset('storage/' . $outlet->upload) }}" width="100px"
                                                         alt="" srcset=""></td>

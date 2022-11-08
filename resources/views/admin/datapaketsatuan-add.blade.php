@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="/datapaketsatuan" method="POST" enctype="multipart/form-data">
+                            <form action="/datapaketsatuan" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Kode Paket</label>

@@ -14,7 +14,9 @@ class Outlet extends Model
             'alamat_outlet',
             'telepon_outlet',
             'email_outlet',
-            'upload'
+            'upload',
+            'kecamatan',
+            'kelurahan'
     ];
 
     protected $guarded = ['id'];

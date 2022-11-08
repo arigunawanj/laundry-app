@@ -58,6 +58,8 @@ class OutletController extends Controller
             'alamat_outlet' => 'required',
             'telepon_outlet' => 'required',
             'email_outlet' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
             'upload' => 'required|image|max:10000|mimes:jpg'
         ]);
 
