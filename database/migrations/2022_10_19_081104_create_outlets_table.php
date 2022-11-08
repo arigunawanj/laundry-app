@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('alamat_outlet');
             $table->string('telepon_outlet');
             $table->string('email_outlet');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
             $table->text('iframe_script')->nullable();
             $table->timestamps();
         });

@@ -40,6 +40,22 @@
                                         <input type="email" id="simpleinput" name="email_outlet" class="form-control">
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">Provinsi</label>
+                                        <select class="form-control" onchange="daerah(id,value)" id="provinces"></select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kabupaten</label>
+                                        <select class="form-control" onchange="daerah(id,value)" id="regencies"></select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kecamatan</label>
+                                        <select name="kecamatan" class="form-control" onchange="daerah(id,value)" id="districts"></select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Kelurahan</label>
+                                        <select name="kelurahan" class="form-control" onchange="daerah(id,value)" id="villages"></select>
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput" class="form-label">Foto</label>
                                         <input class="form-control" type="file" name="upload" id="simpleinput">
                                     </div>

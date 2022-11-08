@@ -41,7 +41,9 @@ class UserController extends Controller
     public function create()
     {
         $user = Role::all();
-        return view('admin.datapengguna-add', compact('user'));
+        $data = Auth::user()->id;
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        return view('admin.datapengguna-add', compact('user', 'profil'));
         
     }
 
@@ -91,7 +93,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.datapengguna-detail', ['user' => $user]);
+        $data = Auth::user()->id;
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        return view('admin.datapengguna-detail', ['user' => $user, 'profil' => $profil]);
     }
 
     /**
@@ -107,8 +111,10 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
         $role = Role::all();
+        $data = Auth::user()->id;
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('admin.datapengguna-edit', compact('user', 'role'));
+        return view('admin.datapengguna-edit', compact('user', 'role', 'profil'));
     }
 
     /**

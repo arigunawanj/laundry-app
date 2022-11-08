@@ -50,8 +50,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
-
+    
+    Route::get('json', function () {
+        return view('json');
+    });
+    
     Route::get('export', [OutletController::class, 'export']);
+    Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
 });
 
 // NAVBAR CUSTOMER

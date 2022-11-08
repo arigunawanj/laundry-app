@@ -8,6 +8,7 @@ use App\Exports\OutletExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -166,7 +167,13 @@ class OutletController extends Controller
         // return Excel::download(new OutletExport, 'LaporanOutlet.xlsx');
 
         return (new OutletExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::MPDF);
-
         
+    }
+
+    public function wilayah()
+    {
+        $data = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+        return $data->json();
+        // dd($data->json());
     }
 }
