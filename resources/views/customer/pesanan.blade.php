@@ -21,34 +21,30 @@
                             <div class="card-body">
                                 <h5 class="card-title">Daftar Pesanan</h5>
                                 <p class="card-text">Daftar Pesanan Karisma Laundry </p>
-                                <table class="table table-hover mt-4">
+                                <table class="table table-hover text-center mt-4">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Outlet</th>
-                                            <th>Kode Invoice</th>
-                                            <th>Tanggal Pemberian</th>
-                                            <th>Pegawai</th>
-                                            <th>Aksi</th>
+                                            <th class="text-dark">No</th>
+                                            <th class="text-dark">Kode invoice</th>
+                                            <th class="text-dark">Paket satuan</th>
+                                            <th class="text-dark">Jumlah barang</th>
+                                            <th class="text-dark">Metode pembayaran</th>
+                                            <th class="text-dark">Total harga</th>
+                                            <th class="text-dark">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($data as $d)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Karisma Klojen</td>
-                                            <td>001</td>
-                                            <td>Apr 24, 2019</td>
-                                            <td>Budi</td>
-                                            <td><a href="" class="btn btn-primary">Lihat</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Karisma Lowokwaru</td>
-                                            <td>002</td>
-                                            <td>May 23, 2020</td>
-                                            <td>Bayu</td>
-                                            <td><a href="" class="btn btn-primary">Lihat</a></td>
-                                        </tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $d->kd_invoicesatuan }}</td>
+                                            <td>{{ $d->paket_satuan->nama_paketsatuan }}</td>
+                                            <td>{{ $d->jumlah_barang }}</td>
+                                            <td>{{ $d->pay_satuan }}</td>
+                                            <td><span id="harga">{{ $d->harga_totalsatuan }}</span></td>
+                                            <td><button class="btn btn-primary" id="bayar">Bayar</button></td>
+                                        </tr>                                            
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

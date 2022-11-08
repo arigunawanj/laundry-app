@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $data = Auth::user()->id;
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        
         if (Auth::user()->role_id == 1) {
             return view('layouts/dashboard', compact('profil'));
         }elseif (Auth::user()->role_id == 2) {

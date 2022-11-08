@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kd_invoicesatuan');
             $table->foreignId('paket_satuan_id')->constrained()->onCascadeUpdate()->onCascadeDelete();
+            $table->foreignId('user_id')->constrained()->onCascadeUpdate()->onCascadeDelete();
             $table->integer('jumlah_barang');
             $table->string('pay_satuan');
             $table->bigInteger('harga_paketsatuan');

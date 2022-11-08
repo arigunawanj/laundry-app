@@ -49,7 +49,8 @@
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar avatar-sm mt-2">
                             @foreach ($profil as $item)
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="..."
+                                    class="avatar-img rounded-circle">
                             @endforeach
                         </span>
                     </a>
@@ -75,11 +76,12 @@
             <nav class="vertnav navbar navbar-light">
                 <!-- nav bar -->
                 <div class="w-100 mb-4 d-flex">
-                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="/dashboard">
+                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="#">
                         <img src="{{ asset('assets/assets/images/laundry.png') }}" class="w-75" alt=""
                             srcset="">
                     </a>
                 </div>
+                @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item w-100">
                         <a class="nav-link" href="/dashboard">
@@ -88,6 +90,7 @@
                         </a>
                     </li>
                 </ul>
+                @endif
                 @if (Auth::user()->role_id == 1)
                     <p class="text-muted nav-heading mt-4 mb-1">
                         <span>Kelola Data</span>
@@ -128,8 +131,8 @@
                             </a>
                             <ul class="collapse list-unstyled pl-4 w-100" id="layanan">
                                 <li class="nav-item">
-                                    <a class="nav-link pl-3" href="/registrasipelanggan"><span
-                                            class="ml-1 item-text">Layanan Pelanggan</span>
+                                    <a class="nav-link pl-3" href="{{ route('layanan.create') }}"><span
+                                            class="ml-1 item-text">Tambah Pesanan</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -166,6 +169,26 @@
                                             class="ml-1 item-text">Laporan Transaksi</span></a>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                @elseif (Auth::user()->role_id == 3)
+                    <p class="text-muted nav-heading mt-4 mb-1">
+                        <span>Pesanan </span>
+                    </p>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item w-100">
+                            <a class="nav-link" href="/pesan">
+                                <i class="fe fe-shopping-cart fe-16"></i>
+                                <span class="ml-3 item-text">Pesan Laundry</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-fill w-100 mb-2">
+                        <li class="nav-item w-100">
+                            <a class="nav-link" href="{{ route('pesanan.index') }}">
+                                <i class="fe fe-shopping-bag fe-16"></i>
+                                <span class="ml-3 item-text">Pesanan</span>
+                            </a>
                         </li>
                     </ul>
                 @endif
@@ -241,6 +264,9 @@
 
 
     <script src="{{ asset('assets/js/apps.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-jdjG99xvk3PihD64"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
 

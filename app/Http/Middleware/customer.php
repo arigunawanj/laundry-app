@@ -21,8 +21,6 @@ class customer
             return redirect('login');
         } elseif (Auth::user()->role_id != 3) {
             return redirect('login');
-        }  elseif (Auth::user()->role_id != 4) {
-            return redirect('login');
         }
         return $next($request);
     }
