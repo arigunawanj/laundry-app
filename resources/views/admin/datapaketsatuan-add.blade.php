@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Harga</label>
-                                    <input type="text" id="simpleinput" name="harga_paketsatuan" class="form-control">
+                                    <input type="number" id="simpleinput" name="harga_paketsatuan" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Outlet</label>
@@ -46,9 +46,9 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                             </form>
                         </div>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </div>
             </div>
