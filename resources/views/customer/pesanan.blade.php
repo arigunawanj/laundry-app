@@ -41,8 +41,8 @@
                                             <td>{{ $d->paket_satuan->nama_paketsatuan }}</td>
                                             <td>{{ $d->jumlah_barang }}</td>
                                             <td>{{ $d->pay_satuan }}</td>
-                                            <td><span id="harga">{{ $d->harga_totalsatuan }}</span></td>
-                                            <td><button class="btn btn-primary" id="bayar">Bayar</button></td>
+                                            <td><span id="harga{{ $d->id }}">{{ $d->harga_totalsatuan }}</span></td>
+                                            <td><button class="btn btn-primary" onclick="bayar({{ $d->id }})">Bayar</button></td>
                                         </tr>                                            
                                         @endforeach
                                     </tbody>

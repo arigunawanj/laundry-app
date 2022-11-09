@@ -1,13 +1,10 @@
-$('#bayar').click(function (e) {
-    
-    // console.log('aaaaaaaa');
-    e.preventDefault();
-    
+function bayar(id) {
+    // console.log(id);
     $.ajax({
         type: "get",
         url: "midtrans",
         data: {
-            harga:$('#harga').html(),
+            harga:$('#harga'+id).html(),
         },
         dataType: "json",
         success: function (response) {
@@ -26,5 +23,13 @@ $('#bayar').click(function (e) {
             });
 
         }
-    });
+    });    
+}
+
+$('#bayar').click(function (e) {
+    
+    // console.log('aaaaaaaa');
+    e.preventDefault();
+    alert('success');
+   
 });

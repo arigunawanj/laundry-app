@@ -71,13 +71,45 @@ class OutletController extends Controller
             $data = $request->file('upload')->storeAs('img', $newName);
         };
 
+            
+
     
 
         // $file = $request->file('upload')->store('img');
         // $validator['upload'] = $file;
         
         $validator['upload'] = $data;
-        $outlet = Outlet::create($validator);
+
+        $kec = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
+        $decpro = json_decode($kec, true);  
+        // dd($decpro);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kecamatan){
+                $kec = $decpro[$i]['name'];
+            }
+        }
+
+        $kel = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$request->kecamatan.'.json');
+        $decpro = json_decode($kel, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kelurahan){
+                $kel = $decpro[$i]['name'];
+            }
+        }
+        
+        $outlet = Outlet::create([
+            'nama_outlet' => $request->nama_outlet,
+            'alamat_outlet' => $request->alamat_outlet,
+            'telepon_outlet' => $request->telepon_outlet,
+            'email_outlet' => $request->email_outlet,
+            'kecamatan' => $kec,
+            'kelurahan' => $kel,
+            'upload' => 'required|image|max:10000|mimes:jpg'
+        ]);
 
         return redirect('dataoutlet');
     }
@@ -108,7 +140,10 @@ class OutletController extends Controller
     public function edit($id)
     {
         $outlet = Outlet::findOrFail($id);
-        return view('admin.dataoutlet-edit', compact('outlet'));
+        $data = Auth::user()->id;
+
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        return view('admin.dataoutlet-edit', compact('outlet', 'profil'));
     }
 
     /**
@@ -178,4 +213,5 @@ class OutletController extends Controller
         return $data->json();
         // dd($data->json());
     }
+    
 }

@@ -48,7 +48,7 @@
                                                                 <form action="{{ route('dataoutlet.destroy', $item->id) }}" method="POST" id="myForm">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <a class="dropdown-item" href="#" id="submitdel" onclick="return confirm('Yakin hapus Data ?')"><i class="fe fe-trash fe-12 mr-4"></i>Delete</a>
+                                                                    <button type="submit" class="dropdown-item" onclick="return confirm('Yakin hapus Data ?')"><i class="fe fe-trash fe-12 mr-4"></i>Delete</button>
                                                                 </form>
                                                             </div>
                                                         </div>
