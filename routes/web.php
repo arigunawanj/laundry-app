@@ -23,7 +23,7 @@ use App\Http\Controllers\TemplateController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('customer.landingpage');
 });
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
