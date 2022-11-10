@@ -28,6 +28,7 @@ Route::get('/', function () {
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
 Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
+Route::view('login', 'auth.login');
 
 // NAVBAR ADMIN
 // Route::view('/dataoutlet', 'admin.dataoutlet');
