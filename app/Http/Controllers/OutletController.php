@@ -108,7 +108,7 @@ class OutletController extends Controller
             'email_outlet' => $request->email_outlet,
             'kecamatan' => $kec,
             'kelurahan' => $kel,
-            'upload' => 'required|image|max:10000|mimes:jpg'
+            'upload' => $validator['upload']
         ]);
 
         return redirect('dataoutlet');
