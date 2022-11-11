@@ -35,11 +35,6 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Profile</td>
-                                                <img src="{{ asset('storage/' . $user->upload) }}" width="100px"
-                                                    alt="" srcset=""></td>
-                                            </tr>
-                                            <tr>
                                                 <td>Nama</td>
                                                 <td>{{ $user->name }}</td>
                                             </tr>

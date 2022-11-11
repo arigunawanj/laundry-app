@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail_profile;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,18 +20,12 @@ class UserController extends Controller
     public function index()
     {
         $data = Auth::user()->id;
-        
+
         $user = DB::select('select d.image, u.id, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id');
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        // $role = Role::all();
-        //   $user = DB::select('SELECT u.name, 
-        //   u.id, u.email, 
-        //   r.name from users as u 
-        //   join roles as r on u.role_id = r.id');
-
-        return view('admin.datapengguna', compact('user' ,'profil'));
+        return view('admin.datapengguna', compact('user', 'profil'));
     }
 
     /**
@@ -41,10 +36,10 @@ class UserController extends Controller
     public function create()
     {
         $user = Role::all();
+        // $user = Role::select('name')->where('id', '=', '1');
         $data = Auth::user()->id;
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         return view('admin.datapengguna-add', compact('user', 'profil'));
-        
     }
 
     /**
@@ -61,27 +56,11 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
             'role_id' => 'required',
-            'image' => 'required|image|max:10000|mimes:jpg'
         ]);
 
-        $newName = '';
-
-        if($request->file('image')){
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
-            $data = $request->file('image')->storeAs('img', $newName);
-        };
-
-    
-
-        // $file = $request->file('upload')->store('img');
-        // $validator['upload'] = $file;
-        
-        $validator['image'] = $data;
-        $user = User::create($validator);
+        User::create($validator);
 
         return redirect('datapengguna');
-
     }
 
     /**
@@ -126,15 +105,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $validator = $request->validate([
-        //     'name' => 'required',
-        //     'id' => 'required',
-        //     'email' => 'required',
-        //     'role_id' => 'required',
-        // ]);
 
         $user = User::findOrFail($id);
-        // $data->update($request->all());
 
         $validator = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -146,26 +118,6 @@ class UserController extends Controller
         $user->update($validator);
 
         return redirect('datapengguna');
-
-        // $user = User::findOrFail($id);
-
-        // $newName = '';
-        // $data = '';
-        // if ($request->hasFile('upload')) {
-        //     $request->validate([
-        //         'upload' => 'required|image|max:10000|mimes:jpg'
-        //     ]);
-        //     Storage::delete($user->upload);
-        //     $upload = $request->upload;
-        //     $extension = $request->file('upload')->getClientOriginalExtension();
-        //     $newName = $request->name . '-' . now()->timestamp . '.' . $extension;
-        //     $data = $request->file('upload')->storeAs('img', $newName);
-        // }
-
-        // $validator['upload'] = $data;
-        // $user->update($validator);
-
-        // return redirect('datapengguna');
     }
 
     /**
@@ -176,12 +128,6 @@ class UserController extends Controller
      */
     public function destroy(User $user, $id)
     {
-        // $user = User::findOrFail($id);
-        // if (Storage::delete($user->upload)) {
-        //     Storage::delete($user->upload);
-        // }
-        // $user->delete();
-        // return redirect('datapengguna');
         $user = User::findOrFail($id);
         $user->delete();
         return redirect('datapengguna');
