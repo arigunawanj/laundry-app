@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('asset\img\favicon\laundry.png') }}">
-    <title>Laundry | @yield('title')</title>
+    <title>Laundry | @if(Auth::user()->role_id == 1) Admin @else Pegawai @endif</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/simplebar.css') }}">
     <!-- Fonts CSS -->
@@ -135,7 +135,7 @@
                                         Pelanggan</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="/transaksiadmin"><span class="ml-1 item-text">Transaksi Pelanggan</span></a>
+                                <a class="nav-link pl-3" href="/transaksi"><span class="ml-1 item-text">Transaksi Pelanggan</span></a>
                             </li>
                         </ul>
                     </li>
@@ -181,7 +181,7 @@
                                         Pelanggan</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-3" href="/transaksiadmin"><span class="ml-1 item-text">Transaksi Pelanggan</span></a>
+                                <a class="nav-link pl-3" href="/transaksi"><span class="ml-1 item-text">Transaksi Pelanggan</span></a>
                             </li>
                         </ul>
                     </li>
