@@ -196,6 +196,7 @@
         </aside>
         <main role="main" class="main-content">
             <div class="container-fluid">
+                @include('sweetalert::alert')
                 @yield('content')
             </div> <!-- .container-fluid -->
         </main> <!-- main -->
@@ -271,6 +272,7 @@
               }
         }
         </script>
+   
 
 
     <script src="{{ asset('assets/js/apps.js') }}"></script>

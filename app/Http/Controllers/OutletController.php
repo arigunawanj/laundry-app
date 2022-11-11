@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use Maatwebsite\Excel\Concerns\Exportable;
 
 class OutletController extends Controller
@@ -111,6 +112,7 @@ class OutletController extends Controller
             'upload' => $validator['upload']
         ]);
 
+        Alert::success('Data Outlet', 'Data Outlet Berhasil ditambahkan');
         return redirect('dataoutlet');
     }
 
@@ -180,6 +182,7 @@ class OutletController extends Controller
         $validator['upload'] = $data;
         $outlet->update($validator);
 
+        
         return redirect('dataoutlet');
     }
 
@@ -196,6 +199,7 @@ class OutletController extends Controller
             Storage::delete($outlet->upload);
         }
         $outlet->delete();
+        Alert::warning('Hapus Data Outlet', 'Berhasil Hapus Data');
         return redirect('dataoutlet');
     }
 

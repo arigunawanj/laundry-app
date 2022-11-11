@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_profile;
 use App\Models\User;
+use App\Models\Detail_profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class profilController extends Controller
+class ProfilCustController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class profilController extends Controller
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         // dd($profil);
         // $id = Detail_profile::all();
-        return view('layouts.profile', compact('profil'));
+        return view('customer.profil', compact('profil'));
     }
 
     /**
@@ -37,7 +37,7 @@ class profilController extends Controller
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('layouts.tambahprofil', compact('profil'));
+        return view('customer.profil-add', compact('profil'));
     }
 
     /**
@@ -48,7 +48,6 @@ class profilController extends Controller
      */
     public function store(Request $request)
     {
-
         $file = $request->file('image')->store('img');
 
         Detail_profile::create([
@@ -65,7 +64,7 @@ class profilController extends Controller
 
         // detail_profiles::create($validator);
 
-        return redirect('profile');
+        return redirect('profil');
     }
 
     /**
@@ -87,14 +86,13 @@ class profilController extends Controller
      */
     public function edit($id)
     {
-
         $data = Auth::user()->id;
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
         $profil1 = Detail_profile::findOrFail($id);
         $user = User::findOrFail($id);
-        return view('layouts.editprofil', compact('profil1', 'user', 'profil'));
+        return view('customer.profil-edit', compact('profil1', 'user', 'profil'));
     }
 
     /**

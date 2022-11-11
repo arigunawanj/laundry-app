@@ -66,6 +66,7 @@
                                     <th class="text-dark">Jumlah barang</th>
                                     <th class="text-dark">Metode pembayaran</th>
                                     <th class="text-dark">Total harga</th>
+                                    <th class="text-dark">Status pembayaran</th>
                                     <th class="text-dark">Aksi</th>
                                 </tr>
                             </thead>
@@ -73,13 +74,16 @@
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->kd_invoicesatuan }}</td>
+                                    <td id="invoice">{{ $d->kd_invoicesatuan }}</td>
                                     <td>{{ $d->paket_satuan->nama_paketsatuan }}</td>
                                     <td>{{ $d->jumlah_barang }}</td>
                                     <td>{{ $d->pay_satuan }}</td>
-                                    <td><span id="harga{{ $d->id }}">{{ $d->harga_totalsatuan }}</span></td>
-                                    <td><button class="btn btn-primary" onclick="bayar({{ $d->id }})">Bayar</button></td>
-                                    <a href="{{ url('') }}" id="mmk"></a>
+                                    <td>{{ $d->harga_totalsatuan }}</td>
+                                    <td><span class="text-warning fw-bold">{{ $d->status_pembayaran }}</span></td>
+                                    <td>
+                                            <button class="btn btn-primary @if ($d->status_pembayaran == 'Success, transaction is found')d-none @endif" onclick="bayar({{ $d->id }})">Bayar</button>
+                                        
+                                    </td>
                                 </tr>                                            
                                 @endforeach
                             </tbody>
@@ -89,6 +93,9 @@
             </div>
             </div>
         </section>
-
+        <form action="profil/success" id="submit_form" method="POST">
+            @csrf
+            <input type="hidden" name="json" id="call_json">
+        </form>
     </main><!-- End #main -->
 @endsection

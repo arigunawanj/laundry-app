@@ -161,7 +161,6 @@ class PaketController extends Controller
     public function storesatuan(Request $request)
     {
         $validators = $request->validate([
-            'kd_paketsatuan' => 'required',
             'nama_paketsatuan' => 'required',
             'ket_paketsatuan' => 'required',
             'harga_paketsatuan' => 'required',
@@ -170,7 +169,14 @@ class PaketController extends Controller
         
         // dd($request);
         
-        $pakets = Paket_satuan::create($validators);
+        Paket_satuan::create([
+            'kd_paketsatuan' => 'PS'.rand(),
+            'nama_paketsatuan' => $request->nama_paketsatuan,
+            'ket_paketsatuan' => $request->ket_paketsatuan,
+            'harga_paketsatuan' => $request->harga_paketsatuan,
+            'outlet_id' => $request->outlet_id,
+        ]);
+
         return redirect('datapaket');
     }
 

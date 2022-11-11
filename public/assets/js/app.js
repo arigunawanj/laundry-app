@@ -2,10 +2,7 @@ function bayar(id) {
     // console.log(id);
     $.ajax({
         type: "get",
-        url: "midtrans",
-        data: {
-            harga:$('#harga'+id).html(),
-        },
+        url: "midtrans/"+id,
         dataType: "json",
         success: function (response) {
 
@@ -13,6 +10,7 @@ function bayar(id) {
             snap.pay(response, {
                 // Optional
                 onSuccess: function (result) {
+                    send_response(result);
                 },
                 // Optional
                 onPending: function (result) {
@@ -33,3 +31,8 @@ $('#bayar').click(function (e) {
     alert('success');
    
 });
+
+function send_response(result){
+    document.getElementById('call_json').value = JSON.stringify(result);
+    $('#submit_form').submit();
+}

@@ -21,11 +21,11 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="simpleinput">Kode Invoice</label>
-                            <input type="number" id="simpleinput" name="kd_invoicesatuan" class="form-control">
+                            <input type="text" id="simpleinput" name="kd_invoicesatuan" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="simpleinput">Paket satuan</label>
-                            <select name="paket_satuan_id" id="simpleinput" class="form-control">
+                            <select name="paket_satuan_id" id="satuan" class="form-control">
                                 @foreach ($paket as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_paketsatuan }}</option>
                                 @endforeach
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="simpleinput">Harga paket satuan</label>
-                            <input type="number" id="txt1" name="harga_paketsatuan" onkeyup="sum();" class="form-control">
+                            <input type="number" id="txt1" name="harga_paketsatuan"  class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="simpleinput">Harga antar satuan</label>

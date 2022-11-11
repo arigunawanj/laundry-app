@@ -56,9 +56,9 @@
           @else
           <li class="dropdown"><a href="#"><span class="text-capitalize">{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Profil</a></li>
+              <li><a href="/profil">Profil</a></li>
               <li><a href="#">Pesanan</a></li>
-              <li><a href="#">Histori</a></li>
+              <li><a href="/home">Histori</a></li>
               <li><a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="
             event.preventDefault();
@@ -77,7 +77,7 @@
 
     </div>
   </header><!-- End Header -->
-
+    @include('sweetalert::alert')
     @yield('utama')
 
   <!-- ======= Footer ======= -->

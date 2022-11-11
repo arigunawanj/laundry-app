@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\cksatuanController;
-use App\Http\Controllers\ckstncustController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
-use App\Http\Controllers\kelolaPelangganController;
+use App\Http\Controllers\cksatuanController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\ckstncustController;
+use App\Http\Controllers\ProfilCustController;
+use App\Http\Controllers\kelolaPelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,13 +67,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
     Route::resource('customer', ckstncustController::class);
-    Route::get('midtrans',[ckstncustController::class, 'midtrans']);
+    Route::get('midtrans/{id}',[ckstncustController::class, 'midtrans']);
     Route::view('/pesan', 'customer.pesan');
     Route::view('/datatable', 'customer.datatable');
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('profile', profilController::class);
+    Route::resource('profil', ProfilCustController::class);
+    Route::post('profil/success', [ckstncustController::class, 'success']);
 });
 // Route::view('profile', 'customer.profile');
 

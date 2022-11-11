@@ -93,8 +93,12 @@ class ckstncustController extends Controller
         //
     }
 
-    public function midtrans(Request $request){
-        $harga = $request->harga;
+    public function midtrans($id){
+        
+        $checkout = Checkout_satuan::find($id);
+        $harga = $checkout->harga_totalsatuan;
+        $invoice = $checkout->kd_invoicesatuan;
+
 
         Config::$serverKey = 'SB-Mid-server-pCjaWn7M36tGOLJ4svoU8PmU';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -106,7 +110,7 @@ class ckstncustController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
+                'order_id' => $invoice,
                 'gross_amount' => $harga,
             ),
             "enabled_payments"=>[
@@ -117,5 +121,20 @@ class ckstncustController extends Controller
         $snapToken = Snap::getSnapToken($params);
 
         return json_encode($snapToken);
+    }
+
+    public function success(Request $request)
+    {
+        $json = json_decode($request->get('json'));
+        $invoice = $json->order_id;
+        $checkoutid = Checkout_satuan::where('kd_invoicesatuan', $invoice)->first();
+        $checkout = Checkout_satuan::find($checkoutid->id);
+
+        $checkout->update([
+            'paysatuan' => $json->payment_type,
+            'status_pembayaran' => $json->status_message
+        ]);
+
+        return redirect('/customer');
     }
 }

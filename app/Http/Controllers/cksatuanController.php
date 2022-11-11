@@ -46,7 +46,15 @@ class cksatuanController extends Controller
      */
     public function store(Request $request)
     {
-        Checkout_satuan::create($request->all());
+        Checkout_satuan::create([
+            'kd_invoicesatuan' => 'KS'.rand(),
+            'paket_satuan_id' => $request -> paket_satuan_id,
+            'user_id' => $request -> user_id,
+            'jumlah_barang' => $request -> jumlah_barang,
+            'pay_satuan' => $request -> pay_satuan,
+            'harga_paketsatuan' => $request -> harga_paketsatuan, 
+            'harga_totalsatuan' => $request -> harga_totalsatuan
+        ]);
 
         return redirect('kelolapelanggan');
     }

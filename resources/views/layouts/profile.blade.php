@@ -10,10 +10,10 @@
         </ol>
     </nav>
 
-                <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                
+
                 <div class="row">
                     <div class="col">
                         <div class="card shadow mb-4">
@@ -22,6 +22,10 @@
                             </div>
                             <div class="card-body text-center">
                                 <a href="#!" class="avatar avatar-lg">
+                                    @if (!$profil)
+                        <img src="{{ asset('land/img/team/team-1.jpg') }}" alt="..."
+                            class="avatar-img rounded w-25">
+                        @endif
                                     @foreach ($profil as $gambar)
                                         <img src="{{ asset('storage/' . $gambar->image) }}" alt="..."
                                             class="avatar-img rounded w-25">
@@ -121,14 +125,16 @@
                                     </div>
                                 @endforeach
                                 <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
-                                    <a href="{{ route('profile.create') }}" class="btn btn-primary mx-4"><i class='bx bxs-folder-plus' ></i> Tambah Profil</a>
+                                    <a href="{{ route('profile.create') }}" class="btn btn-primary mx-4"><i
+                                            class='bx bxs-folder-plus'></i> Tambah Profil</a>
                                 </div>
-                        
+
                                 <div class="row justify-content-center @if (!DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
-                                    <a href="{{ route('profile.edit' , Auth::user()->id ) }}" class="btn btn-warning text-white"><i class='bx bx-edit-alt'></i> Edit Data</a>
+                                    <a href="{{ route('profile.edit', Auth::user()->id) }}"
+                                        class="btn btn-warning text-white"><i class='bx bx-edit-alt'></i> Edit Data</a>
                                 </div>
-                                
-                                
+
+
                             </div> <!-- /.card-footer -->
                         </div> <!-- /.card -->
                     </div>
@@ -136,4 +142,4 @@
             </div> <!-- /.col-12 col-lg-10 col-xl-10 -->
         </div> <!-- .row -->
     </div>
-            @endsection
+@endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkout_satuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,12 @@ class HomeController extends Controller
         }elseif (Auth::user()->role_id == 2) {
             return view('layouts/dashboard', compact('profil'));
         }elseif (Auth::user()->role_id == 3 || Auth::user()->role_id == 4 ) {
-            return view('customer/customer', compact('profil'));
+            $id = Auth::user()->id;
+        
+            $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $id);
+
+            $data = Checkout_satuan::all()->where('user_id', $id);
+            return view('customer/customer', compact('profil', 'data'));
         }
     }
 }

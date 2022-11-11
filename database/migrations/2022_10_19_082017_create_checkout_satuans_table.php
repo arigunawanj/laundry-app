@@ -23,6 +23,7 @@ return new class extends Migration
             $table->bigInteger('harga_paketsatuan');
             $table->bigInteger('harga_antarsatuan')->default(0);
             $table->bigInteger('harga_totalsatuan');
+            $table->string('status_pembayaran')->default('Menunggu pembayaran');
             $table->timestamps();
         });
     }
