@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $data = Auth::user()->id;
 
-        $user = DB::select('select d.image, u.id, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id');
+        $user = DB::select('select d.image, u.id, u.name, u.email, r.name as role_name from users u, detail_profiles d, roles r where u.role_id = r.id and d.user_id = u.id and r.id in (1, 2)' );
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
@@ -35,8 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user = Role::all();
-        // $user = Role::select('name')->where('id', '=', '1');
+        $user = Role::whereIn('id', ['1', '2'])->get();
         $data = Auth::user()->id;
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         return view('admin.datapengguna-add', compact('user', 'profil'));
