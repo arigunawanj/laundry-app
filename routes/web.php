@@ -23,7 +23,7 @@ use App\Http\Controllers\TemplateController;
 */
 
 Route::get('/', function () {
-    return view('customer.landingpage');
+    return view('customer.halutama');
 });
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
@@ -49,7 +49,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('datapaket', PaketController::class);
     Route::view('/laporanpegawai', 'admin.laporanpegawai');
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
-    Route::resource('layanan', cksatuanController::class);;
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
@@ -62,10 +61,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('layanan', cksatuanController::class);        
+});
+
+Route::middleware(['auth', 'pegawai'])->group(function () {
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
+});
+
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
-    Route::resource('pesanan', ckstncustController::class);
+    Route::resource('customer', ckstncustController::class);
     Route::get('midtrans',[ckstncustController::class, 'midtrans']);
     Route::view('/pesan', 'customer.pesan');
     Route::view('/datatable', 'customer.datatable');
@@ -74,11 +81,6 @@ Route::middleware(['auth', 'customer'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('profile', profilController::class);
 });
-// Route::view('profile', 'customer.profile');
-
-
-
-// Route::view('dashboard', 'layouts/dashboard');
 
 Auth::routes();
 
