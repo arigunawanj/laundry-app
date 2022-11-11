@@ -50,7 +50,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('datapaket', PaketController::class);
     Route::view('/laporanpegawai', 'admin.laporanpegawai');
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
-    Route::resource('layanan', cksatuanController::class);;
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
@@ -61,6 +60,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
     Route::get('export', [OutletController::class, 'export']);
     Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('layanan', cksatuanController::class);        
+});
+
+Route::middleware(['auth', 'pegawai'])->group(function () {
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
 });
 
 // NAVBAR CUSTOMER
@@ -77,11 +84,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profil', ProfilCustController::class);
     Route::post('profil/success', [ckstncustController::class, 'success']);
 });
-// Route::view('profile', 'customer.profile');
-
-
-
-// Route::view('dashboard', 'layouts/dashboard');
 
 Auth::routes();
 
