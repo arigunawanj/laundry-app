@@ -43,6 +43,7 @@
                                             <td>{{ $d->pay_satuan }}</td>
                                             <td><span id="harga{{ $d->id }}">{{ $d->harga_totalsatuan }}</span></td>
                                             <td><button class="btn btn-primary" onclick="bayar({{ $d->id }})">Bayar</button></td>
+                                            <a href="{{ url('') }}" id="mmk"></a>
                                         </tr>                                            
                                         @endforeach
                                     </tbody>
