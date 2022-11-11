@@ -177,10 +177,18 @@ class OutletController extends Controller
             $extension = $request->file('upload')->getClientOriginalExtension();
             $newName = $request->nama_outlet.'-'.now()->timestamp.'.'.$extension;
             $data = $request->file('upload')->storeAs('img', $newName);
+            $validator['upload'] = $data;
+            $outlet->update($validator);
+        }else{
+            $outlet->update([
+                'nama_outlet' => $request->nama_outlet,
+                'alamat_outlet' => $request->alamat_outlet,
+                'telepon_outlet' => $request->telepon_outlet,
+                'email_outlet' => $request->email_outlet,
+                'upload' => $outlet->upload,
+            ]);
         }
 
-        $validator['upload'] = $data;
-        $outlet->update($validator);
 
         
         return redirect('dataoutlet');

@@ -57,10 +57,6 @@
                                                     <td>{{ $outlet->kelurahan }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Pegawai</td>
-                                                    <td>{{ $outlet->user->name }}</td>
-                                                </tr>
-                                                <tr>
                                                     <td>Foto</td>
                                                     <td><img src="{{ asset('storage/' . $outlet->upload) }}" width="100px"
                                                         alt="" srcset=""></td>
