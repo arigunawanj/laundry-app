@@ -9,9 +9,6 @@
                 <div data-aos="zoom-out">
                     <h1>Pelayanan Laundry Kami adalah yang <span>Terbaik</span></h1>
                     <h2>Namanya Juga Hidup pasti banyak cobaan, kalo banyak cucian bawa saja ke Karisma Laundry aja</h2>
-                    <div class="text-center text-lg-start">
-                        <a href="#about" class="btn-get-started scrollto">Lihat</a>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
@@ -44,10 +41,10 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Inner Page</h2>
+                    <h2>Beranda</h2>
                     <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li>Inner Page</li>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li>Histori</li>
                     </ol>
                 </div>
 
@@ -56,9 +53,40 @@
 
         <section class="inner-page">
             <div class="container">
-                <p>
-                    Example inner page template
-                </p>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Daftar Pesanan</h5>
+                        <p class="card-text">Daftar Pesanan Karisma Laundry </p>
+                        <table class="table table-hover text-center mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-dark">No</th>
+                                    <th class="text-dark">Kode invoice</th>
+                                    <th class="text-dark">Paket satuan</th>
+                                    <th class="text-dark">Jumlah barang</th>
+                                    <th class="text-dark">Metode pembayaran</th>
+                                    <th class="text-dark">Total harga</th>
+                                    <th class="text-dark">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $d->kd_invoicesatuan }}</td>
+                                    <td>{{ $d->paket_satuan->nama_paketsatuan }}</td>
+                                    <td>{{ $d->jumlah_barang }}</td>
+                                    <td>{{ $d->pay_satuan }}</td>
+                                    <td><span id="harga{{ $d->id }}">{{ $d->harga_totalsatuan }}</span></td>
+                                    <td><button class="btn btn-primary" onclick="bayar({{ $d->id }})">Bayar</button></td>
+                                    <a href="{{ url('') }}" id="mmk"></a>
+                                </tr>                                            
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 

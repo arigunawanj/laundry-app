@@ -25,7 +25,6 @@ use App\Http\Controllers\TemplateController;
 Route::get('/', function () {
     return view('customer.halutama');
 });
-Route::view('customer', 'customer.customer');
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
 Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
@@ -66,7 +65,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
-    Route::resource('pesanan', ckstncustController::class);
+    Route::resource('customer', ckstncustController::class);
     Route::get('midtrans',[ckstncustController::class, 'midtrans']);
     Route::view('/pesan', 'customer.pesan');
     Route::view('/datatable', 'customer.datatable');

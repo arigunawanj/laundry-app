@@ -168,6 +168,9 @@
   <script src="{{ asset('land/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('land/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('land/vendor/php-email-form/validate.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="{{ asset('assets/js/app.js') }}"></script>
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-jdjG99xvk3PihD64"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('land/js/main.js') }}"></script>

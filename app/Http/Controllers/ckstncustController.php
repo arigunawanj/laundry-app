@@ -24,7 +24,7 @@ class ckstncustController extends Controller
 
         $data = Checkout_satuan::all()->where('user_id', $id);
 
-        return view('customer.pesanan', compact('data', 'profil'));
+        return view('customer.customer', compact('data', 'profil'));
     }
 
     /**
