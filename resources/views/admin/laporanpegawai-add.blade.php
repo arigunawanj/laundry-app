@@ -5,17 +5,17 @@
 @section('content')
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">Data</a></li>
-        <li class="breadcrumb-item"><a href="/dataoutlet">Data Outlet</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Tambah Data Outlet</li>
+        <li class="breadcrumb-item">Laporan</a></li>
+        <li class="breadcrumb-item"><a href="/laporanpegawai">Laporan Pegawai</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tambah Laporan Pegawai</li>
     </ol>
 </nav>
 
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2 class="page-title">Tambah Data Outlet</h2>
-            <p> Tambah Data Outlet Karisma Laundry Kota Malang </p>
+            <h2 class="page-title">Tambah laporan Pegawai</h2>
+            <p> Silahkan menambahkan pegawai dengan outlet</p>
             <div class="card-header col-12">
                 <strong class="card-title">Data Outlet User</strong>
                 <div class="card-body">

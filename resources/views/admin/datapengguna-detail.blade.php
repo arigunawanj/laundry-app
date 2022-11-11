@@ -6,7 +6,7 @@
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">Data</a></li>
-            <li class="breadcrumb-item"><a href="/dataoutlet">Data Pengguna</a></li>
+            <li class="breadcrumb-item"><a href="/datapengguna">Data Pengguna</a></li>
             <li class="breadcrumb-item active" aria-current="page">Detail Data Pengguna</li>
         </ol>
     </nav>

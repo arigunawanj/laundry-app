@@ -5,7 +5,7 @@
 @section('content')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data</a></li>
+            <li class="breadcrumb-item"><a href="/datapaket">Data</a></li>
             <li class="breadcrumb-item active" aria-current="page">Data Paket</li>
         </ol>
     </nav>

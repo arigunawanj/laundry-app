@@ -5,15 +5,15 @@
 @section('content')
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Data</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data Paket</li>
+        <li class="breadcrumb-item"><a href="/datapaket">Data</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data Paket Satuan</li>
     </ol>
 </nav>
 
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2 class="page-title">Tambah Data Paket</h2>
+            <h2 class="page-title">Tambah Data Paket Satuan</h2>
             <p> Tambah Data Paket Karisma Laundry Kota Malang </p>
             <div class="card-header col-12">
                 <strong class="card-title">Data Paket</strong>

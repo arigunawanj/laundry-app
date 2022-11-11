@@ -9,10 +9,11 @@ use App\Http\Controllers\profilController;
 use App\Http\Controllers\cksatuanController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ckstncustController;
-use App\Http\Controllers\ProfilCustController;
-use App\Http\Controllers\kelolaPelangganController;
-use App\Http\Controllers\user_outletsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\transaksiController;
+use App\Http\Controllers\ProfilCustController;
+use App\Http\Controllers\user_outletsController;
+use App\Http\Controllers\kelolaPelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,8 @@ Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 Route::view('login', 'auth.login');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::view('/dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
+    Route::resource('dashboard', DashboardController::class);
     // Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');

@@ -17,7 +17,7 @@
                             </div>
                             <div class="col pr-0">
                                 <p class="small text-muted mb-0">Jumlah Pegawai</p>
-                                <span class="h4 mb-0 text-white">5</span>
+                                <span class="h4 mb-0 text-white">{{ $jmlpegawai }}</span>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col pr-0">
                                 <p class="small text-muted mb-0">Pesanan Selesai</p>
-                                <span class="h4 mb-0">4</span>
+                                <span class="h4 mb-0">{{ $jmlpesanan }}</span>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                                 <p class="small text-muted mb-0">Pelanggan</p>
                                 <div class="row align-items-center no-gutters">
                                     <div class="col-auto">
-                                        <span class="h4 mr-2 mb-0"> 5 </span>
+                                        <span class="h4 mr-2 mb-0">{{ $jmlpelanggan }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="col">
                                 <p class="small text-muted mb-0">Cabang Outlet</p>
-                                <span class="h4 mb-0">10</span>
+                                <span class="h4 mb-0">{{ $jmloutlet }}</span>
                             </div>
                         </div>
                     </div>
