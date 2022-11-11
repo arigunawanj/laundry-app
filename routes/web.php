@@ -62,6 +62,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
 });
 
+Route::middleware(['auth', 'pegawai'])->group(function () {
+    Route::resource('layanan', cksatuanController::class);    
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
+});
+
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
