@@ -79,10 +79,13 @@
                                     <td>{{ $d->jumlah_barang }}</td>
                                     <td>{{ $d->pay_satuan }}</td>
                                     <td>{{ $d->harga_totalsatuan }}</td>
-                                    <td><span class="text-warning fw-bold">{{ $d->status_pembayaran }}</span></td>
+                                    @if($d->status_pembayaran == 'Success, transaction is found')
+                                    <td><span class="text-success fw-bold">Pembayaran selesai</span></td>
+                                    @else                                        
+                                    <td><span class="text-warning fw-bold">Menunggu pembayaran</span></td>
+                                    @endif
                                     <td>
-                                            <button class="btn btn-primary @if ($d->status_pembayaran == 'Success, transaction is found')d-none @endif" onclick="bayar({{ $d->id }})">Bayar</button>
-                                        
+                                        <button class="btn btn-primary @if ($d->status_pembayaran == 'Success, transaction is found')d-none @endif" onclick="bayar({{ $d->id }})">Bayar</button>                                        
                                     </td>
                                 </tr>                                            
                                 @endforeach
