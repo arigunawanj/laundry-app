@@ -20,21 +20,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('datapengguna.store') }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('datapengguna.store') }}" method="POST">
                                     @csrf
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">Foto</label>
-                                        <input type="file" min="0" name="image" id="simpleinput" class="form-control">
-                                    </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Nama</label>
                                         <input type="text" id="simpleinput" name="name" class="form-control">
                                     </div>
-                                    {{-- <div class="form-group mb-3">
-                                        <label for="simpleinput">Kode</label>
-                                        <input type="text" id="simpleinput" name="id" class="form-control">
-                                    </div> --}}
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Password</label>
                                         <input type="password" id="simpleinput" name="password" class="form-control"

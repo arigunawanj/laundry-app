@@ -20,8 +20,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('datapengguna.update', $user->id) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('datapengguna.update', $user->id) }}" method="POST">
                                     @csrf
                                     @method('put')
                                     <div class="form-group mb-3">
@@ -29,11 +28,6 @@
                                         <input type="text" id="simpleinput" name="name" value="{{ $user->name }}"
                                             class="form-control">
                                     </div>
-                                    {{-- <div class="form-group mb-3">
-                                        <label for="simpleinput">Kode</label>
-                                        <input type="text" id="simpleinput" name="id" value="{{ $user->id }}"
-                                            class="form-control">
-                                    </div> --}}
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Password</label>
                                         <input type="text" id="simpleinput" name="password" value="{{ $user->password }}"
