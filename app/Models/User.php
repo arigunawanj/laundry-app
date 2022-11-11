@@ -60,5 +60,12 @@ class User extends Authenticatable
     public function ck_satuan(){
         return $this->hasOne(Checkout_satuan::class);
     }
+
+    public function user_outlets()
+    {
+        return $this->hasMany(user_outlets::class);
+    }
+
+    
 }
 

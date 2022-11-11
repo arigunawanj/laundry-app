@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('outlets', function (Blueprint $table) {
+        Schema::create('user_outlets', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_outlet');
-            $table->string('alamat_outlet');
-            $table->string('telepon_outlet');
-            $table->string('email_outlet');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedBigInteger('outlet_id');
+            $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('restrict');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outlets');
+        Schema::dropIfExists('user_outlets');
     }
 };

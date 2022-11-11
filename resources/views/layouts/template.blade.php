@@ -81,6 +81,12 @@
                             <span class="ml-3 item-text">Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="/outlet-user">
+                            <i class="fe fe-home fe-16"></i>
+                            <span class="ml-3 item-text">Data Outlet User</span>
+                        </a>
+                    </li>
                 </ul>
                 @endif
                 @if (Auth::user()->role_id == 1)

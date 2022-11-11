@@ -11,6 +11,7 @@ use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ckstncustController;
 use App\Http\Controllers\ProfilCustController;
 use App\Http\Controllers\kelolaPelangganController;
+use App\Http\Controllers\user_outletsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/datapaketsatuan/{id}', [PaketController::class, 'updatesatuan']);
     Route::get('/datapaketsatuan/{id}', [PaketController::class, 'destroysatuan']);
     Route::resource('datapaket', PaketController::class);
-    Route::view('/laporanpegawai', 'admin.laporanpegawai');
+    Route::resource('laporanpegawai', user_outletsController::class);
     Route::view('/laporantransaksi', 'admin.laporantransaksi');
     Route::view('/transaksiadmin', 'admin.transaksiadmin');
     Route::view('/tambah-datapaket', 'admin.datapaket-add');

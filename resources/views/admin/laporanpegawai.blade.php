@@ -22,26 +22,31 @@
                             <div class="card-body">
                                 <h5 class="card-title">Laporan Pegawai</h5>
                                 <p class="card-text">Laporan Pegawai Karisma Laundry </p>
+                                <a href="{{ route('laporanpegawai.create') }}" class="btn btn-primary">Tambah Data</a>
                                 <table class="table table-hover mt-4">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Kode Pengguna</th>
-                                            <th>Posisi</th>
-                                            <th>Username</th>
+                                            <th>Nama User</th>
+                                            <th>Nama Outlet</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($outletuser as $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Karisma Klojen</td>
-                                            <td>Enim Limited</td>
-                                            <td>Malang</td>
-                                            <td>Apr 24, 2019</td>
-                                            <td><span class="badge badge-pill badge-warning">Hold</span></td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->user->name}}</td>
+                                            <td>{{ $item->outlet->nama_outlet }}</td>
+                                            <td class="d-flex">
+                                                <form action="{{ route('laporanpegawai.destroy', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger ml-2" onclick="return confirm('Yakin hapus Data ?')">Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
