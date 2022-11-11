@@ -23,7 +23,7 @@ use App\Http\Controllers\TemplateController;
 */
 
 Route::get('/', function () {
-    return view('customer.landingpage');
+    return view('customer.halutama');
 });
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
@@ -70,7 +70,7 @@ Route::middleware(['auth', 'pegawai'])->group(function () {
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
-    Route::resource('pesanan', ckstncustController::class);
+    Route::resource('customer', ckstncustController::class);
     Route::get('midtrans',[ckstncustController::class, 'midtrans']);
     Route::view('/pesan', 'customer.pesan');
     Route::view('/datatable', 'customer.datatable');
