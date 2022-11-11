@@ -57,7 +57,7 @@
           <li class="dropdown"><a href="#"><span class="text-capitalize">{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/profil">Profil</a></li>
-              <li><a href="#">Pesanan</a></li>
+              <li><a href="{{ route('pesanan.create') }}">Pesanan</a></li>
               <li><a href="/home">Histori</a></li>
               <li><a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="
@@ -174,6 +174,16 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('land/js/main.js') }}"></script>
+  <script>
+    function sum() {
+          var txtFirstNumberValue = document.getElementById('txt1').value;
+          var txtSecondNumberValue = document.getElementById('txt2').value;
+          var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+          if (!isNaN(result)) {
+             document.getElementById('txt3').value = result;
+          }
+    }
+    </script>
 
 </body>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\profilController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\cksatuanController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ckstncustController;
@@ -64,7 +65,7 @@ Route::middleware(['auth', 'customer'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
     Route::resource('customer', ckstncustController::class);
     Route::get('midtrans/{id}',[ckstncustController::class, 'midtrans']);
-    Route::view('/pesan', 'customer.pesan');
+    Route::resource('pesanan', PesananController::class);
     Route::view('/datatable', 'customer.datatable');
 });
 

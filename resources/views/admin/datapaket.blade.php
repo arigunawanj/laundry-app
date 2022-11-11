@@ -106,7 +106,7 @@
                                                     <td>{{ $item->nama_paketsatuan }}</td>
                                                     <td>{{ $item->ket_paketsatuan }}</td>
                                                     <td>{{ $item->harga_paketsatuan }}</td>
-                                                    <td>{{ $item->outlet_id }}</td>
+                                                    <td>{{ $item->outlet->nama_outlet }}</td>
                                                     <td>
                                                         <div class="file-action">
                                                             <button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

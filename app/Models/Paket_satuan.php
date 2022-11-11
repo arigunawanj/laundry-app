@@ -15,4 +15,9 @@ class Paket_satuan extends Model
     public function ck_satuan(){
         return $this->hasOne(Checkout_satuan::class);
     }
+
+    public function outlet()
+    {
+        return $this->belongsTo(Outlet::class);
+    }
 }

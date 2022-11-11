@@ -22,10 +22,7 @@
                         <div class="col-md-12">
                             <form action="/datapaketsatuan" method="POST">
                                 @csrf
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Kode Paket</label>
-                                    <input type="text" id="simpleinput" name="kd_paketsatuan" class="form-control">
-                                </div>
+                                    <input type="hidden" id="simpleinput" name="kd_paketsatuan" class="form-control">
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Nama Paket</label>
                                     <input type="text" id="simpleinput" name="nama_paketsatuan" class="form-control">

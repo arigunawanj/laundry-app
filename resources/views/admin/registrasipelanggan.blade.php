@@ -19,10 +19,7 @@
                 <div class="card-body">
                     <form action="{{ route('layanan.store') }}" method="post">
                         @csrf
-                        <div class="form-group mb-3">
-                            <label for="simpleinput">Kode Invoice</label>
-                            <input type="text" id="simpleinput" name="kd_invoicesatuan" class="form-control">
-                        </div>
+                            <input type="hidden" id="simpleinput" name="kd_invoicesatuan" class="form-control">
                         <div class="form-group mb-3">
                             <label for="simpleinput">Paket satuan</label>
                             <select name="paket_satuan_id" id="satuan" class="form-control">
