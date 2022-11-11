@@ -33,7 +33,7 @@ class HomeController extends Controller
         }elseif (Auth::user()->role_id == 2) {
             return view('layouts/dashboard', compact('profil'));
         }elseif (Auth::user()->role_id == 3 || Auth::user()->role_id == 4 ) {
-            return view('layouts/dashboard', compact('profil'));
+            return view('customer/customer', compact('profil'));
         }
     }
 }

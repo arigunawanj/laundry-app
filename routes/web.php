@@ -23,8 +23,9 @@ use App\Http\Controllers\TemplateController;
 */
 
 Route::get('/', function () {
-    return view('customer.landingpage');
+    return view('customer.halutama');
 });
+Route::view('customer', 'customer.customer');
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
 Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');

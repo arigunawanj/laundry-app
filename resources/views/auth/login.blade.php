@@ -114,12 +114,6 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
                 </div>
               </form>
-              <p class="text-center">
-                <span>Pengguna baru?</span>
-                <a href="{{ route('register') }}">
-                  <span>Daftar di sini</span>
-                </a>
-              </p>
             </div>
           </div>
           <!-- /Register -->
