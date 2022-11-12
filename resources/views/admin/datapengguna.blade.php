@@ -14,17 +14,18 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="page-title">Data Pengguna</h2>
-                <p> Data Pengguna Karisma Laundry Kota Malang </p>
+                <p> Data Pengguna Bisa Bertambah jika Pengguna sudah menambahkan Detail Profil</p>
                 <div class="row">
                     <!-- simple table -->
                     <div class="container-fluid">
                         <div class="card shadow">
                             <div class="card-body">
                                 <h5 class="card-title">Daftar Pengguna</h5>
-                                <p class="card-text">Daftar Pengguna Karisma Laundry </p>
-                                <a href="{{ route('datapengguna.create') }}" class="btn btn-primary">Tambah Data</a>
-                                <a href="/export" class="btn btn-warning"><i class="fe fe-printer"></i></a>
-                                <div class="mt-3">
+                                <p class="badge badge-danger">Data Pengguna Bisa Bertambah jika Pengguna sudah menambahkan Detail profil</p>
+                                <div class="">
+                                    <a href="{{ route('datapengguna.create') }}" class="btn btn-primary">Tambah Data</a>
+                                </div>
+                                    <div class="mt-3">
                                     <table class="table table-hover mt-4" id="myTable">
                                         <thead>
                                             <tr>

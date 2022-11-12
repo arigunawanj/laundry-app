@@ -95,12 +95,12 @@ class PaketController extends Controller
     public function edit($id)
     {
         $paketk = Paket_kilo::findOrFail($id);
-
+        $outlet = Outlet::all();
         $data = Auth::user()->id;
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('admin.datapaketkilo-edit', compact('paketk', 'profil'));
+        return view('admin.datapaketkilo-edit', compact('paketk', 'profil', 'outlet'));
     }
 
     /**
@@ -185,10 +185,10 @@ class PaketController extends Controller
         $pakets = Paket_satuan::findOrFail($id);
 
         $data = Auth::user()->id;
-
+        $outlet = Outlet::all();
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('admin.datapaketsatuan-edit', compact('pakets', 'profil'));
+        return view('admin.datapaketsatuan-edit', compact('pakets', 'profil', 'outlet'));
     }
 
     public function updatesatuan(Request $request, $id)

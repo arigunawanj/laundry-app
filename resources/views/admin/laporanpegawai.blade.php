@@ -21,8 +21,10 @@
                         <div class="card shadow">
                             <div class="card-body">
                                 <h5 class="card-title">Laporan Pegawai</h5>
-                                <p class="card-text">Laporan Pegawai Karisma Laundry </p>
-                                <a href="{{ route('laporanpegawai.create') }}" class="btn btn-primary">Tambah Data</a>
+                                <p class="badge badge-danger">Pegawai Bertambah bila sudah melengkapi detail profil</p>
+                                <div class="">
+                                    <a href="{{ route('laporanpegawai.create') }}" class="btn btn-primary">Tambah Data</a>
+                                </div>
                                 <table class="table table-hover mt-4">
                                     <thead>
                                         <tr>

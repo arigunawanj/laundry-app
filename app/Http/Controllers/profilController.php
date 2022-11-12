@@ -20,10 +20,11 @@ class profilController extends Controller
     public function index()
     {
         $data = Auth::user()->id;
-        // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.kecamatan,detail_profiles.kelurahan, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.kecamatan,detail_profiles.kelurahan, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         // dd($profil);
-        // $id = Detail_profile::all();
+
+        
         return view('layouts.profile', compact('profil'));
     }
 
@@ -36,7 +37,9 @@ class profilController extends Controller
     {
         $data = Auth::user()->id;
 
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        $profil = Detail_profile::where('user_id', $data)->get();
 
         return view('layouts.tambahprofil', compact('profil'));
     }
@@ -143,11 +146,11 @@ class profilController extends Controller
             'email' => 'required',
         ]);
 
-        $no = Auth::user()->id;
+        $no = Auth::user()->id; // HARUS LOGIN
         
-        $profil = Detail_profile::findOrFail($id);
+        $profil = Detail_profile::findOrFail($id); // ID Detail Profil
 
-        $user = User::find($no);
+        $user = User::find($no); // Mencari id yang login
 
         $profil->update($validator);
 

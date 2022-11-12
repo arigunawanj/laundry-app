@@ -40,7 +40,13 @@
                                 </div>
                                 <div class="form-group mb-3">
                                 <label for="simpleinput">Outlet</label>
-                                <input type="text" id="simpleinput" name="outlet_id" value="{{ $pakets->outlet_id }}" class="form-control">
+                                <select class="form-control @error('outlet_id') is-invalid @enderror"
+                                            name="outlet_id">
+                                    @foreach ($outlet as $item)
+                                        <option value="{{ $item->id }}" @selected($pakets->outlet_id == $item->id)>
+                                            {{ $item->nama_outlet }}</option>
+                                    @endforeach
+                                        </select>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Tambah</button>

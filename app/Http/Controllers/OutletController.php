@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Exports\OutletExport;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -25,7 +26,8 @@ class OutletController extends Controller
     public function index()
     {
         $data = Auth::user()->id;
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         $outlet = Outlet::all();
         return view('admin.dataoutlet', compact('outlet', 'profil'));
     }
@@ -41,8 +43,8 @@ class OutletController extends Controller
         $user = User::all();
         $data = Auth::user()->id;
 
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         return view('admin.dataoutlet-add', compact('outlet', 'profil', 'user'));
     }
 
@@ -128,8 +130,8 @@ class OutletController extends Controller
         $outlet = Outlet::findOrFail($id);
         
         $data = Auth::user()->id;
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-        
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         return view('admin.dataoutlet-detail', compact('outlet', 'profil'));
     }
 

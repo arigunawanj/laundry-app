@@ -21,7 +21,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kelola Pelanggan</h5>
                                 <p class="card-text">Kelola Pelanggan Karisma Laundry </p>
-                                <a href="" class="btn btn-primary">Tambah Data</a>
                                 <table class="table table-hover text-center mt-4">
                                     <thead class="">
                                         <tr>
@@ -31,7 +30,6 @@
                                             <th class="text-dark">Kecamatan</th>
                                             <th class="text-dark">Kelurahan</th>
                                             <th class="text-dark">Role</th>
-                                            <th class="text-dark">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,9 +47,7 @@
                                                     <span class="badge badge-pill badge-secondary">{{'Non-member'}}</span>
                                                 @endif
                                             </td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary">Aksi</a>
-                                            </td>
+                                            
                                         </tr>                                      
                                         @endforeach
                                     </tbody>

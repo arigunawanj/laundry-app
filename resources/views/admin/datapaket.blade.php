@@ -60,7 +60,7 @@
                                                     <td>{{ $item->hari_paketkilo }}</td>
                                                     <td>{{ $item->min_berat_paket }}</td>
                                                     <td>{{ $item->antar_jemput_paket }}</td>
-                                                    <td>{{ $item->outlet_id }}</td>
+                                                    <td>{{ $item->outlet->nama_outlet }}</td>
                                                     <td>
                                                         <div class="file-action">
                                                             <button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
