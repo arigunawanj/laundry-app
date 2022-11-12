@@ -50,6 +50,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('laporantransaksi', LapTransaksiController::class);
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
+    Route::resource('transaksi', transaksiController::class);
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
+    Route::resource('profile', profilController::class);
+    Route::resource('layanan', cksatuanController::class);
     
     Route::get('json', function () {
         return view('json');
