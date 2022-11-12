@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
                         data-aos="fade-right">
-                        <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>
+                        
                     </div>
 
                     <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
@@ -349,7 +349,7 @@
                                 <li class="na">Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Ambil</a>
+                                <a href="/login" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                                 <li class="na">Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Ambil</a>
+                                <a href="/login" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
@@ -381,7 +381,7 @@
                                 <li>Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Ambil</a>
+                                <a href="/login" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
