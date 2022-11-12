@@ -35,6 +35,7 @@ Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 Route::view('login', 'auth.login');
 
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::view('dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
     // Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('datapengguna', UserController::class);
@@ -65,7 +66,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
-    Route::view('dashboard', 'layouts/dashboard');
     Route::resource('customer', ckstncustController::class);
     Route::get('midtrans/{id}',[ckstncustController::class, 'midtrans']);
     Route::resource('pesanan', PesananController::class);
