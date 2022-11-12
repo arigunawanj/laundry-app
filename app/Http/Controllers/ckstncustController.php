@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Checkout_satuan;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Midtrans\Config;
 use Midtrans\Snap;
+use Midtrans\Config;
+use Illuminate\Http\Request;
+use App\Models\Checkout_satuan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ckstncustController extends Controller
 {
@@ -114,7 +115,15 @@ class ckstncustController extends Controller
                 'gross_amount' => $harga,
             ),
             "enabled_payments"=>[
-                'bank_transfer'
+                "credit_card",
+                "shopeepay",
+                "bca_va",
+                "bni_va",
+                "bri_va",
+                "other_va",
+                "Indomaret",
+                "alfamart",
+                "akulaku"
             ],
         );
         
@@ -135,6 +144,7 @@ class ckstncustController extends Controller
             'status_pembayaran' => $json->status_message
         ]);
 
+        Alert::success('Berhasil', 'Berhasil melakukan Pembayaran');
         return redirect('/customer');
     }
 }
