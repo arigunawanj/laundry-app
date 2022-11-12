@@ -72,24 +72,19 @@
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                             <div class="icon"><i class='bx bxs-washer'></i></div>
                             <h4 class="title"><a href="">Cuci Kering</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint
-                                occaecati cupiditate non provident</p>
+                            <p class="description">Cuci Kering Baju dengan Alat yang mampu mencuci dan mengeringkan dengan cepat</p>
                         </div>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                             <div class="icon"><i class='bx bx-male-female'></i></i></div>
                             <h4 class="title"><a href="">Pekerja Ahli</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                praesentium voluptatum deleniti atque</p>
+                            <p class="description">Pekerja dengan pengalaman lebih dari 10 tahun di bidangnya</p>
                         </div>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
                             <div class="icon"><i class='bx bx-chart'></i></div>
                             <h4 class="title"><a href="">Pengalaman</a></h4>
-                            <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis
-                                odit. Sunt aut
-                                deserunt minus aut eligendi omnis</p>
+                            <p class="description">Pengalaman yang membuat anda merasa nyaman berada di Karisma Laundry</p>
                         </div>
 
                     </div>
@@ -110,25 +105,25 @@
                 <div class="row" data-aos="fade-left">
                     <div class="col-lg-3 col-md-4">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
-                            <i class="ri-shirt-line"></i>
+                            <i class="ri-t-shirt-line"></i>
                             <h3><a href="">Cuci Kering</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                            <h3><a href="">Cuci dan Laundry</a></h3>
+                            <i class="ri-ink-bottle-line" style="color: #5578ff;"></i>
+                            <h3><a href="">Parfum Premium</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
-                            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                            <h3><a href="">Cuci Tirai</a></h3>
+                            <i class="ri-t-shirt-air-line" style="color: #e80368;"></i>
+                            <h3><a href="">Cuci Sepatu</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+                            <i class="ri-shirt-line" style="color: #e361ff;"></i>
                             <h3><a href="">Pembersihan Setelan</a></h3>
                         </div>
                     </div>
@@ -408,9 +403,7 @@
                     <p>Hubungi Kami</p>
                 </div>
 
-                <div class="row">
-
-                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+                    <div class="container-fluid" data-aos="fade-right" data-aos-delay="100">
                         <div class="info">
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
@@ -418,52 +411,27 @@
                                 <p>Jl. Watu Gong No.18, Ketawanggede,
                                     Kec. Lowokwaru, Kota Malang, Jawa Timur 65145</p>
                             </div>
-
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
-                            </div>
-
-                            <div class="phone">
-                                <i class="bi bi-phone"></i>
-                                <h4>Telepon :</h4>
-                                <p>0811-3631-515</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Your Name" required>
+                                <div class="col">
+                                    <div class="email">
+                                        <i class="bi bi-envelope"></i>
+                                        <h4>Email:</h4>
+                                        <p>karismaacademy@gmail.com</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Your Email" required>
+                                
+                                <div class="col">
+                                    <div class="phone">
+                                        <i class="bi bi-phone"></i>
+                                        <h4>Telepon :</h4>
+                                        <p>085-785-196-574</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
-                            </div>
-                            <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
-
+                        </div>
                     </div>
+
+
 
                 </div>
 

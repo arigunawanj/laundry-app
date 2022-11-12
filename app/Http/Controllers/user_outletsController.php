@@ -8,6 +8,7 @@ use App\Models\user_outlets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class user_outletsController extends Controller
 {
@@ -53,6 +54,7 @@ class user_outletsController extends Controller
     public function store(Request $request)
     {
         user_outlets::create($request->all());
+        Alert::toast('Berhasil menambahkan Data', 'success');
         return redirect('laporanpegawai');
     }
 
@@ -100,6 +102,7 @@ class user_outletsController extends Controller
     {
         $usero = user_outlets::findOrFail($id);
         $usero->delete();
+        Alert::toast('Berhasil menghapus Data', 'success');
         return redirect('laporanpegawai');
     }
 }

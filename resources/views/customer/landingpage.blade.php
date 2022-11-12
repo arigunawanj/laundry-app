@@ -50,6 +50,7 @@
                         <li><a class="nav-link scrollto" href="#features">Penawaran</a></li>
                         <li><a class="nav-link scrollto" href="#gallery">Galeri</a></li>
                         <li><a class="nav-link scrollto" href="#pricing">Harga</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
                         <li><a class="nav-link scrollto" href="/login">Login</a></li>
                         <li><a class="nav-link scrollto" href="{{ route('register') }}">Daftar</a></li>
                     @else
@@ -61,10 +62,10 @@
                                 <li><a href="{{ route('pesanan.create') }}">Pesanan</a></li>
                                 <li><a href="/home">Histori</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="
-            event.preventDefault();
-            document.getElementById('logout-form').submit();
-        ">Logout</a>
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
                                     <form action="{{ route('logout') }}" id="logout-form" method="post">
                                         @csrf
                                     </form>
@@ -97,15 +98,13 @@
                                 Jl. Watu Gong No.18, Ketawanggede,
                                 <br>
                                 Kec. Lowokwaru, Kota Malang, Jawa Timur 65145<br><br>
-                                <strong>Telepon :</strong> 0811-3631-515<br>
-                                <strong>Email :</strong> info@example.com<br>
+                                <strong>Telepon :</strong> 085-785-196-574<br>
+                                <strong>Email :</strong> karismaacademy@gmail.cp,<br>
                             </p>
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -157,6 +156,7 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="{{ asset('asset/js/emsi.js') }}"></script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-jdjG99xvk3PihD64"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('land/js/main.js') }}"></script>

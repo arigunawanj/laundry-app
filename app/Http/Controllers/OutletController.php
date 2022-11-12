@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use App\Exports\OutletExport;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -25,7 +26,8 @@ class OutletController extends Controller
     public function index()
     {
         $data = Auth::user()->id;
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         $outlet = Outlet::all();
         return view('admin.dataoutlet', compact('outlet', 'profil'));
     }
@@ -41,8 +43,8 @@ class OutletController extends Controller
         $user = User::all();
         $data = Auth::user()->id;
 
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         return view('admin.dataoutlet-add', compact('outlet', 'profil', 'user'));
     }
 
@@ -113,7 +115,7 @@ class OutletController extends Controller
             'upload' => $validator['upload']
         ]);
 
-        Alert::success('Data Outlet', 'Data Outlet Berhasil ditambahkan');
+        Alert::toast('Berhasil Tambah Data', 'success');
         return redirect('dataoutlet');
     }
 
@@ -128,8 +130,8 @@ class OutletController extends Controller
         $outlet = Outlet::findOrFail($id);
         
         $data = Auth::user()->id;
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-        
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         return view('admin.dataoutlet-detail', compact('outlet', 'profil'));
     }
 
@@ -179,6 +181,7 @@ class OutletController extends Controller
             $data = $request->file('upload')->storeAs('img', $newName);
             $validator['upload'] = $data;
             $outlet->update($validator);
+            Alert::toast('Berhasil Update Data', 'info');
         }else{
             $outlet->update([
                 'nama_outlet' => $request->nama_outlet,
@@ -187,6 +190,7 @@ class OutletController extends Controller
                 'email_outlet' => $request->email_outlet,
                 'upload' => $outlet->upload,
             ]);
+            Alert::toast('Berhasil Update Data', 'info');
         }
 
 
@@ -207,7 +211,7 @@ class OutletController extends Controller
             Storage::delete($outlet->upload);
         }
         $outlet->delete();
-        Alert::warning('Hapus Data Outlet', 'Berhasil Hapus Data');
+        Alert::toast('Berhasil hapus Data', 'warning');
         return redirect('dataoutlet');
     }
 

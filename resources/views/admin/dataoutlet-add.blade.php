@@ -50,6 +50,9 @@
                                     <div class="form-group mb-3">
                                         <label for="simpleinput" class="form-label">Foto</label>
                                         <input class="form-control" type="file" name="upload" id="simpleinput">
+                                        <div class="">
+                                            <p>*Wajib menggunakan Ekstensi (.jpg)</p>
+                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

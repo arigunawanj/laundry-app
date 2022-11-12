@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Hari</label>
-                                    <input type="text" id="simpleinput" name="hari_paketkilo" class="form-control">
+                                    <input type="text" id="simpleinput" min="1" max="9" name="hari_paketkilo" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Minimal Berat</label>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Antar Jemput Paket</label>
-                                    <input type="text" id="simpleinput" name="antar_jemput_paket" class="form-control">
+                                    <input type="number" min="1" max="1" id="simpleinput" name="antar_jemput_paket" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Outlet</label>

@@ -65,7 +65,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(user_outlets::class);
     }
-
+    
     
 }
 

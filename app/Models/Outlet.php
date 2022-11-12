@@ -32,4 +32,8 @@ class Outlet extends Model
         return $this->hasMany(Paket_satuan::class);
     }
     
+    public function Paket_kilo()
+    {
+        return $this->hasMany(Paket_kilo::class);
+    }
 }

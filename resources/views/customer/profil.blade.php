@@ -183,13 +183,13 @@
                         </div>
                     </div>
                     
-                @endforeach
-                <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
+                @endforeach     
+                <div class="row justify-content-center @if ($profil->where('user_id', Auth::user()->id)) d-none @endif">
                     <a href="{{ route('profil.create') }}" class="btn btn-primary mx-4 w-25"><i
                             class='bx bxs-folder-plus'></i> Tambah Profil</a>
                 </div>
 
-                <div class="row justify-content-center @if (!DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
+                <div class="row justify-content-center @if (!$profil->where('user_id', Auth::user()->id)) d-none @endif">
                     <a href="{{ route('profil.edit', Auth::user()->id) }}"
                         class="btn btn-warning text-white w-25"><i class='bx bx-edit-alt'></i> Edit Data</a>
                 </div>

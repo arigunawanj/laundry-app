@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Paket_satuan;
-use App\Models\Checkout_satuan;
 use Illuminate\Http\Request;
+use App\Models\Checkout_satuan;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class PesananController extends Controller
@@ -51,7 +52,7 @@ class PesananController extends Controller
             'harga_paketsatuan' => $request -> harga_paketsatuan, 
             'harga_totalsatuan' => $request -> harga_totalsatuan
         ]);
-
+        Alert::toast('Berhasil menambahkan Pesanan', 'success');
         return redirect('home');
     }
 

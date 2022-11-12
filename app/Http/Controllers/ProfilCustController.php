@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfilCustController extends Controller
 {
@@ -20,10 +21,8 @@ class ProfilCustController extends Controller
     public function index()
     {
         $data = Auth::user()->id;
-        // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address,detail_profiles.kecamatan,detail_profiles.kelurahan, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
-        // dd($profil);
-        // $id = Detail_profile::all();
+        // $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address,detail_profiles.kecamatan,detail_profiles.kelurahan, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = Detail_profile::where('user_id', $data)->get();
         return view('customer.profil', compact('profil'));
     }
 
@@ -87,7 +86,7 @@ class ProfilCustController extends Controller
         ]);
 
         // detail_profiles::create($validator);
-
+        Alert::toast('Berhasil menambahkan Profil', 'success');
         return redirect('profil');
     }
 
@@ -163,10 +162,12 @@ class ProfilCustController extends Controller
             $profil->update([
                 'image'=>$data
             ]);
+            Alert::toast('Berhasil mengupdate Profil', 'info');
         } else {
             $profil->update([
                 'image'=>$profil->image
             ]);
+            Alert::toast('Berhasil mengupdate Profil', 'info');
         }
 
 

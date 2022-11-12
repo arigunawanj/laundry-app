@@ -22,4 +22,9 @@ class Paket_kilo extends Model
     protected $guarded= [
         'id'
     ];
+
+    public function outlet()
+    {
+        return $this->belongsTo(Outlet::class);
+    }
 }

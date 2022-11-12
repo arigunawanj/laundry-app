@@ -147,12 +147,12 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
+                                <div class="row justify-content-center @if ($profil->where('user_id', Auth::user()->id)) d-none @endif">
                                     <a href="{{ route('profile.create') }}" class="btn btn-primary mx-4"><i
                                             class='bx bxs-folder-plus'></i> Tambah Profil</a>
                                 </div>
 
-                                <div class="row justify-content-center @if (!DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
+                                <div class="row justify-content-center @if (!$profil->where('user_id', Auth::user()->id)) d-none @endif">
                                     <a href="{{ route('profile.edit', Auth::user()->id) }}"
                                         class="btn btn-warning text-white"><i class='bx bx-edit-alt'></i> Edit Data</a>
                                 </div>

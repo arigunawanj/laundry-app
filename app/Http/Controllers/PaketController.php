@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Outlet;
-use Illuminate\Http\Request;
 use App\Models\Paket_kilo;
 use App\Models\Paket_satuan;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PaketController extends Controller
 {
@@ -70,6 +71,7 @@ class PaketController extends Controller
         // dd($validatork);
         
         $paketk = Paket_kilo::create($validatork);
+        Alert::toast('Berhasil menambahkan Paket Kilo', 'success');
         return redirect('datapaket');
 
 
@@ -95,12 +97,12 @@ class PaketController extends Controller
     public function edit($id)
     {
         $paketk = Paket_kilo::findOrFail($id);
-
+        $outlet = Outlet::all();
         $data = Auth::user()->id;
 
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('admin.datapaketkilo-edit', compact('paketk', 'profil'));
+        return view('admin.datapaketkilo-edit', compact('paketk', 'profil', 'outlet'));
     }
 
     /**
@@ -125,6 +127,7 @@ class PaketController extends Controller
         ]);
 
         $paketk->update($validatork);
+        Alert::toast('Berhasil Update Paket Kilo', 'info');
         return redirect('datapaket');
     }
 
@@ -138,6 +141,7 @@ class PaketController extends Controller
     {
         $paketk = Paket_kilo::findOrFail($id);
         $paketk->delete();
+        Alert::toast('Berhasil menghapus Paket Kilo', 'success');
         return redirect('datapaket');
     }
 
@@ -176,7 +180,7 @@ class PaketController extends Controller
             'harga_paketsatuan' => $request->harga_paketsatuan,
             'outlet_id' => $request->outlet_id,
         ]);
-
+        Alert::toast('Berhasil menambahkan Paket Satuan', 'success');
         return redirect('datapaket');
     }
 
@@ -185,10 +189,10 @@ class PaketController extends Controller
         $pakets = Paket_satuan::findOrFail($id);
 
         $data = Auth::user()->id;
-
+        $outlet = Outlet::all();
         $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
 
-        return view('admin.datapaketsatuan-edit', compact('pakets', 'profil'));
+        return view('admin.datapaketsatuan-edit', compact('pakets', 'profil', 'outlet'));
     }
 
     public function updatesatuan(Request $request, $id)
@@ -204,6 +208,7 @@ class PaketController extends Controller
         ]);
 
         $pakets->update($validators);
+        Alert::toast('Berhasil mengupdate Paket Satuan', 'info');
         return redirect('datapaket');
     }
 
@@ -211,6 +216,7 @@ class PaketController extends Controller
     {
         $pakets = Paket_satuan::findOrFail($id);
         $pakets->delete();
+        Alert::toast('Berhasil menghapus Paket Satuan', 'success');
         return redirect('datapaket');
     }
 }

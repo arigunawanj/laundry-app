@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_profile;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -57,8 +59,14 @@ class UserController extends Controller
             'role_id' => 'required',
         ]);
 
-        User::create($validator);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id
+        ]);
 
+        Alert::toast('Berhasil menambahkan Pengguna', 'success');
         return redirect('datapengguna');
     }
 
@@ -115,7 +123,7 @@ class UserController extends Controller
         ]);
 
         $user->update($validator);
-
+        Alert::toast('Berhasil mengedit Pengguna', 'info');
         return redirect('datapengguna');
     }
 
