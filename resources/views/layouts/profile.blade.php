@@ -124,6 +124,28 @@
                                             <span class="p">{{ $p->address }}</span>
                                         </div>
                                     </div>
+                                    <div class="row align-items-left justify-content-between mb-2">
+                                        <div class="col-auto">
+                                            <span class="h6">Kecamatan </span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <small></small>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span class="p">{{ $p->kecamatan }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-left justify-content-between mb-2">
+                                        <div class="col-auto">
+                                            <span class="h6">Kelurahan </span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <small></small>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span class="p">{{ $p->kelurahan }}</span>
+                                        </div>
+                                    </div>
                                 @endforeach
                                 <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
                                     <a href="{{ route('profile.create') }}" class="btn btn-primary mx-4"><i

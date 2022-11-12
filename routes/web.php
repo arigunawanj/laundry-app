@@ -57,6 +57,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
     Route::get('export', [OutletController::class, 'export']);
     Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
+    Route::get('tambahprofil', [profilController::class, 'state']);
     
 });
 
