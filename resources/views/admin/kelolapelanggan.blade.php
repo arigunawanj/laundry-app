@@ -15,7 +15,6 @@
                 <h2 class="page-title">Kelola Pelanggan</h2>
                 <p> Kelola Pelanggan Karisma Laundry Kota Malang </p>
                 <div class="row">
-                    <!-- simple table -->
                     <div class="container-fluid">
                         <div class="card shadow">
                             <div class="card-body">
