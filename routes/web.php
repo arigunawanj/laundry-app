@@ -10,7 +10,6 @@ use App\Http\Controllers\PesananController;
 use App\Http\Controllers\cksatuanController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ckstncustController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\transaksiController;
 use App\Http\Controllers\ProfilCustController;
 use App\Http\Controllers\user_outletsController;
@@ -36,8 +35,8 @@ Route::get('/template', [TemplateController::class, 'index']);
 Route::view('login', 'auth.login');
 
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::view('dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
-    Route::resource('dashboard', DashboardController::class);
     // Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');
@@ -51,29 +50,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('laporantransaksi', LapTransaksiController::class);
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
+    
     Route::get('json', function () {
         return view('json');
     });
     
     Route::get('export', [OutletController::class, 'export']);
     Route::get('dataoutlet-add', [OutletController::class, 'wilayah']);
+    
 });
 
 // NAVBAR CUSTOMER
 Route::middleware(['auth', 'customer'])->group(function () {
-    Route::view('dashboard', 'layouts/dashboard');
     Route::resource('customer', ckstncustController::class);
     Route::get('midtrans/{id}',[ckstncustController::class, 'midtrans']);
     Route::resource('pesanan', PesananController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('kelolapelanggan', kelolaPelangganController::class);
-    Route::resource('profile', profilController::class);
-    Route::resource('transaksi', transaksiController::class);
     Route::resource('profil', ProfilCustController::class);
     Route::post('profil/success', [ckstncustController::class, 'success']);
-    Route::resource('layanan', cksatuanController::class);        
+    Route::get('profil-add', [ProfilCustController::class, 'geo']);    
 });
 
 Auth::routes();

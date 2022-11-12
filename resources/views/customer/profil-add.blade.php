@@ -85,12 +85,12 @@
 
                             <div class="form-group mb-3">
                                 <label for="simpleinput">Kecamatan</label>
-                                <input type="text" name="kecamatan" id="simpleinput" class="form-control">
+                                <select name="kecamatan" class="form-control" onchange="daerah(value)" id="districts"></select>
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="simpleinput">Kelurahan</label>
-                                <input type="text" name="kelurahan" id="simpleinput" class="form-control">
+                                <select name="kelurahan" class="form-control" onchange="daerah(value)" id="villages"></select>
                             </div>
 
                             <div class="form-group mb-3">

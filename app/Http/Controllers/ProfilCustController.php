@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Detail_profile;
 use Illuminate\Http\Request;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class ProfilCustController extends Controller
@@ -50,6 +51,27 @@ class ProfilCustController extends Controller
     {
         $file = $request->file('image')->store('img');
 
+        $kec = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
+        $decpro = json_decode($kec, true);  
+        // dd($decpro);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kecamatan){
+                $kec = $decpro[$i]['name'];
+            }
+        }
+
+        $kel = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$request->kecamatan.'.json');
+        $decpro = json_decode($kel, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kelurahan){
+                $kel = $decpro[$i]['name'];
+            }
+        }
+        
         Detail_profile::create([
             'id' => $request->id,
             'name' => $request->name,
@@ -59,6 +81,8 @@ class ProfilCustController extends Controller
             'kelurahan' => $request->kelurahan,
             'telephone' => $request->telephone,
             'user_id' => $request->user_id,
+            'kecamatan' => $kec,
+            'kelurahan' => $kel,
             'image' => $file
         ]);
 
@@ -146,7 +170,7 @@ class ProfilCustController extends Controller
         }
 
 
-        return redirect('profile');
+        return redirect('profil');
     }
 
     /**
@@ -158,5 +182,12 @@ class ProfilCustController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function geo()
+    {
+        $data = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
+        return $data->json();
+        // dd($data->json());
     }
 }
