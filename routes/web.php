@@ -15,6 +15,7 @@ use App\Http\Controllers\transaksiController;
 use App\Http\Controllers\ProfilCustController;
 use App\Http\Controllers\user_outletsController;
 use App\Http\Controllers\kelolaPelangganController;
+use App\Http\Controllers\LapTransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,6 @@ Route::get('/', function () {
 });
 // TEMPLATE ADMIN
 Route::get('/template', [TemplateController::class, 'index']);
-Route::view('/laporantransaksi-add', 'admin.laporantransaksi-add');
 Route::view('login', 'auth.login');
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -48,10 +48,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/datapaketsatuan/{id}', [PaketController::class, 'destroysatuan']);
     Route::resource('datapaket', PaketController::class);
     Route::resource('laporanpegawai', user_outletsController::class);
-    Route::view('/laporantransaksi', 'admin.laporantransaksi');
+    Route::resource('laporantransaksi', LapTransaksiController::class);
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
-    
     Route::get('json', function () {
         return view('json');
     });
@@ -66,7 +65,6 @@ Route::middleware(['auth', 'customer'])->group(function () {
     Route::resource('customer', ckstncustController::class);
     Route::get('midtrans/{id}',[ckstncustController::class, 'midtrans']);
     Route::resource('pesanan', PesananController::class);
-    Route::view('/datatable', 'customer.datatable');
 });
 
 Route::middleware(['auth'])->group(function () {
