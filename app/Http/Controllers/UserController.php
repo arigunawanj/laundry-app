@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_profile;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -57,7 +58,12 @@ class UserController extends Controller
             'role_id' => 'required',
         ]);
 
-        User::create($validator);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id
+        ]);
 
         return redirect('datapengguna');
     }
