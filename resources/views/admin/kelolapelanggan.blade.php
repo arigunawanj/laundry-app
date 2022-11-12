@@ -27,6 +27,7 @@
                                         <th class="text-dark">No</th>
                                         <th class="text-dark">Nama Pelanggan</th>
                                         <th class="text-dark">Role</th>
+                                        <th class="text-dark">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

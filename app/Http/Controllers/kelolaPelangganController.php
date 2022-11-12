@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_profile;
-use App\Models\detail_profiles;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Detail_profile;
+use App\Models\detail_profiles;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class kelolaPelangganController extends Controller
 {
@@ -57,7 +58,7 @@ class kelolaPelangganController extends Controller
             'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
-
+        Alert::toast('Berhasil Tambah Pelanggan', 'success');
         return redirect('kelolapelanggan');
     }
 
@@ -111,7 +112,7 @@ class kelolaPelangganController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
-
+        Alert::toast('Berhasil Menghapus Data Pelanggan', 'success');
         return redirect('kelolapelanggan');
     }
 }
