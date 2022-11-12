@@ -156,6 +156,7 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="{{ asset('asset/js/emsi.js') }}"></script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-jdjG99xvk3PihD64"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('land/js/main.js') }}"></script>

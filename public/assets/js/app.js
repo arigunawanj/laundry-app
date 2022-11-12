@@ -11,6 +11,11 @@ function bayar(id) {
                 // Optional
                 onSuccess: function (result) {
                     send_response(result);
+                    Swal.fire(
+                        'Success',
+                        'Berhasil melakukan Pembayaran',
+                        'success'
+                      )
                 },
                 // Optional
                 onPending: function (result) {
@@ -25,7 +30,7 @@ function bayar(id) {
 }
 
 $('#bayar').click(function (e) {
-    
+   
     // console.log('aaaaaaaa');
     e.preventDefault();
     alert('success');
