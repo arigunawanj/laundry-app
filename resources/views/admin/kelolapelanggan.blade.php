@@ -21,14 +21,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kelola Pelanggan</h5>
                                 <p class="card-text">Kelola Pelanggan Karisma Laundry </p>
+                                <a href="{{ route('kelolapelanggan.create') }}" class="btn btn-primary">Tambah Data</a>
                                 <table class="table table-hover text-center mt-4">
                                     <thead class="">
                                         <tr>
                                             <th class="text-dark">No</th>
                                             <th class="text-dark">Nama Pelanggan</th>
-                                            <th class="text-dark">Alamat</th>
-                                            <th class="text-dark">Kecamatan</th>
-                                            <th class="text-dark">Kelurahan</th>
                                             <th class="text-dark">Role</th>
                                         </tr>
                                     </thead>
@@ -37,9 +35,6 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td class="text-uppercase">{{ $d->name }}</td>
-                                            <td>{{ $d->address }}</td>
-                                            <td>{{ $d->kecamatan }}</td>
-                                            <td>{{ $d->kelurahan }}</td>
                                             <td class="text-capitalize">
                                                 @if($d->role_id == 3)
                                                     <span class="badge badge-pill badge-primary">{{'Member'}}</span>
@@ -47,7 +42,9 @@
                                                     <span class="badge badge-pill badge-secondary">{{'Non-member'}}</span>
                                                 @endif
                                             </td>
-                                            
+                                            <td>
+                                                <a href="{{ route('kelolapelanggan.show', $d->id) }}" class="btn btn-outline-primary">Lihat</a>
+                                            </td>
                                         </tr>                                      
                                         @endforeach
                                     </tbody>

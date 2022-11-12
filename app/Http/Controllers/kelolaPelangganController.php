@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class kelolaPelangganController extends Controller
 {
@@ -19,7 +20,7 @@ class kelolaPelangganController extends Controller
     public function index()
     {
 
-        $data = DB::select('select d.name, d.address, d.kecamatan, d.kelurahan, u.role_id from detail_profiles d join users u on d.user_id = u.id where u.role_id = 3 or u.role_id = 4');
+        $data = DB::select('select d.id, d.name, d.address, d.kecamatan, d.kelurahan, u.role_id from detail_profiles d join users u on d.user_id = u.id where u.role_id = 3 or u.role_id = 4');
         // $data = DB::select('select * from users where id = 3');
 
         
@@ -37,7 +38,9 @@ class kelolaPelangganController extends Controller
      */
     public function create()
     {
-        //
+        $data = Auth::user()->id;
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        return view('admin.pelanggan-add', compact('data', 'profil'));
     }
 
     /**
@@ -48,7 +51,14 @@ class kelolaPelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('kelolapelanggan');
     }
 
     /**
@@ -59,7 +69,12 @@ class kelolaPelangganController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Auth::user()->id;
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+
+        $d = Detail_profile::findOrFail($id);
+
+        return view('admin.detailpelanggan', compact('d', 'profil'));
     }
 
     /**
@@ -93,6 +108,10 @@ class kelolaPelangganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('kelolapelanggan');
     }
 }

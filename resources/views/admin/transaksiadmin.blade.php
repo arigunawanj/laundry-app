@@ -27,6 +27,7 @@
                                         <th class="text-dark">No</th>
                                         <th class="text-dark">Pelanggan</th>
                                         <th class="text-dark">Paket</th>
+                                        <th class="text-dark">Status pembayaran</th>
                                         <th class="text-dark">Aksi</th>
                                     </tr>
                                 </thead>
@@ -36,6 +37,12 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td><span class="text-uppercase">{{ $d->user->name }}</span></td>
                                         <td>{{ $d->paket_satuan->nama_paketsatuan }}</td>
+                                        <td>
+                                            @if($d->status_pembayaran == 'Menunggu pembayaran' )
+                                            <span class="bg-warning rounded py-1 px-2 text-white font-weight-bold">Menunggu pembayaran</span>
+                                            @else
+                                            <span class="bg-success rounded py-1 px-2 text-white font-weight-bold">Pembayaran berhasil</span>
+                                            @endif
                                         <td>
                                             <a href="{{ route('transaksi.show', $d->id) }}" class="btn btn-outline-primary">Lihat</a>
                                         </td>

@@ -81,7 +81,7 @@
                                 Pegawai
                             </span>
                         @elseif(Auth::user()->role_id == 3)
-                            <span class="badge badge-primary">
+                            <span class="bg-primary text-white rounded-3 px-2">
                                 Member
                             </span>
                         @elseif(Auth::user()->role_id == 4)
@@ -92,7 +92,7 @@
                     </p>
                 </div>
             </div> <!-- ./card-text -->
-            <div class="card-footer">
+            <div class="card-footer fw-bold">
                 @foreach ($profil as $p)
                     <div class="row align-items-left justify-content-between mb-2">
                         <div class="col-auto">
@@ -113,7 +113,7 @@
                             <span class="h6">Nama </span>
                         </div>
                         <div class="col-auto">
-                            <span class="p">{{ $p->name }}</span>
+                            <span class="p text-uppercase">{{ $p->name }}</span>
                         </div>
                     </div>
                     <div class="row align-items-left justify-content-between mb-2">

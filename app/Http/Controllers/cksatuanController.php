@@ -56,8 +56,9 @@ class cksatuanController extends Controller
             'harga_paketsatuan' => $request -> harga_paketsatuan, 
             'harga_totalsatuan' => $request -> harga_totalsatuan
         ]);
+
+        return redirect('transaksi');
         Alert::toast('Berhasil Tambah Data', 'success');
-        return redirect('kelolapelanggan');
     }
 
     /**
