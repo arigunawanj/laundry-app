@@ -115,7 +115,7 @@ class OutletController extends Controller
             'upload' => $validator['upload']
         ]);
 
-        Alert::success('Data Outlet', 'Data Outlet Berhasil ditambahkan');
+        Alert::toast('Berhasil Tambah Data', 'success');
         return redirect('dataoutlet');
     }
 
@@ -181,6 +181,7 @@ class OutletController extends Controller
             $data = $request->file('upload')->storeAs('img', $newName);
             $validator['upload'] = $data;
             $outlet->update($validator);
+            Alert::toast('Berhasil Update Data', 'info');
         }else{
             $outlet->update([
                 'nama_outlet' => $request->nama_outlet,
@@ -189,6 +190,7 @@ class OutletController extends Controller
                 'email_outlet' => $request->email_outlet,
                 'upload' => $outlet->upload,
             ]);
+            Alert::toast('Berhasil Update Data', 'info');
         }
 
 
@@ -209,7 +211,7 @@ class OutletController extends Controller
             Storage::delete($outlet->upload);
         }
         $outlet->delete();
-        Alert::warning('Hapus Data Outlet', 'Berhasil Hapus Data');
+        Alert::toast('Berhasil hapus Data', 'warning');
         return redirect('dataoutlet');
     }
 

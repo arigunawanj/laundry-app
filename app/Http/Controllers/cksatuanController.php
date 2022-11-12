@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Checkout_satuan;
-use App\Models\Paket_satuan;
 use App\Models\User;
+use App\Models\Paket_satuan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Checkout_satuan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class cksatuanController extends Controller
 {
@@ -55,7 +56,7 @@ class cksatuanController extends Controller
             'harga_paketsatuan' => $request -> harga_paketsatuan, 
             'harga_totalsatuan' => $request -> harga_totalsatuan
         ]);
-
+        Alert::toast('Berhasil Tambah Data', 'success');
         return redirect('kelolapelanggan');
     }
 

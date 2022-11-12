@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfilCustController extends Controller
 {
@@ -85,7 +86,7 @@ class ProfilCustController extends Controller
         ]);
 
         // detail_profiles::create($validator);
-
+        Alert::toast('Berhasil menambahkan Profil', 'success');
         return redirect('profil');
     }
 
@@ -161,10 +162,12 @@ class ProfilCustController extends Controller
             $profil->update([
                 'image'=>$data
             ]);
+            Alert::toast('Berhasil mengupdate Profil', 'info');
         } else {
             $profil->update([
                 'image'=>$profil->image
             ]);
+            Alert::toast('Berhasil mengupdate Profil', 'info');
         }
 
 
