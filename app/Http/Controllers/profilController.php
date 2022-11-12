@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_profile;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Detail_profile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class profilController extends Controller
@@ -20,7 +21,7 @@ class profilController extends Controller
     {
         $data = Auth::user()->id;
         // $profil = DB::select('select detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address from detail_profiles join users on detail_profiles.user_id = users.id where user_id = ?', [2]);
-        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
+        $profil = DB::select('select detail_profiles.id, detail_profiles.user_id, detail_profiles.name, detail_profiles.gender, users.email, detail_profiles.telephone, detail_profiles.address, detail_profiles.kecamatan,detail_profiles.kelurahan, detail_profiles.image from detail_profiles join users on detail_profiles.user_id = users.id where user_id=' . $data);
         // dd($profil);
         // $id = Detail_profile::all();
         return view('layouts.profile', compact('profil'));
@@ -51,6 +52,27 @@ class profilController extends Controller
 
         $file = $request->file('image')->store('img');
 
+        $kec = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
+        $decpro = json_decode($kec, true);  
+        // dd($decpro);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kecamatan){
+                $kec = $decpro[$i]['name'];
+            }
+        }
+
+        $kel = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$request->kecamatan.'.json');
+        $decpro = json_decode($kel, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->kelurahan){
+                $kel = $decpro[$i]['name'];
+            }
+        }
+
         Detail_profile::create([
             'id' => $request->id,
             'name' => $request->name,
@@ -60,6 +82,8 @@ class profilController extends Controller
             'kelurahan' => $request->kelurahan,
             'telephone' => $request->telephone,
             'user_id' => $request->user_id,
+            'kecamatan' => $kec,
+            'kelurahan' => $kel,
             'image' => $file
         ]);
 
@@ -160,5 +184,11 @@ class profilController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function state()
+    {
+        $data = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
+        return $data->json();
+        // dd($data->json());
     }
 }
