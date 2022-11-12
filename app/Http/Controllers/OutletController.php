@@ -221,7 +221,7 @@ class OutletController extends Controller
 
     public function wilayah()
     {
-        $data = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+        $data = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/districts/3573.json');
         return $data->json();
         // dd($data->json());
     }

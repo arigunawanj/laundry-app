@@ -129,55 +129,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                             <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                            <h3><a href="">Cuci Karpet</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="250">
-                            <i class="ri-database-2-line" style="color: #47aeff;"></i>
                             <h3><a href="">Pembersihan Setelan</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                            <h3><a href="">Eiusmod Tempor</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="350">
-                            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="">Midela Teren</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-                            <h3><a href="">Pira Neve</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="450">
-                            <i class="ri-anchor-line" style="color: #b2904f;"></i>
-                            <h3><a href="">Dirada Pack</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="ri-disc-line" style="color: #b20969;"></i>
-                            <h3><a href="">Moton Ideal</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="550">
-                            <i class="ri-base-station-line" style="color: #ff5828;"></i>
-                            <h3><a href="">Verdo Park</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="600">
-                            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-                            <h3><a href="">Flavor Nivelanda</a></h3>
                         </div>
                     </div>
                 </div>
@@ -185,52 +137,7 @@
             </div>
         </section><!-- End Features Section -->
 
-        <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
-            <div class="container">
-
-                <div class="row" data-aos="fade-up">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-emoji-smile"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Happy Clients</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Projects</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="count-box">
-                            <i class="bi bi-headset"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Hours Of Support</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="count-box">
-                            <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Hard Workers</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Counts Section -->
+        
 
         <!-- ======= Details Section ======= -->
         <section id="details" class="details">
@@ -423,280 +330,78 @@
             </div>
         </section><!-- End Testimonials Section -->
 
-        <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
-            <div class="container">
-
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Team</h2>
-                    <p>Our Great Team</p>
-                </div>
-
-                <div class="row" data-aos="fade-left">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="{{ asset('land/img/team/team-1.jpg') }}" class="img-fluid"
-                                    alt=""></div>
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-                        <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="pic"><img src="{{ asset('land/img/team/team-2.jpg') }}" class="img-fluid"
-                                    alt=""></div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="pic"><img src="{{ asset('land/img/team/team-3.jpg') }}" class="img-fluid"
-                                    alt=""></div>
-                            <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="pic"><img src="{{ asset('land/img/team/team-4.jpg') }}" class="img-fluid"
-                                    alt=""></div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Team Section -->
+        
 
         <!-- ======= Pricing Section ======= -->
         <section id="pricing" class="pricing">
-            <div class="container">
+            <div class="container ">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Pricing</h2>
-                    <p>Check our Pricing</p>
+                    <h2>Harga</h2>
+                    <p>Cek Harga Kami</p>
                 </div>
 
-                <div class="row" data-aos="fade-left">
+                <div class="row justify-content-center" data-aos="fade-left">
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 ">
                         <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                            <h3>Free</h3>
-                            <h4><sup>$</sup>0<span> / month</span></h4>
+                            <h3>Basic</h3>
+                            <h4><sup>Rp</sup>30.000<span> / kg</span></h4>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li class="na">Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
+                                <li>Cuci Kering</li>
+                                <li>Setrika</li>
+                                <li class="na">Antar Gratis</li>
+                                <li class="na">Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Buy Now</a>
+                                <a href="#" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
                         <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
-                            <h3>Business</h3>
-                            <h4><sup>$</sup>19<span> / month</span></h4>
+                            <h3>Standard</h3>
+                            <h4><sup>Rp</sup>40.000<span> / kg</span></h4>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
+                                <li>Cuci Kering</li>
+                                <li>Setrika</li>
+                                <li>Antar Gratis</li>
+                                <li class="na">Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Buy Now</a>
+                                <a href="#" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                         <div class="box" data-aos="zoom-in" data-aos-delay="300">
-                            <h3>Developer</h3>
-                            <h4><sup>$</sup>29<span> / month</span></h4>
+                            <h3>Premium</h3>
+                            <h4><sup>Rp</sup>50.000<span> / kg</span></h4>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
+                                <li>Cuci Kering</li>
+                                <li>Setrika</li>
+                                <li>Antar Gratis</li>
+                                <li>Parfum Premium</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Buy Now</a>
+                                <a href="#" class="btn-buy">Ambil</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-                        <div class="box" data-aos="zoom-in" data-aos-delay="400">
-                            <span class="advanced">Advanced</span>
-                            <h3>Ultimate</h3>
-                            <h4><sup>$</sup>49<span> / month</span></h4>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
-                            </ul>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
             </div>
         </section><!-- End Pricing Section -->
 
-        <!-- ======= F.A.Q Section ======= -->
-        <section id="faq" class="faq section-bg">
-            <div class="container">
-
-                <div class="section-title" data-aos="fade-up">
-                    <h2>F.A.Q</h2>
-                    <p>Frequently Asked Questions</p>
-                </div>
-
-                <div class="faq-list">
-                    <ul>
-                        <li data-aos="fade-up">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                                data-bs-target="#faq-list-1">Apa itu Karisma Laundry ? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                                <p>
-                                    Karisma Laundry sebagai Laundry yang memiliki harga yang lebih terjangkau dari pesaing
-                                    lain. Selain
-                                    itu
-                                    kalian bisa melihat status Laundry melalui website tanpa harus datang ke Outlet kami.
-                                    Dan kami
-                                    selalu memberikan promo dan pelayanan yang terbaik. Dijamin tidak akan kecewa dengan
-                                    pelayanan kami
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc?
-                                <i class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                    velit laoreet id
-                                    donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est
-                                    pellentesque elit
-                                    ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="200">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit?
-                                <i class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                    pulvinar elementum
-                                    integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
-                                    eu tincidunt.
-                                    Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed
-                                    odio morbi
-                                    quis
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="300">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam
-                                sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                    ante in. Nunc
-                                    vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum
-                                    est. Purus
-                                    gravida quis blandit turpis cursus in.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="400">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius
-                                vel pharetra vel turpis nunc eget lorem
-                                dolor? <i class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                    integer malesuada
-                                    nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed.
-                                    Ut venenatis
-                                    tellus in metus vulputate eu scelerisque.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-        </section><!-- End F.A.Q Section -->
+        
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
-            <div class="container">
+            <div class="container ">
 
                 <div class="section-title" data-aos="fade-up">
                     <h2>Kontak</h2>

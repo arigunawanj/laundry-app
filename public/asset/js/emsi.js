@@ -1,8 +1,8 @@
 $.ajax({
     type: "get",
-    url: "/dataoutlet-add",
+    url: "/profil-add",
     dataType: "json",
-    success: function (response) {
+    success: function(response) {
         response.map((value) => {
             $('#districts').append($('<option>', {
                 value: value.id,
@@ -12,15 +12,15 @@ $.ajax({
     }
 });
 
-function daerah(id){
+function daerah(id) {
     $.ajax({
         type: "get",
         url: `https://www.emsifa.com/api-wilayah-indonesia/api/villages/${id}.json`,
         dataType: "json",
-        success: function (response) {
+        success: function(response) {
             console.log(response);
             $(`#villages`).children().remove()
-            response.map((value) => { 
+            response.map((value) => {
                 $(`#villages`).append($('<option>', {
                     value: value.id,
                     text: value.name

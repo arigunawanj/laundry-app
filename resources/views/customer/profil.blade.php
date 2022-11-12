@@ -160,6 +160,7 @@
                             <span class="p">{{ $p->address }}</span>
                         </div>
                     </div>
+                    
                 @endforeach
                 <div class="row justify-content-center @if (DB::select('select user_id from detail_profiles where user_id=' . Auth::user()->id)) d-none @endif">
                     <a href="{{ route('profil.create') }}" class="btn btn-primary mx-4 w-25"><i

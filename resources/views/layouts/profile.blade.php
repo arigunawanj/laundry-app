@@ -31,6 +31,7 @@
                                             class="avatar-img rounded w-25">
                                     @endforeach
                                 </a>
+                                
                                 <div class="card-text my-0 mt-3">
                                     <strong class="card-title mt-5 my-0 text-capitalize"><span
                                             style="font-size: 1.3em;">{{ Auth::user()->name }}</span></strong>
