@@ -56,7 +56,7 @@ class cksatuanController extends Controller
             'harga_totalsatuan' => $request -> harga_totalsatuan
         ]);
 
-        return redirect('kelolapelanggan');
+        return redirect('transaksi');
     }
 
     /**

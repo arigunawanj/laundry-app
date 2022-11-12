@@ -34,6 +34,7 @@ class HomeController extends Controller
         $jmlpelanggan = User::where('role_id', 3)->orwhere('role_id', 4)->count();
         $jmlpesanan = Checkout_satuan::count();
         $jmloutlet = Outlet::count();
+        
         if (Auth::user()->role_id == 1) {
             return view('layouts/dashboard', compact('profil','jmlpegawai','jmlpesanan','jmloutlet','jmlpelanggan'));
         }elseif (Auth::user()->role_id == 2) {

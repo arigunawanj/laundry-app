@@ -37,7 +37,6 @@ Route::view('login', 'auth.login');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('dashboard', 'layouts/dashboard');
     Route::resource('dataoutlet', OutletController::class);
-    // Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('datapengguna', UserController::class);
     Route::view('/datapaket', 'admin.datapaket');
     Route::get('/datapaketsatuan-add', [PaketController::class, 'createsatuan']);
@@ -51,9 +50,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/tambah-datapaket', 'admin.datapaket-add');
     Route::view('/edit-datapaket', 'admin.datapaket-edit');
     Route::resource('transaksi', transaksiController::class);
-    Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::resource('profile', profilController::class);
-    Route::resource('layanan', cksatuanController::class);
     
     Route::get('json', function () {
         return view('json');
@@ -73,7 +70,9 @@ Route::middleware(['auth', 'customer'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::resource('layanan', cksatuanController::class);
     Route::resource('profil', ProfilCustController::class);
+    Route::resource('kelolapelanggan', kelolaPelangganController::class);
     Route::post('profil/success', [ckstncustController::class, 'success']);
     Route::get('profil-add', [ProfilCustController::class, 'geo']);    
 });
